@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<div class="top-scroll-bar"></div>
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Django,docker-compose,websocket,js,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;陆陆续续写了大概两周时间的旧书交易网站终于快写完啦！！BS课程的课程项目设计，真是心力交瘁。刚好新搞了一个博客试试水，就在这里记录一些开发过程当中的感想和碰到的很多很多坑吧orz，不过还是学到很多东西的吖！">
+<meta name="keywords" content="Django,docker-compose,websocket,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Old Books Trading Website">
+<meta property="og:url" content="http://yoursite.com/2019/06/22/Website/index.html">
+<meta property="og:site_name" content="Huang&#39;s blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;陆陆续续写了大概两周时间的旧书交易网站终于快写完啦！！BS课程的课程项目设计，真是心力交瘁。刚好新搞了一个博客试试水，就在这里记录一些开发过程当中的感想和碰到的很多很多坑吧orz，不过还是学到很多东西的吖！">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/06/22/Website/server.png">
+<meta property="og:updated_time" content="2019-06-22T12:13:27.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Old Books Trading Website">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;陆陆续续写了大概两周时间的旧书交易网站终于快写完啦！！BS课程的课程项目设计，真是心力交瘁。刚好新搞了一个博客试试水，就在这里记录一些开发过程当中的感想和碰到的很多很多坑吧orz，不过还是学到很多东西的吖！">
+<meta name="twitter:image" content="http://yoursite.com/2019/06/22/Website/server.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: false,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/22/Website/">
+
+
+
+
+
+  <title>Old Books Trading Website | Huang's blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Huang's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">花衣笑吟东南飞</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/22/Website/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huangyifei">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Huang's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Old Books Trading Website</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-22T17:16:38+08:00">
+                2019-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/22/Website/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/22/Website/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/06/22/Website/" class="leancloud_visitors" data-flag-title="Old Books Trading Website">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.9k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  16 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;陆陆续续写了大概两周时间的旧书交易网站终于快写完啦！！BS课程的课程项目设计，真是心力交瘁。刚好新搞了一个博客试试水，就在这里记录一些开发过程当中的感想和碰到的很多很多坑吧orz，不过还是学到很多东西的吖！</p>
+<a id="more"></a>
+
+<h3 id="后端框架"><a href="#后端框架" class="headerlink" title="后端框架"></a>后端框架</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;后端框架选用的是<code>Django</code>框架开发的，为什么选<code>Python</code>作为后端的语言呢，一方面是这学期刚好也有在上python课程，另一方面python真的很友好啊，不过以后也要尝试用<code>java spring</code>做点小项目。</p>
+<h4 id="Django路由"><a href="#Django路由" class="headerlink" title="Django路由"></a>Django路由</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;<code>Django</code>框架遵循的是<code>MVC</code>的思想进行开发的框架。<code>urls.py</code>当中是网站路由的配置，一般项目的路由当中是划定不同app下的起始路由，然后在不同的app下再定义各自的url，使得整个项目的路由管理比较独立，比如在我项目当中的总路由配置(BookTradeWeb/urls.py):</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    url(<span class="string">r'^password-reset/'</span>, include(<span class="string">'password_reset.urls'</span>)),</span><br><span class="line">    url(<span class="string">r'^auth/'</span>, include(<span class="string">'useraction.urls'</span>)),</span><br><span class="line">    url(<span class="string">r'^books/'</span>, include(<span class="string">'books.urls'</span>)),</span><br><span class="line">    url(<span class="string">r'^chatting/'</span>, include(<span class="string">'chatting.urls'</span>)),</span><br><span class="line">    url(<span class="string">r'^media/(?P&lt;path&gt;.*)$'</span>, serve, &#123;<span class="string">'document_root'</span>: settings.MEDIA_ROOT&#125;),</span><br><span class="line">    url(<span class="string">r'^$'</span>, TemplateView.as_view(template_name=<span class="string">"login.html"</span>)),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;然后在每个单独的app里面可以自定义自己的路由了，以我其中一个app(useraction)下的urls.py为🌰，不过需要记住的是通过<code>python manage.py startapp</code> 创建之后的urls.py是需要自己创建的。在不同的app里面可以定义自己的<code>app_name</code>，在后面写模板语言的时候非常爽的，后面在前端那里再详细写：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">app_name = <span class="string">'useraction'</span></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^login/$'</span>, views.UserLoginView.as_view(), name=<span class="string">'login'</span>),</span><br><span class="line">    url(<span class="string">r'^register/$'</span>, views.UserRegisterView.as_view(), name=<span class="string">'register'</span>),</span><br><span class="line">    url(<span class="string">r'^logout/$'</span>, views.UserLogoutView.as_view(), name=<span class="string">'logout'</span>),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="Django-Views"><a href="#Django-Views" class="headerlink" title="Django Views"></a>Django Views</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Django views可以说是很强大了，在<code>MVC</code>架构当中它可以充当view和controller两部分的角色。现在很流行使用<code>restful</code>的方式开发网站。也即后端只提供数据，用<code>json</code>或者<code>protobuf</code>或者其他的数据组织形式来传输数据，而前端向后端发送请求来请求数据或者处理逻辑，实现<code>前后端分离</code>的开发。<br>&nbsp;&nbsp;&nbsp;&nbsp;Django views因为有很多Django自己的加持，使得这两种模式都支持，比如<code>JsonResponse</code>返回json格式的数据，或者通过<code>render(request, index.html, data)</code>的方式直接返回网页，并且能用非常爽的模板语言，简直人见人爱啊有木有！<br>&nbsp;&nbsp;&nbsp;&nbsp;这里我选择的是用的<code>class-based view</code>的方式来写views.py的，在<code>BookTradeWeb/utils.py</code>当中定义了<code>BaseView</code>，这个类继承了Django当中内置的view，后面我们自己的view只需要继承BaseView即可，我们看看BaseView里面定义了些啥：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dispatch</span><span class="params">(self, request, *args, **kwargs)</span>:</span></span><br><span class="line">        self.request = request</span><br><span class="line">        request.data = &#123;&#125;</span><br><span class="line">        <span class="keyword">if</span> request.method == <span class="string">'GET'</span>:</span><br><span class="line">            request.data = request.GET.dict()</span><br><span class="line">        <span class="keyword">elif</span> request.content_type == <span class="string">'application/json'</span>:</span><br><span class="line">            request.data = request.body.replace(<span class="string">b"'"</span>, <span class="string">b'"'</span>)</span><br><span class="line">            request.data = json.loads(request.data)</span><br><span class="line">        <span class="keyword">elif</span> request.content_type == <span class="string">'multipart/form-data'</span>:</span><br><span class="line">            request.data = request.POST.dict()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> request.FILES == <span class="literal">None</span>:</span><br><span class="line">                request.data[<span class="string">'file'</span>] = request.FILES[<span class="string">'file'</span>]</span><br><span class="line">        <span class="keyword">elif</span> request.content_type == <span class="string">'application/x-www-form-urlencoded'</span>:</span><br><span class="line">            request.data = request.POST.dict()</span><br><span class="line">        <span class="keyword">return</span> self.do_dispatch(request, *args, **kwargs)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_dispatch</span><span class="params">(self, *args, **kwargs)</span>:</span></span><br><span class="line">        handler = getattr(self, self.request.method.lower(), <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> callable(handler):</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(make_errors(<span class="string">f"http method <span class="subst">&#123;self.request.method.lower()&#125;</span> not allowed "</span>))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                data = handler(*args, **kwargs)</span><br><span class="line">                <span class="keyword">if</span> data == <span class="literal">None</span>:</span><br><span class="line">                    <span class="keyword">return</span> JsonResponse(make_success(<span class="string">'success'</span>))</span><br><span class="line">                <span class="keyword">elif</span> self.request.method == <span class="string">'GET'</span> <span class="keyword">or</span> <span class="keyword">not</span> isinstance(data, dict):</span><br><span class="line">                    <span class="keyword">return</span> data</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: data, <span class="string">'code'</span>: <span class="number">0</span>&#125;)</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                traceback.print_exc()</span><br><span class="line">                <span class="keyword">return</span> JsonResponse(make_errors(str(e)))</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;这样定义BaseView有什么好处呢，首先在BaseView里面重写了View当中的<code>dispatch</code>方法，每当有一个请求到达对应路由那里的时候，都会调用dispatch方法。在dispatch当中我们将数据统一都放到<code>request.data</code>里面，后面的views当中无论是<code>POST</code>还是<code>GET</code>都可以在request.data里面拿到数据。<br>&nbsp;&nbsp;&nbsp;&nbsp;其次在do_dispatch当中会去自定义view里面找对应request method的处理方法，也就是说，我们的自定义view里面只需要去写对应的函数，比如说<code>def get(self, request)</code> 处理get请求，<code>def post(self, request)</code>来处理对应的post请求，是不是很方便呢！在自定义view写完之后，只需要在urls.py里面去注册一下就好了，下面举一个🌰：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserLoginView</span><span class="params">(BaseView)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        user = authenticate(username = request.data.get(<span class="string">'username'</span>),</span><br><span class="line">                            password = request.data.get(<span class="string">'password'</span>))</span><br><span class="line">        <span class="keyword">if</span> user <span class="keyword">and</span> user.is_active:</span><br><span class="line">            login(request, user)</span><br><span class="line">            <span class="keyword">return</span> user.to_dict()</span><br><span class="line">        <span class="keyword">elif</span> <span class="keyword">not</span> user:</span><br><span class="line">            <span class="keyword">raise</span> Exception(<span class="string">'用户名或密码错误！'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'login.html'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">useraction/urls.py</span><br><span class="line">url(<span class="string">r'^login/$'</span>, views.UserLoginView.as_view(), name=<span class="string">'login'</span>)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="Django-models"><a href="#Django-models" class="headerlink" title="Django models"></a>Django models</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Django提供了一套非常完备的<code>ORM</code>，以至于我真的一行SQL语句都没写啊😂。models也就是数据库里面的表，通过类定义的方式来定义每一张表当中的数据项、属性、外键约束等等。一般定义好models之后只需要执行<code>python manage.py makemigrations &amp;&amp; python manage.py migrate</code>将models迁移到数据库当中。Django项目初始默认使用的数据库是<code>sqlite</code>，我这里将它改成了<code>MySQL</code>，具体就是修改setting.py里面的配置就好了。<br>&nbsp;&nbsp;&nbsp;&nbsp;ORM的语法网上教程或者是<a href="https://docs.djangoproject.com/zh-hans/2.2/" target="_blank" rel="noopener">Django官网教程</a>都有很多的。主要就是内部用的一个<code>QuerySet</code>类来代表返回结果，还有很多奇奇怪怪的用法这里就不再赘述。</p>
+<br>
+
+<h4 id="Django-setting"><a href="#Django-setting" class="headerlink" title="Django setting"></a>Django setting</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Django 通过在项目目录下的setting.py下面进行整个项目的配置，大概讲解一下这些配置是干啥的，就讲一些主要的，其他的都是很容易<a href="http://www.google.com" target="_blank" rel="noopener">Google</a>到的：</p>
+<ul>
+<li><p><strong>ALLOWED_HOSTS</strong>: 允许那些host访问，如果需要允许所有一般设置为[‘*’, ]</p>
+</li>
+<li><p><strong>INSTALLED_APPS</strong>: 这个配置是比较重要的一部分，用来注册项目里面的app，如果你新建的app没有在这里注册的话，项目是找不到你的app里面的方法的，所以我们每次新建都需要在这里进行注册之后才能正常的工作哦😯</p>
+</li>
+<li><p><strong>Middleware</strong>: 这里是项目中使用的中间件的配置，比如Django内置的用户认证中间价，防跨站攻击的csrftoken中间价等等，如果使用其他的开源中间价都需要在这里进行注册。</p>
+</li>
+<li><p><strong>TEMPLATES</strong>: 这里主要是存放的静态文件的意思，基本不用去改，Django会去项目所有的templates文件夹下面找对应的模板文件。</p>
+</li>
+<li><p><strong>DATABASES</strong>: 顾名思义就是数据库的配置了，你想用哪个数据改改这个就好了。</p>
+</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">  STATICFILES_DIRS = [</span><br><span class="line">      os.path.join(BASE_DIR, <span class="string">'BookTradeWeb/static'</span>)</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">  MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media/'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这两个是静态文件和资源文件的存放位置，Django会去static和media文件夹里面自动寻找。</p>
+</li>
+</ul>
+<hr>
+<h3 id="前端模板"><a href="#前端模板" class="headerlink" title="前端模板"></a>前端模板</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;前端还是主要用的传统的<code>html+js+css</code>的格式，然后通过<code>ajax</code>向后端发起请求，没能用现在很流行的React或者是Vue有点可惜，只能感慨<code>前端太难了！！</code>.不过Django自己的模板语言用起来还是可以的，不过我感觉这个项目调前端的时间是最主要的啊orz.</p>
+<h4 id="静态文件加载"><a href="#静态文件加载" class="headerlink" title="静态文件加载"></a>静态文件加载</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;之前我们在setting里面配置好了static文件目录之后，在模板里面我们可以这样引入，在最开头通过</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load staticfiles %&#125; 加载静态文件</span><br><span class="line">&#123;% static <span class="string">'images/favicon.png'</span> %&#125; 引入对应文件</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;注意Django会搜索所有的static文件夹下的文件，所以一般使用app名称作为前缀来进行区分。</p>
+<h4 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在之前我们提到每个urls.py里面我们可以添加一个<code>app_name</code>字段，并且每个url_pattern里面都可以带上一个<code>name</code>字段，然后在前端就可以直接用模板语言当中的<code>url &#39;app_name:name&#39;</code>来获取后端定义好的路由，这样就算你后端改了路由之后，前端根本不用管啊是不是～</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useraction/urls.py</span><br><span class="line">app_name = <span class="string">'useraction'</span></span><br><span class="line">url(<span class="string">r'^register/$'</span>, views.UserRegisterView.as_view(),name=<span class="string">'register'</span>)</span><br><span class="line"></span><br><span class="line">template:</span><br><span class="line">&#123;% url <span class="string">'useraction:register'</span> %&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="前端数据渲染"><a href="#前端数据渲染" class="headerlink" title="前端数据渲染"></a>前端数据渲染</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;有两种方式，一种是通过ajax向后端请求，然后用js来进行数据渲染，还有一种是通过模板语言，在<code>render</code>方法的时候将数据传递到模板里面，然后使用模板语言渲染，常用的有：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; data &#125;&#125; 取出传递进来数据当中的data字段</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> ... %&#125;</span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">&#123;% endif %&#125; 模板语言当中的<span class="keyword">if</span>语句</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> book <span class="keyword">in</span> books %&#125;</span><br><span class="line">&#123;&#123; book.data &#125;&#125;</span><br><span class="line">&#123;% endfor %&#125; 模板语言当中的<span class="keyword">for</span>语句</span><br><span class="line"></span><br><span class="line">&#123;&#123; book.time|data:<span class="string">"Y-M-d"</span> &#125;&#125; 模板语言当中的filter过滤器</span><br><span class="line"></span><br><span class="line">&#123;&#123; request.user &#125;&#125; 模板当中获取当前请求的user</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;还有很多其他的用法大家自己网上找找也能找到。这里主要将还可以自定义自己的filter，一个很直观的需求就是我像模板里面传进了一个字典，窝怎么根据键来找值呢，Django提供了自定义filter的功能，在app目录下面新建一个<code>templatetags</code>文件夹，首先新建一个<code>__init__.py</code>为空不要紧，但是一定要有。然后建一个自定义的filter文件，这里我是<code>books_filter.py</code>，通过<code>@register.filter</code>标注为一个自定义的filter，然后就写你想要的filter逻辑即可：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.template.defaulttags <span class="keyword">import</span> register</span><br><span class="line"><span class="keyword">from</span> BookTradeWeb.utils <span class="keyword">import</span> Category</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="meta">@register.filter</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetDictValue</span><span class="params">(dictionary, key)</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> isinstance(dictionary, dict)</span><br><span class="line">    <span class="keyword">return</span> dictionary.get(key)</span><br><span class="line"></span><br><span class="line">模板中使用：</span><br><span class="line">首先最上方引入你的filter &#123;% load books_filter %&#125;</span><br><span class="line">然后用法：&#123;&#123; book_dict|GetDictValue:key &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;由于Django本身是不支持websocket的，但是这次要求要集成一个消息系统，所以想到的是<code>websocket</code>这个全双工的协议。Google了一下，可以通过<code>django-channels</code>第三方的package来实现✅，所以直接pip安装就好。<code>channels</code>是用的<code>redis</code>做消息缓存，所以还要<code>pip install channels-redis</code>，这些需要的依赖一般都是写在<code>requirements.txt</code>当中。如果不想在本机安装redis可以通过<code>docker</code>来开启服务，具体就是开一个docker container就好，<code>docker run -d -p 6379:6379 redis:latest</code>, 搞定。<br>&nbsp;&nbsp;&nbsp;&nbsp;在setting里面注册channels这个app，然后添加如下的设置:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ASGI_APPLICATION = <span class="string">"BookTradeWeb.routing.application"</span></span><br><span class="line">CHANNEL_LAYERS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'channels_redis.core.RedisChannelLayer'</span>,</span><br><span class="line">        <span class="string">'CONFIG'</span>: &#123;</span><br><span class="line">            <span class="string">"hosts"</span>: [(CONFIGS[<span class="string">'REDIS_HOST'</span>], CONFIGS[<span class="string">'REDIS_PORT'</span>])],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;asgi配置主要是用来处理websocket请求的，类似<code>ws://</code>这样的请求Django自己的服务器是处理不了的，所以这里用asgi配置，需要在app目录下面新建一个<code>routing.py</code>用来处理websocket路由。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">项目目录(BookTradeWeb/routing.py)</span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    <span class="comment"># (http-&gt;django views is added by default)</span></span><br><span class="line">    <span class="string">'websocket'</span> : AuthMiddlewareStack(</span><br><span class="line">        URLRouter(</span><br><span class="line">            chatting.routing.websocket_urlpatterns</span><br><span class="line">        )</span><br><span class="line">    ),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app目录下(chatting/routing.py)</span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^ws/chat/(?P&lt;room_name&gt;[^/]+)/$'</span>, consumers.ChatConsumer),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;经过这样一通配置，开启<code>python manage.py runserver</code>，看到<code>ASGI/Channels</code>就配置成功了。</p>
+<img src="/2019/06/22/Website/server.png" title="[配置成功]">
+
+<h4 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在channels当中处理websocket请求的东西叫做consumer，和上面我们提到的view一样，consumer也是可以自定义的，可以继承自<code>AsyncWebsocketConsumer</code>来实现自己的consumer。主要是几个functions重写一下就好了，<code>connect</code>, <code>disconnect</code>, <code>receive</code>，都是字面意思了就不解释了。每一个websocket连接都会给到一个<code>channel</code>给连接的用户。每一个channel都有一个独有的<code>channel_name</code>, 通过<code>self.channel_name</code>即可获取。</p>
+<h4 id="Group"><a href="#Group" class="headerlink" title="Group"></a>Group</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Group组的概念，聊天室必备啊。group以group name来进行区分，不同的channel都可以加入到group里面，group当中提供了<code>group_send</code>来进行广播📢，也就是聊天室的那种效果了。</p>
+<h4 id="channel-layer"><a href="#channel-layer" class="headerlink" title="channel_layer"></a>channel_layer</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Django-channels当中提供了get_channel_layer()方法来向指定的channel发送消息，具体使用如下，也就是我们要的点对点聊天的功能了：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> channels.generic.websocket <span class="keyword">import</span> AsyncWebsocketConsumer</span><br><span class="line"><span class="keyword">from</span> channels.layers <span class="keyword">import</span> get_channel_layer</span><br><span class="line"><span class="keyword">from</span> channels.db <span class="keyword">import</span> database_sync_to_async</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> useraction.models <span class="keyword">import</span> User</span><br><span class="line"><span class="keyword">from</span> chatting.models <span class="keyword">import</span> ChattingMessage</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">channel_layer = get_channel_layer()</span><br><span class="line"><span class="keyword">await</span> channel_layer.send(</span><br><span class="line">    channel_name,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"type"</span> : <span class="string">"chat.message"</span>,</span><br><span class="line">        <span class="string">"message"</span> : message,</span><br><span class="line">        <span class="string">"send_side"</span> : send_side,</span><br><span class="line">        <span class="string">"option"</span> : <span class="string">"chat"</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在channels当中，我们的处理方式都是异步的，比如函数定义都是<code>async</code>, 函数使用都是<code>await</code>, 那对数据库操作一般Django都是同步的操作，这样在channels里面运行是没有任何作用的，所以这个时候我们使用注解让数据库的操作变成异步的<code>@database_sync_to_async</code>, 然后对数据库的操作写在一个函数里面，使用🌰：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> channels.db <span class="keyword">import</span> database_sync_to_async</span><br><span class="line"></span><br><span class="line"><span class="meta">@database_sync_to_async</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">CreateNewMessage</span><span class="params">(self, send_side, recv_side, message)</span>:</span></span><br><span class="line">    mess = ChattingMessage.objects.create(</span><br><span class="line">        send_side_id=int(send_side),</span><br><span class="line">        recv_side_id=int(recv_side),</span><br><span class="line">        message=message</span><br><span class="line">    )</span><br><span class="line">    mess.save()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="部署方法"><a href="#部署方法" class="headerlink" title="部署方法"></a>部署方法</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;这个项目我使用的是docker进行部署，总共是3个container，其中包括<code>mysql</code>, <code>redis</code>, <code>website</code>这三个container，服务端口列表为:</p>
+<table>
+<thead>
+<tr>
+<th align="center">port</th>
+<th align="center">service</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">6379</td>
+<td align="center">redis</td>
+</tr>
+<tr>
+<td align="center">3000</td>
+<td align="center">mysql</td>
+</tr>
+<tr>
+<td align="center">8000</td>
+<td align="center">website</td>
+</tr>
+</tbody></table>
+<h4 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h4><p>&nbsp;&nbsp;&nbsp;&nbsp; 我用的是docker-compose来管理docker container之间的连接关系，重要的配置文件窝都写在项目目录下的<code>config.json</code>里面，docker-compose方便进行container之间的连接，并且自动建立不同container之间的network，能让多个container进行互相访问，非常的方便，用的时候是写<code>docker-compose.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'3'</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">  db:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">mysql:latest</span></span><br><span class="line"><span class="attr">    command:</span> <span class="bullet">--default-authentication-plugin=mysql_native_password</span> <span class="bullet">--character-set-server=utf8</span> <span class="bullet">--collation-server=utf8_general_ci</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"3000:3306"</span></span><br><span class="line"><span class="attr">    environment:</span></span><br><span class="line"><span class="attr">       MYSQL_DATABASE:</span> <span class="string">'booktrade'</span></span><br><span class="line"><span class="attr">       MYSQL_ROOT_PASSWORD:</span> <span class="string">'your-password'</span></span><br><span class="line"><span class="attr">  redis:</span></span><br><span class="line"><span class="attr">    image:</span> <span class="attr">redis:latest</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    expose:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"6379"</span></span><br><span class="line"><span class="attr">  web:</span></span><br><span class="line"><span class="attr">    build:</span> <span class="string">.</span></span><br><span class="line"><span class="attr">    command:</span> <span class="string">./scripts/start_server.sh</span></span><br><span class="line"><span class="attr">    entrypoint:</span> <span class="string">./scripts/docker_entry.sh</span> <span class="string">db</span> <span class="number">3306</span></span><br><span class="line"><span class="attr">    restart:</span> <span class="string">always</span></span><br><span class="line"><span class="attr">    ports:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">"8000:8000"</span></span><br><span class="line"><span class="attr">    depends_on:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">db</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">redis</span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;需要注意的是，这里有一个大坑，就是web container在开启的时候，是和其他服务一起开启的，所以在mysql container还没初始化好的时候，web container就开始尝试写数据到数据库里面去了，当然，这样服务器of course crash了，所以在<code>entrypoint</code>这里加了一个脚本去检查，如果没有初始化好就<code>sleep</code>去等，初始化完毕之后再去连接数据库：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">scripts/docker_entry.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">postgres_host=<span class="variable">$1</span></span><br><span class="line">postgres_port=<span class="variable">$2</span></span><br><span class="line"><span class="built_in">shift</span> 2</span><br><span class="line">cmd=<span class="string">"<span class="variable">$@</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># wait for the postgres docker to be running</span></span><br><span class="line"><span class="keyword">while</span> ! nc <span class="variable">$postgres_host</span> <span class="variable">$postgres_port</span>; <span class="keyword">do</span></span><br><span class="line">  &gt;&amp;2 <span class="built_in">echo</span> <span class="string">"MySQL is unavailable - sleeping"</span></span><br><span class="line">  sleep 1</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">&gt;&amp;2 <span class="built_in">echo</span> <span class="string">"MySQL is up - executing command"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># run the command</span></span><br><span class="line"><span class="built_in">exec</span> <span class="variable">$cmd</span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;web项目的<code>Dockerfile</code>主要就是初始化环境，安装一些package的依赖：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.6</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> huangyifei &lt;huangyifei0910@gmail.com&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir /code</span></span><br><span class="line"><span class="keyword">ADD</span><span class="bash"> . /code</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /code</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> wget -qO- git.io/superupdate.sh | bash</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apt-get -y install jq netcat-openbsd</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> jq <span class="string">'.DB_HOST = "db"'</span> config.json &gt;&gt; tmp.json &amp;&amp; mv tmp.json config.json</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> jq <span class="string">'.REDIS_HOST = "redis"'</span> config.json &gt;&gt; tmp.json &amp;&amp; mv tmp.json config.json</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt</span></span><br></pre></td></tr></table></figure>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;在所有这些做完之后，使用<code>docker-compose build</code>构建当前项目，<code>docker-compose up -d</code>进行container的链接和后台运行，因为mysql container的初始化时间比较长，所以开启之后需要等待<code>20-30s</code>然后就可以愉快的访问啦(localhost:8000)～ 窝是将这个步骤写在<code>./scripts/start_docker.sh</code>里面，<code>./scripts/stop_docker</code>是停止所有的服务，并且移除相对应的container，即插即用，是不是很方便！！</p>
+<hr>
+<h3 id="项目总结"><a href="#项目总结" class="headerlink" title="项目总结"></a>项目总结</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;第一次用Django做后端和docker-compose来部署项目还是踩了不少的坑orz，不过Django强大的特性和很多第三方的package加持，做后端的很多功能也是挺方便的。docker主要是这学期开始接触的，我觉得这东西势必会统治虚拟化啊，即插即用，生态也非常的好，用来部署项目省了很多乱七八糟的配置的问题。后面也会考虑去学一学前端的框架，<code>React or Vue</code> anyway, 还有很多需要学习的，任重而道远啊！Make Progress Everyday！</p>
+<ul>
+<li>项目地址：<a href="https://github.com/MySuperSoul/BookTradeWeb" target="_blank" rel="noopener">BookTradeWeb</a></li>
+<li>使用方法：参考README.md当中的部署方法</li>
+<li>部署好的网站：<a href="http://94.191.60.198:8000/" target="_blank" rel="noopener">website</a></li>
+<li>Author: huangyifei</li>
+<li>Email: <a href="mailto:huangyifei0910@gmail.com" target="_blank" rel="noopener">huangyifei0910@gmail.com</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Django/" rel="tag"># Django</a>
+          
+            <a href="/tags/docker-compose/" rel="tag"># docker-compose</a>
+          
+            <a href="/tags/websocket/" rel="tag"># websocket</a>
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4" alt="huangyifei">
+            
+              <p class="site-author-name" itemprop="name">huangyifei</p>
+              <p class="site-description motion-element" itemprop="description">huangyifei0910@gmail.com</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/MySuperSoul" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:huangyifei0910@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://github.com" title="Github" target="_blank">Github</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端框架"><span class="nav-number">1.</span> <span class="nav-text">后端框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Django路由"><span class="nav-number">1.1.</span> <span class="nav-text">Django路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-Views"><span class="nav-number">1.2.</span> <span class="nav-text">Django Views</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-models"><span class="nav-number">1.3.</span> <span class="nav-text">Django models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-setting"><span class="nav-number">1.4.</span> <span class="nav-text">Django setting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模板"><span class="nav-number">2.</span> <span class="nav-text">前端模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态文件加载"><span class="nav-number">2.1.</span> <span class="nav-text">静态文件加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端路由"><span class="nav-number">2.2.</span> <span class="nav-text">前端路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端数据渲染"><span class="nav-number">2.3.</span> <span class="nav-text">前端数据渲染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Websocket"><span class="nav-number">3.</span> <span class="nav-text">Websocket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer"><span class="nav-number">3.1.</span> <span class="nav-text">Consumer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Group"><span class="nav-number">3.2.</span> <span class="nav-text">Group</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#channel-layer"><span class="nav-number">3.3.</span> <span class="nav-text">channel_layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Database"><span class="nav-number">3.4.</span> <span class="nav-text">Database</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方法"><span class="nav-number">4.</span> <span class="nav-text">部署方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-compose"><span class="nav-number">4.1.</span> <span class="nav-text">docker-compose</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目总结"><span class="nav-number">5.</span> <span class="nav-text">项目总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">huangyifei</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/custom/custom.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '5pTlbsRYAO0H1vuT7jkHu7Ut-gzGzoHsz',
+        appKey: 'yfSXCC53lgKMxeYS3UtderOT',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("5pTlbsRYAO0H1vuT7jkHu7Ut-gzGzoHsz", "yfSXCC53lgKMxeYS3UtderOT");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end --></body>
+</html>
