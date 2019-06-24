@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://mysupersoul.github.io/2019/06/23/python-basic/random.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/06/23/python-basic/dict_function.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/06/23/python-basic/file_mode.png">
-<meta property="og:updated_time" content="2019-06-24T03:55:52.372Z">
+<meta property="og:updated_time" content="2019-06-24T14:34:39.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python-basic">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近马上要python考试了，anyway虽然是基础课，还是稍微复习一下，在这里记录一下可能会有的坑和平时作业里面的一些错题，以后依一些其他基本的需要注意的东西都可以写到里面来～">
@@ -427,7 +427,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k 字
+                  3.1k 字
                 </span>
               
 
@@ -443,7 +443,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10 分钟
+                  12 分钟
                 </span>
               
             </div>
@@ -491,7 +491,7 @@
 <li>3 and 5, 最后一个表达式的值作为整个表达式的值。</li>
 <li>运算的优先级和方向：除掉<code>**</code>的方向是从右往左的，其他所有运算的方向都是从左往右的。</li>
 <li>列表运算：加法<code>[1, 2, 3] + [c, py]</code>, 乘法<code>[1] * 3 -&gt; [1, 1, 1]</code></li>
-<li>int函数用法：<code>int()-&gt;0, int(&quot;02&quot;), int(&quot;  35 &quot;), int(&quot;35&quot;, 8)</code></li>
+<li>int函数用法：<code>int()-&gt;0, int(&quot;02&quot;), int(&quot;  35 &quot;), int(&quot;35&quot;, 8)表示的是八进制下的&quot;35&quot;代表的10进制数</code>.</li>
 <li>序列不等的赋值：<code>i, *j = &quot;123&quot;, j -&gt; [&#39;2&#39;, &#39;3&#39;]</code></li>
 <li>格式化：<code>^, &lt;, &gt;</code>分别代表的是居中、左、右对齐方式。科学计数法：<code>.2e</code>保留两位小数的科学计数法。<code>{index_1:x.yf}{index_2:x.yf}</code>格式化字符串。</li>
 </ul>
@@ -624,7 +624,41 @@
 <li><p>python多态，一般是通过重写<code>__add__, __len__, __sub__</code>之类的函数来自定义自己的基本运算。</p>
 </li>
 </ul>
+<hr>
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><ol>
+<li><p>python当中浮点数是<code>float</code>类型，并没有<code>double</code>型类型。</p>
+</li>
+<li><p><code>round(x, 2)</code>表示的是保留两位小数的四舍五入法。<code>round(18.67, 1) = 18.7, round(18.67, -1) = 20.0, round(18.67, 0) = 19.0, floor(), ceil(), int(&quot;20&quot;, 16) = 32</code>.</p>
+</li>
+<li><p>逻辑值<code>not, or, and</code>如果有多个则是一步一步的判断过去的。从左到右的direction.</p>
+</li>
+<li><p><code>math.sin(x)</code>其中x是弧度制表示的，所以用角度值需要进行相对应的制度转换.</p>
+</li>
+<li><p><code>0 and anything</code>的结果都是0，其他的<code>value1 and value2</code>结果表达式都是value2.</p>
+</li>
+<li><p><code>list</code>只有<code>index</code>方法，对于字符串而言是有<code>index</code>和<code>find</code>两种方法的。其中<code>find</code>没找到是返回<code>-1</code>, <code>index</code>没找到的话直接是报错。</p>
+</li>
+<li><p>list的<code>pop(index)</code>按照index，默认是pop列表的最后一个值。<code>remove(value)</code>是按照value来remove的.</p>
+</li>
+<li><p>浮点数的相等是看内部的浮点数表示，所以如果两个变量引用同一个常量浮点数的话，相等是True，因为本身就是同一个常量引用<code>x = 2.0;y=2.0 (x==y) = True</code>. 但是如果涉及到浮点数的运算的时候需要特别注意，一般来说表示方式就有变化，所以很大概率并不是一个值了。并且<code>低精度在和高精度比较的时候，会自动转换到高精度</code>.</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">2</span>;y=<span class="number">2.0</span>   <span class="comment">#分号可把两个语句写在一行</span></span><br><span class="line"><span class="keyword">if</span>(x == y):</span><br><span class="line">   print(<span class="string">"相等"</span>) <span class="comment"># correct answer</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   print(<span class="string">"不相等"</span>)</span><br></pre></td></tr></table></figure>
 
+<ol start="9">
+<li>双重循环list的🌰：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">l3=[[(i,j) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>)] <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">6</span>)]</span><br><span class="line">print(l3[<span class="number">2</span>][<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其中j负责外层的创建新列表，i负责内层和j一同生成元组值，</span></span><br><span class="line"><span class="comment"># [[(1, 1), (2, 1)...], [(1, 2), (2, 2)...]]</span></span><br><span class="line"><span class="comment"># 然后根据对应关系来找值即可</span></span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li><p><code>以只写模式</code>打开的文件不能进行写操作，但是以<code>写模式</code>打开的文件有可能可以进行写操作。</p>
+</li>
+<li><p>在python当中<code>变量不需事先声明就可使用。</code></p>
+</li>
+<li><p>注意判断条件：</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> number%<span class="number">2</span> <span class="keyword">and</span> <span class="keyword">not</span> number%<span class="number">3</span>:</span><br><span class="line"><span class="comment"># 代表的是number不是2的倍数，但是是3的倍数</span></span><br><span class="line"></span><br><span class="line">b=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">b[<span class="number">2</span>]=b</span><br><span class="line"><span class="comment"># 这种情况下是无限循环的情况</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> v &lt; values[row][column]:</span><br><span class="line">    v = values[row][column]</span><br><span class="line"><span class="comment"># 注意求的是最大值，而不是最小值</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -847,7 +881,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Slides"><span class="nav-number">1.</span> <span class="nav-text">Slides</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter1"><span class="nav-number">1.1.</span> <span class="nav-text">chapter1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter2"><span class="nav-number">1.2.</span> <span class="nav-text">chapter2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter3"><span class="nav-number">1.3.</span> <span class="nav-text">chapter3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter4"><span class="nav-number">1.4.</span> <span class="nav-text">chapter4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter5"><span class="nav-number">1.5.</span> <span class="nav-text">chapter5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter6"><span class="nav-number">1.6.</span> <span class="nav-text">chapter6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter7"><span class="nav-number">1.7.</span> <span class="nav-text">chapter7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter8"><span class="nav-number">1.8.</span> <span class="nav-text">chapter8</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Slides"><span class="nav-number">1.</span> <span class="nav-text">Slides</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter1"><span class="nav-number">1.1.</span> <span class="nav-text">chapter1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter2"><span class="nav-number">1.2.</span> <span class="nav-text">chapter2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter3"><span class="nav-number">1.3.</span> <span class="nav-text">chapter3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter4"><span class="nav-number">1.4.</span> <span class="nav-text">chapter4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter5"><span class="nav-number">1.5.</span> <span class="nav-text">chapter5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter6"><span class="nav-number">1.6.</span> <span class="nav-text">chapter6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter7"><span class="nav-number">1.7.</span> <span class="nav-text">chapter7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter8"><span class="nav-number">1.8.</span> <span class="nav-text">chapter8</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#题目解析"><span class="nav-number">2.</span> <span class="nav-text">题目解析</span></a></li></ol></div>
             
 
           </div>
@@ -898,7 +932,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.4k字</span>
+  <span class="post-count">博客全站共7k字</span>
 </div>
 
         
