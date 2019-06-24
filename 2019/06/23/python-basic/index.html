@@ -103,7 +103,9 @@
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近马上要python考试了，anyway虽然是基础课，还是稍微复习一下，在这里记录一下可能会有的坑和平时作业里面的一些错题，以后依一些其他基本的需要注意的东西都可以写到里面来～">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/06/23/python-basic/random.png">
-<meta property="og:updated_time" content="2019-06-23T14:57:51.985Z">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/06/23/python-basic/dict_function.png">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/06/23/python-basic/file_mode.png">
+<meta property="og:updated_time" content="2019-06-24T03:55:52.372Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python-basic">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近马上要python考试了，anyway虽然是基础课，还是稍微复习一下，在这里记录一下可能会有的坑和平时作业里面的一些错题，以后依一些其他基本的需要注意的东西都可以写到里面来～">
@@ -425,7 +427,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  702 字
+                  2.5k 字
                 </span>
               
 
@@ -441,7 +443,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2 分钟
+                  10 分钟
                 </span>
               
             </div>
@@ -466,10 +468,14 @@
 <a id="more"></a>
 
 <h3 id="Slides"><a href="#Slides" class="headerlink" title="Slides"></a>Slides</h3><h4 id="chapter1"><a href="#chapter1" class="headerlink" title="chapter1"></a>chapter1</h4><ul>
-<li>Unicode码：为每个字符设定了统一的并且是唯一的二进制编码，用来满足跨平台的需求。 <code>\u</code>表示Unicode码。</li>
-<li>utf-8编码：每一个ASCII码都有一个对应的utf-8编码，正好与8位的ASCII编码是一样的。py程序默认是utf-8编码格式，并且是<code>不定长</code>的编码方式。</li>
-<li>py是一种解释型的语言。</li>
-<li>标识符：由<code>字符</code>，<code>下划线</code>，<code>数字组成</code>，但是注意的是不能以<code>数字开头</code>.<ul>
+<li><p>Unicode码：为每个字符设定了统一的并且是唯一的二进制编码，用来满足跨平台的需求。 <code>\u</code>表示Unicode码。</p>
+</li>
+<li><p>utf-8编码：每一个ASCII码都有一个对应的utf-8编码，正好与8位的ASCII编码是一样的。py程序默认是utf-8编码格式，并且是<code>不定长</code>的编码方式。</p>
+</li>
+<li><p>py是一种解释型的语言。</p>
+</li>
+<li><p>标识符：由<code>字符</code>，<code>下划线</code>，<code>数字组成</code>，但是注意的是不能以<code>数字开头</code>.</p>
+<ul>
 <li>my_test</li>
 <li>_123</li>
 </ul>
@@ -490,19 +496,16 @@
 <li>格式化：<code>^, &lt;, &gt;</code>分别代表的是居中、左、右对齐方式。科学计数法：<code>.2e</code>保留两位小数的科学计数法。<code>{index_1:x.yf}{index_2:x.yf}</code>格式化字符串。</li>
 </ul>
 <h4 id="chapter3"><a href="#chapter3" class="headerlink" title="chapter3"></a>chapter3</h4><ul>
-<li><p>列表逆序：<code>lst[::-1]</code>。</p>
-</li>
-<li><p>列表的浅复制：<code>b = a[:]</code>, 这样复制出来的就是两个不同的列表。</p>
-</li>
-<li><p>原始字符串：<code>r&#39;hello\n&#39; -&gt; hello\n</code>, 字符串<code>不可修改</code>, <code>find(str, start_pos, end_pos)</code></p>
-</li>
-<li><p>字符串的format函数：<code>{index:&lt;填充&gt;|^, &gt;, &lt;| &lt;宽度.精度&gt;&lt;格式&gt;}</code></p>
-</li>
-<li><p>列表方法：<code>l.extend(x), l.pop(index)默认最后一个且会返回, l.remove(value), l.reverse(), l.sort(), l.insert(index, value)若index超则最后一个</code>.</p>
-</li>
-<li><p>需要注意split函数：</p>
+<li>列表逆序：<code>lst[::-1]</code>。</li>
+<li>列表的浅复制：<code>b = a[:]</code>, 这样复制出来的就是两个不同的列表。</li>
+<li>原始字符串：<code>r&#39;hello\n&#39; -&gt; hello\n</code>, 字符串<code>不可修改</code>, <code>find(str, start_pos, end_pos)</code></li>
+<li>字符串的format函数：<code>{index:&lt;填充&gt;|^, &gt;, &lt;| &lt;宽度.精度&gt;&lt;格式&gt;}</code></li>
+<li>列表方法：<code>l.extend(x), l.pop(index)默认最后一个且会返回, l.remove(value), l.reverse(), l.sort(), l.insert(index, value)若index超则最后一个</code>.</li>
+<li>需要注意split函数：</li>
+</ul>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sen = <span class="string">'hello    wor   ld  '</span></span><br><span class="line">s = sen.split()</span><br><span class="line">print(len(s)) -&gt; 3</span><br><span class="line"></span><br><span class="line">s = sen.split(<span class="string">' '</span>)</span><br><span class="line">print(len(s)) -&gt; 10</span><br></pre></td></tr></table></figure>
-</li>
+
+<ul>
 <li><p>随机函数库：random库</p>
 <ul>
 <li>random.random() -&gt; [0.0, 1.0)</li>
@@ -512,6 +515,115 @@
 </li>
 </ul>
 <p><img src="/2019/06/23/python-basic/random.png" alt="random"></p>
+<h4 id="chapter4"><a href="#chapter4" class="headerlink" title="chapter4"></a>chapter4</h4><ul>
+<li><p>Python map函数: <strong>map(function, iterable)</strong> 对指定的序列执行<code>map</code>操作，也即每个元素都执行function, <code>x, y = map(int, input().split())</code>执行的是内置函数<code>int</code>, 或者也可以是匿名函数<code>map(lambda x : x**2, [1, 2, 3])</code>.</p>
+</li>
+<li><p>try-except使用格式：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    block</span><br><span class="line"><span class="keyword">except</span> Exception <span class="number">1</span>:</span><br><span class="line">    block1</span><br><span class="line"><span class="keyword">except</span> Exception <span class="number">2</span>:</span><br><span class="line">    block2</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    block3</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    block4</span><br><span class="line"><span class="keyword">finally</span>: block5</span><br></pre></td></tr></table></figure>
+
+<h4 id="chapter5"><a href="#chapter5" class="headerlink" title="chapter5"></a>chapter5</h4><ul>
+<li>set是一种容器，<code>没有先后顺序，并且元素的值不重复</code>, 需要注意的是集合的元素需要是<strong>不可变对象</strong>, 换句话说就是列表不能成为集合当中的元素.</li>
+<li>空集合：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">empty = set()</span><br><span class="line">empty = &#123;&#125; <span class="comment">#创建的是空字典</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法：<code>add, remove, len, max, min, sum, issubset, issuperset</code>, 需要牢记的是集合是<code>无序的</code>，所以每次print出来的结果是不确定的。</li>
+<li>在集合当中的 <code>==</code> 判断的是两个set当中的元素是否是相同的，如果是相同的则输出的是<code>True</code>.</li>
+<li><code>&lt;, &lt;=, &gt;, &gt;=</code>判断是子集，真子集，超集，真超集这些的。</li>
+<li>集合运算<code>|, &amp;, -, ^</code>分别是<code>并集、交集、差集、对称差</code>，对称差指的是除了共同元素之外的元素，也就是<code>a ^ b = (a | b) - (a &amp; b)</code></li>
+<li>列表去重并且顺序不变两种方法：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">addr_to = list(set(a))</span><br><span class="line">addr_to.sort(key=a.index)</span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">5</span>]</span><br><span class="line">addr_to = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> i <span class="keyword">in</span> addr_to:</span><br><span class="line">        addr_to.append(i)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字典的创建方式：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fac = dict([(key1, value1), (key2, value2)])</span><br><span class="line">fac = dict(key1=value1, key2=value2) <span class="comment">#这种方式需要使用标识符，并且键用的是str类型</span></span><br><span class="line"><span class="comment"># -&gt; &#123;'key1':value1, 'key2':value2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字典的键必须要是不可变对象，可变对象比如<code>列表，字典</code>是不能作为字典的键的。</li>
+<li>字典的方法：<code>in, not in</code>判断的是一个值是否存在字典的键当中。get(key, 默认值)这个函数可以在后面设置一个默认值作为不存在时候的返回，不加是<code>None</code>.</li>
+</ul>
+<p><img src="/2019/06/23/python-basic/dict_function.png" alt="dict functions"></p>
+<h4 id="chapter6"><a href="#chapter6" class="headerlink" title="chapter6"></a>chapter6</h4><ul>
+<li>lambda表达式：<code>g = lambda x, y, z : x + y + z -&gt; g(1, 2, 3)</code></li>
+<li>位置参数: 就是普通的那种参数传递方式</li>
+<li>关键字参数：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dis</span><span class="params">(x1,y1,x2,y2)</span>:</span> <span class="comment">#求平面上两点距离 </span></span><br><span class="line">    print(<span class="string">"x1=&#123;&#125;,y1=&#123;&#125;,x2=&#123;&#125;,y2=&#123;&#125;"</span>.format(x1,y1,x2,y2)) </span><br><span class="line">    <span class="keyword">return</span> sqrt((x1-x2)**<span class="number">2</span>+(y1-y2)**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">print(dis(x1=<span class="number">1</span>,y2=<span class="number">5</span>,y1=<span class="number">3</span>,x2=<span class="number">4</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>位置参数与关键字参数一起使用：需要注意⚠️的是这种情况之下，位置参数需要先写，然后再使用关键字参数，否则会出错。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#correct use</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dis</span><span class="params">(x1,y1,x2,y2)</span>:</span> <span class="comment">#求平 面上两点距离     </span></span><br><span class="line">     print(<span class="string">"x1=&#123;&#125;,y1=&#123;&#125;,x2=&#123;&#125;,y2=&#123;&#125;"</span>.format(x1,y1,x2,y2)) </span><br><span class="line">     <span class="keyword">return</span> sqrt((x1-x2)**<span class="number">2</span>+(y1-y2)**<span class="number">2</span>)</span><br><span class="line">print(dis(<span class="number">1</span>,<span class="number">3</span>,y2=<span class="number">5</span>,x2=<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#wrong case</span></span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dis</span><span class="params">(x1,y1,x2,y2)</span>:</span> <span class="comment">#求平面上两点距离  </span></span><br><span class="line">    print(<span class="string">"x1=&#123;&#125;,y1=&#123;&#125;,x2=&#123;&#125;,y2=&#123;&#125;"</span>.format(x1,y1,x2,y2)) </span><br><span class="line">    <span class="keyword">return</span> sqrt((x1-x2)**<span class="number">2</span>+(y1-y2)**<span class="number">2</span>)</span><br><span class="line">print(dis(<span class="number">1</span>,y1=<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认值参数：这里就是需要注意的是，默认值参数在函数对象被创建的时候同时被创建，相当于如果默认值有一个<code>list</code>的时候，有一个静态的<code>static</code>的list一直存在：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init</span><span class="params">(arg, result=[])</span>:</span></span><br><span class="line">     result.append(arg)</span><br><span class="line">print(result)</span><br><span class="line">init(<span class="string">'a'</span>) <span class="comment">#['a']</span></span><br><span class="line">init(<span class="string">'b'</span>) <span class="comment">#['a', 'b']</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不定长数目参数：使用<code>*</code>将可变的参数变为元组存放，具体的使用🌰：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countnum</span><span class="params">(a,*b)</span>:</span> <span class="comment">#计算参数个数</span></span><br><span class="line">    print(b) <span class="comment">#(7, 9)</span></span><br><span class="line">    print(len(b)+<span class="number">1</span>) <span class="comment"># 3</span></span><br><span class="line">countnum(<span class="number">3</span>,<span class="number">7</span>,<span class="number">9</span>)</span><br><span class="line">countnum(<span class="number">5</span>,<span class="number">8</span>,<span class="number">1</span>,<span class="number">6</span>,<span class="number">89</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>*</code>或者是<code>**</code>作用在函数的形参上代表的分别是用<code>元组</code>和<code>字典</code>来接收参数。<br><code>*</code>或者是<code>**</code>作用在实参上代表的是解包：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">lst = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">print(*lst) <span class="comment"># 1 2 3</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countnum</span><span class="params">(a,**d)</span>:</span> <span class="comment">#计算参数个数</span></span><br><span class="line">    print(d)</span><br><span class="line">    print(len(d)+<span class="number">1</span>)</span><br><span class="line">countnum(<span class="number">3</span>,x1=<span class="number">9</span>,x2=<span class="number">1</span>,x3=<span class="number">6</span>,x4=<span class="number">89</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>命名空间：全局变量和局部变量不一样，在<code>局部区域</code>里面可以使用<code>全局变量</code>，但是这个时候<code>不能在局部函数内部再定义同名变量，否则出错❌</code>。但是一旦定义了同名的变量，使用都是用的局部变量来使用。要使用和修改全局变量，请使用<code>global</code>关键字来完成。</p>
+</li>
+<li><p>内置函数<code>zip</code>用来打包📦两个可迭代的序列</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">b = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">print(list(zip(a, b)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 字典的键值对互换</span></span><br><span class="line">dic = &#123;<span class="number">1</span>:<span class="number">1</span>, <span class="number">2</span>:<span class="number">2</span>, <span class="string">'1'</span>:<span class="number">500</span>&#125;</span><br><span class="line">print(dict(zip(dic.values(), dic.keys())))</span><br><span class="line"><span class="comment"># &#123;1: 1, 2: 2, 500: '1'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># eval 计算表达式的值</span></span><br><span class="line">a = <span class="number">3</span>; b = <span class="number">7</span></span><br><span class="line">print(eval(<span class="string">'a * 3 + b * 5'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># exec 执行python语句</span></span><br><span class="line">exec(<span class="string">'print("hello world")'</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">all, any 接受的是可迭代的序列</span></span><br><span class="line"><span class="string">all表示全部是True，才返回True</span></span><br><span class="line"><span class="string">any表示只要有一个True，即结果最后返回的是True</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line">all([[], <span class="literal">False</span>, <span class="number">0</span>]) <span class="comment"># False</span></span><br><span class="line">all([<span class="number">1</span>, <span class="literal">True</span>, [<span class="number">1</span>]]) <span class="comment"># True</span></span><br><span class="line">any([[], <span class="literal">False</span>, <span class="number">0</span>]) <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># __main__的作用域就是全局域</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>命令行参数格式：sys.argv[0]文件名，sys.argv[1]…都是参数。</li>
+</ul>
+<h4 id="chapter7"><a href="#chapter7" class="headerlink" title="chapter7"></a>chapter7</h4><ul>
+<li>文件打开：<code>open(filename, mode)</code></li>
+</ul>
+<p><img src="/2019/06/23/python-basic/file_mode.png" alt="file mode"></p>
+<ul>
+<li><p>读写函数：</p>
+<ul>
+<li>read: 将文件所有内容读取</li>
+<li>readlines: 按行读取内容，但是列表当中的每一项最后都有一个<code>\n</code>, readline也是一样的会有一个<code>\n</code>在读取的字符串最后。</li>
+</ul>
+</li>
+<li><p>多条件排序：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ans=sorted(counts.items(), key=<span class="keyword">lambda</span> x:(-x[<span class="number">1</span>], x[<span class="number">0</span>]))</span><br><span class="line"><span class="comment"># 按照value降序，然后再按照key升序排列</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="chapter8"><a href="#chapter8" class="headerlink" title="chapter8"></a>chapter8</h4><ul>
+<li><p>一切内容皆是对象，函数和类也是对象。</p>
+</li>
+<li><p>类主要指的是类型，对象是比较具体的一些值。lst = [1, 2, 3], 其中lst是类list的class，也就是list类型的对象</p>
+</li>
+<li><p>类有自己的名字空间，同时每个对象也有自己的名字空间。</p>
+</li>
+<li><p>构造方法：<code>def __init__(self, …)</code> 构造方法，当对象被构造的时候被自动调用，可以声明类所产生的对象属性，并可为其赋初始值，最重要的是这个函数是<strong>不能有返回值</strong>的。-&gt; 创建对象的时候调用的是<code>object</code>本身的<code>__init__</code>方法。</p>
+</li>
+<li><p>self参数：必须为第一个形参，代表的是将来要创建的对象本身。在类的方法当中访问数据成员的时候，需要使用self.parameter进行调用。在外部通过对象调用实例方法的时候不需要传递self参数，如果在外部通过类来调用实例方法的时候，可以显式的把对象传到self里面。</p>
+</li>
+<li><p>python社团规定：</p>
+<ul>
+<li>_xxx 内部名，不应该在外部使用</li>
+<li><code>__xxx</code> py解释器会自动换名为<code>_class__xxx</code>，所以对象是直接访问不到这个变量的.但是需要注意的是，可以使用<code>object._class__xxx</code>访问到该变量，所以并不是绝对意义上的私有变量。</li>
+<li><code>__xxx__</code>系统定义的特殊成员，一般不使用这种标识符。</li>
+<li>类变量和实例变量都是可以<code>动态增加对应的变量的</code>.</li>
+</ul>
+</li>
+<li><p>继承的类如果重写了<code>__init__</code>, 如果要初始化父类需要显式的<code>super().__init__</code>调用父类的初始化函数。</p>
+</li>
+<li><p>python多态，一般是通过重写<code>__add__, __len__, __sub__</code>之类的函数来自定义自己的基本运算。</p>
+</li>
+</ul>
 
       
     </div>
@@ -735,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Slides"><span class="nav-number">1.</span> <span class="nav-text">Slides</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter1"><span class="nav-number">1.1.</span> <span class="nav-text">chapter1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter2"><span class="nav-number">1.2.</span> <span class="nav-text">chapter2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter3"><span class="nav-number">1.3.</span> <span class="nav-text">chapter3</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Slides"><span class="nav-number">1.</span> <span class="nav-text">Slides</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter1"><span class="nav-number">1.1.</span> <span class="nav-text">chapter1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter2"><span class="nav-number">1.2.</span> <span class="nav-text">chapter2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter3"><span class="nav-number">1.3.</span> <span class="nav-text">chapter3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter4"><span class="nav-number">1.4.</span> <span class="nav-text">chapter4</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter5"><span class="nav-number">1.5.</span> <span class="nav-text">chapter5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter6"><span class="nav-number">1.6.</span> <span class="nav-text">chapter6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter7"><span class="nav-number">1.7.</span> <span class="nav-text">chapter7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chapter8"><span class="nav-number">1.8.</span> <span class="nav-text">chapter8</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -786,7 +898,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共4.6k字</span>
+  <span class="post-count">博客全站共6.4k字</span>
 </div>
 
         
