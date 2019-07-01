@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Beauty-of-Mathematics]]></title>
+    <url>%2F2019%2F07%2F01%2FBeauty-of-Mathematics%2F</url>
+    <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;最近很有幸能够拜读吴军博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！ 文字和语言vs数字和信息 通信模式：信息源 -&gt; (怪叫声，编码) -&gt; 信息（信道传输）-&gt;（听到的声音，解码）-&gt; 信息(接收者)]]></content>
+      <categories>
+        <category>Reading</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+        <tag>Reading</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[machine-learning-1-DM-and-Bayesian]]></title>
     <url>%2F2019%2F06%2F29%2Fmachine-learning-1-DM-and-Bayesian%2F</url>
     <content type="text"><![CDATA[&nbsp;&nbsp;&nbsp;&nbsp;在这个系列的博客文章里面，主要记录的是本学期《数据挖掘导论》课程当中的知识点，涉及的是传统机器学习当中的算法，包括有监督学习、无监督学习这两大部分。这篇博客文章主要记录的是machine learning简介以及Bayesian的相关内容。 1. What is machine learningTwo kinds of problems 监督学习(supervised learning) 无监督学习(unsupervised learning) Differences: Supervised learning is trying to find a mapping from x to y, 比如说是classfication或者是regression的问题。 unsupervised learning问题是只有无label的样本数据，我们需要寻找interesting patterns, 比如说是聚类(clusters)、降维、矩阵分解(latent factors)等内容。 Supervised learning: collecting samples -&gt; define featrues -&gt; design and build models -&gt; make prediction Good representation for featrues: Low intra-class variability Low inter-class similarity Bias and variance trade-off(偏差和方差之间的权衡，主要是下面这张图体现)： Genelization(模型的泛化能力)：The performance on the testing data. 简单的模型的Train error更大，相对而言越复杂的模型的Train error会相对更小，但是Test error就不确定了，主要要参考bias和variance这两个基准来进行考量。 2. Bayesian Bayes’ Theorem 贝叶斯定理（这里我们只需要掌握贝叶斯公式即可）$$P(A|B) = \frac{P(B|A) * P(A)}{P(B)}$$ Prior: 先验知识，也即在进行分类之前我们能够得知的已知的样本信息，如果只是简单的根据先验知识来进行分类的话，只需要判断$\omega_1$ if $p(\omega_1) &gt; p(\omega_2)$ else $\omega_2$. likelihood: 似然，这里主要引进的是最大似然估计&nbsp;&nbsp;&nbsp; Assign input pattern $x$ to class $\omega_1$ if $p(x|\omega_1) &gt; p(x|\omega_2)$ else $\omega_2$. Posterior: 后验概率，在贝叶斯模型当中非常重要的一个点. $$\begin{aligned}p(\omega_i|x) &amp;= \frac{p(x|\omega_i) * p(\omega_i)}{p(x)} \\p(x) &amp;= \sum_{i=1}^c p(x|\omega_i) * p(\omega_i) \\ 1 &amp;= \sum_{i=1}^cp(\omega_i|x)\end{aligned}$$ &nbsp;&nbsp;&nbsp;Posterior = prior * likelihood / evidence, 不过因为使用贝叶斯进行后验估计的时候，evidence使用是相同的，所以不需要考虑这一项，我们值需要聚焦在先验概率和似然的计算上即可。 Optimal Bayes Decision rules在这里使用的就是后验概率来进行决策：if $p(\omega_1|x) &gt; p(\omega_2|x)$, decides $\omega_1$, otherwise $\omega_2$.在此基础上，我们还可以证明，这种决策方式是错误概率最小的一种决策方式，这是因为： $$p(error|x) = min(p(\omega_1|x), p(\omega_2|x))$$ Special cases:总共是两种特殊情况，当然也是从后验概率计算公式的角度出发进行考虑。 if $p(\omega_1) = p(\omega_2)$, then decide by if $p(x|\omega_1) &gt; p(x|\omega_2)$ then $\omega_1$ otherwise $\omega_2$ (Actually is Maximum likelyhood decision). if $p(x|\omega_1) = p(x|\omega_2)$, then decide by if $p(\omega_1) &gt; p(\omega_2)$ then $\omega_1$ otherwise $\omega_2$ (Actually is Prior).]]></content>
