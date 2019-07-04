@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Huang&#39;s blog">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近很有幸能够拜读吴军博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-03T16:00:35.316Z">
+<meta property="og:updated_time" content="2019-07-04T05:22:12.158Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Beauty-of-Mathematics">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;最近很有幸能够拜读吴军博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！">
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k 字
+                  1.3k 字
                 </span>
               
 
@@ -431,7 +431,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -477,12 +477,14 @@
 <li>人类的语言本质上是一种编解码的过程，人想要将自己的所想表达出来，通过语言进行<code>编码</code>，然后其他人需要理解你的意思的话，需要对语言进行<code>解码</code>，从而获取到想要表达的意思。</li>
 <li>最早提出<code>机器智能</code>思想的是<code>阿兰图灵</code>在1950年的一篇paper当中提出的，也即非常著名的<code>图灵测试</code>。</li>
 <li>当前的NLP领域的成就全都靠的数学，更准确的说是靠的<code>统计</code>的支持。</li>
-<li>NLP研究从最早的基于语法规则的方法转变到了基于数学统计的方法。同时NLP研究也从单纯的<code>句法分析和语义理解</code>，变成了非常贴近史记应用的MT、语音识别、数据挖掘、知识获取等等实际领域。</li>
+<li>NLP研究从最早的基于语法规则的方法转变到了基于数学统计的方法。同时NLP研究也从单纯的<code>句法分析和语义理解</code>，变成了非常贴近实际应用的MT、语音识别、数据挖掘、知识获取等等实际领域。</li>
 </ul>
 <h4 id="3-统计语言模型"><a href="#3-统计语言模型" class="headerlink" title="3. 统计语言模型"></a>3. 统计语言模型</h4><ul>
 <li>自然语言逐渐演变为<code>上下文相关的信息表达和传递方式</code>，一个基本问题就是为这种上下文相关的特性建立<code>统计数学模型</code>。也就是NLP当中非常重要的<a href="https://zhuanlan.zhihu.com/p/27201427" target="_blank" rel="noopener">统计语言模型</a></li>
+<li><strong>马尔可夫假设</strong>：假设每个词出现的概率$\omega_i$只与前一个词$\omega_{i-1}$是相关的，也就是最后一个句子出现的概率表示为$p(S) = p(\omega_1) * p(\omega_2|\omega_1) * p(\omega_3|\omega_2) * … * p(\omega_n|\omega_{n-1})$. 这种模型又叫做<code>二元模型</code>，如果是之前的以前n个模型出现的概率来估计下一个词出现的概率，则这种模型叫做<code>N元模型</code>.
+转换成这种形式之后，就能很方便的通过<code>语料</code>来解决统计的问题，根据<code>大数定理</code>，最后的频率估计就基本近似于实际的概率估计，也即：<br>$$<br>p(\omega_n|\omega_{n-1}) = \frac{p(\omega_n, \omega_{n-1})}{p(\omega_{n-1})} \tag{1}<br>$$</li>
 </ul>
-
+<h4 id="4-分词"><a href="#4-分词" class="headerlink" title="4. 分词"></a>4. 分词</h4>
       
     </div>
     
@@ -705,7 +707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-文字和语言vs数字和信息"><span class="nav-number">1.</span> <span class="nav-text">1. 文字和语言vs数字和信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-自然语言处理-–-从规则到统计"><span class="nav-number">2.</span> <span class="nav-text">2. 自然语言处理 – 从规则到统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-统计语言模型"><span class="nav-number">3.</span> <span class="nav-text">3. 统计语言模型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-文字和语言vs数字和信息"><span class="nav-number">1.</span> <span class="nav-text">1. 文字和语言vs数字和信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-自然语言处理-–-从规则到统计"><span class="nav-number">2.</span> <span class="nav-text">2. 自然语言处理 – 从规则到统计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-统计语言模型"><span class="nav-number">3.</span> <span class="nav-text">3. 统计语言模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-分词"><span class="nav-number">4.</span> <span class="nav-text">4. 分词</span></a></li></ol></div>
             
 
           </div>
@@ -756,7 +758,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共9.3k字</span>
+  <span class="post-count">博客全站共10.1k字</span>
 </div>
 
         
