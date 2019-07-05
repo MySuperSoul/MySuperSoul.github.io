@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="machine-learning,">
 
 
 
@@ -94,16 +94,23 @@
 
 
 
-<meta name="description" content="huangyifei0910@gmail.com">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Huang&#39;s blog">
-<meta property="og:url" content="http://mysupersoul.github.io/tags/basis/index.html">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的讨论了Bayes分类器，使用的是后验概率$p(\omega_i|x)$作为它的discriminant function. 那既然监督学习的目标就是学一个mapping，Bayes的方法虽然最优，但并不是直接从data当中得到，所以今天我们将主要介绍Linear model.">
+<meta name="keywords" content="machine-learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="machine-learning-2-Linear-Regression">
+<meta property="og:url" content="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/index.html">
 <meta property="og:site_name" content="Huang&#39;s blog">
-<meta property="og:description" content="huangyifei0910@gmail.com">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的讨论了Bayes分类器，使用的是后验概率$p(\omega_i|x)$作为它的discriminant function. 那既然监督学习的目标就是学一个mapping，Bayes的方法虽然最优，但并不是直接从data当中得到，所以今天我们将主要介绍Linear model.">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/1.png">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/2.png">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/3.png">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/4.png">
+<meta property="og:updated_time" content="2019-07-05T10:31:45.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Huang&#39;s blog">
-<meta name="twitter:description" content="huangyifei0910@gmail.com">
+<meta name="twitter:title" content="machine-learning-2-Linear-Regression">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的讨论了Bayes分类器，使用的是后验概率$p(\omega_i|x)$作为它的discriminant function. 那既然监督学习的目标就是学一个mapping，Bayes的方法虽然最优，但并不是直接从data当中得到，所以今天我们将主要介绍Linear model.">
+<meta name="twitter:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/1.png">
 
 
 
@@ -133,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://mysupersoul.github.io/tags/basis/">
+  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/">
 
 
 
 
 
-  <title>标签: basis | Huang's blog</title>
+  <title>machine-learning-2-Linear-Regression | Huang's blog</title>
   
 
 
@@ -158,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/MySuperSoul" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -295,52 +302,296 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>basis<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://mysupersoul.github.io/2019/07/05/machine-learning-2-Linear-Regression/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="huangyifei">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Huang's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/23/python-basic/" itemprop="url">
-              
-                <span itemprop="name">python-basic</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">machine-learning-2-Linear-Regression</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-23T19:47:56+08:00" content="2019-06-23">
-          06-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T08:13:34+08:00">
+                2019-07-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">machine-learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/05/machine-learning-2-Linear-Regression/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/05/machine-learning-2-Linear-Regression/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/07/05/machine-learning-2-Linear-Regression/" class="leancloud_visitors" data-flag-title="machine-learning-2-Linear-Regression">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.5k 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在前一篇文章当中，我们详细的讨论了Bayes分类器，使用的是后验概率$p(\omega_i|x)$作为它的discriminant function. 那既然监督学习的目标就是学一个mapping，Bayes的方法虽然最优，但并不是直接从data当中得到，所以今天我们将主要介绍Linear model.</p>
+<a id="more"></a>
+
+<h3 id="Linear-methods-for-Regression"><a href="#Linear-methods-for-Regression" class="headerlink" title="Linear methods for Regression"></a>Linear methods for Regression</h3><ul>
+<li><strong>Linear model</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Linear model 的表达形式很简单，就是类似于平时我们见到的一次方程，即从x到y的mapping函数为：</p>
+<p>$$<br>\begin{aligned}<br>f(x) &amp;= \omega^TX \\<br>\omega \in R^{d+1} &amp;= [\omega_1, \omega_2, … , \omega_d, b]^T \\<br>X \in R^{d+1} &amp;= [x_1, x_2, … , x_d, 1]^T<br>\end{aligned}<br>$$</p>
+<br>
+
+<ul>
+<li><strong>Error function</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在linear model当中，我们的目标变成了优化一个objective function，使得这个损失函数取到最小值，在linear model当中，objective function常见有两种，当然也是大同小异的：</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(1)Mean sum of square error:</strong></p>
+<p>$$<br>MSE(a) = \frac{1}{n}\sum_{i=1}^n(y_i - f(x_i, a))^2<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(2)Redual sum of square error:</strong></p>
+<p>$$<br>RSS(a) = \sum_{i=1}^n(y_i-f(x_i, a))^2<br>$$</p>
+<br>
+
+<ul>
+<li><strong>Optimize</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在我们得到了linear model的objective function之后，我们的目标就是找到一组参数$a$，使得上述两个objective function能够在training data上面取最小值，当然可以看到RSS和MSE其实都是用的<code>最小二乘法</code>的思想，优化目标都是一样的。我们对数据进行矩阵化的表示，$X = [x_1, x_2, … , x_n], y=[y_1, y_2, … , y_n]^T$.</p>
+<p>$$<br>\begin{aligned}<br>J_n(a) &amp;= (y-X^Ta)^T(y-X^Ta) \\<br>\nabla_aJ_n(a) &amp;= -2X(y-X^Ta) = 0 \\<br>a &amp;= (XX^T)^{-1}Xy<br>\end{aligned}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 哦豁，到这里好像事情变得很简单，只需要对RSS求个导就能得到最优的参数解。当然，事情是没有想象的那么简单的，我们看$a = (XX^T)^{-1}Xy$, 如果$XX^T$不满秩的情况下，这个方程还能用吗，那当然是不能用了，因为$XX^T$都不能求逆了，怎么用！所以这个方程在$XX^T$满秩时有解，不满秩的时候存在无穷多解，也即overfitting problem.</p>
+<br>
+
+<ul>
+<li><strong>Statistic model of regression</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在这个part将会通过统计回归模型来推导linear model 的 objective function. 使用统计回归模型的时候，我们首先会假设存在一个隐含变量$\epsilon$, 所以我们linear model的表示形式就变成了：</p>
+<p>$$<br>\begin{aligned}<br>y &amp;= f(x, a) + \epsilon &amp;<br>\epsilon \sim N(0, \sigma^2)<br>\end{aligned}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 然后我们使用MLE的方法来最大化log-似然函数，所以整个推导过程如下：</p>
+<p>$$<br>\begin{aligned}<br>l(D, a, \sigma) &amp;= ln(l(D, a, \sigma)) \\<br>&amp;= \sum_{i=1}^n lnp(y_i|x_i, a, \sigma) \\<br>&amp;= \sum_{i=1}^n ln[\frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2\sigma^2}(y-f(x, a))^2}] \\<br>&amp;= -\frac{1}{2\sigma^2}\sum_{i=1}^n(y-f(x, a))^2 + c(\sigma)<br>\end{aligned}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; OK, Fine.这里我们看到当极大化似然函数的时候，我们得到和MSE或者是RSS的优化函数是一样的，所以这两种优化目标是相同的。</p>
+<br>
+
+<ul>
+<li><strong>Over-fitting</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Overfitting problem 是机器学习问题当中很常见的问题，当选取的参数过多，而没有足够多的样本来支持的话，所以就会出现<code>模型过拟合</code>的问题。具体可以用以下这张图展示：</p>
+<img src="/2019/07/05/machine-learning-2-Linear-Regression/1.png" style="width: 80%">
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在之前的$a = (XX^T)^{-1}Xy$ 表达式当中，如果$XX^T$不满秩的话，最后结果导致就是<code>overfitting problem</code>.</p>
+<br>
+
+<ul>
+<li><strong>Ridge Regression</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 出了问题那就得解决是吧，出现了<code>overfitting</code>那么我们就得想办法解决这个问题。也就引出了接下来要阐述的<code>正则化</code>的解决方法。</p>
+<p>$$<br>a^* = argmin(\sum_{i=1}^n(y_i-x_i^Ta)^2 + \lambda\sum_{j=1}^pa_j^2)<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同样的添加正则项，同样也相当于给之前的objective function加上限制，也即：</p>
+<p>$$<br>\begin{aligned}<br>a^* = argmin(\sum_{i=1}^n(y_i-x_i^Ta)^2) &amp;&amp; s.t.\lambda\sum_{j=1}^pa_j^2\le t<br>\end{aligned}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 最后对加上正则项的objective function进行求导然后就能求得极值。其实加上正则项的意义就在于，对于参数$a$进行惩罚，其中的参数$\lambda$就是对这两项进行相对应的调整，来决定这两项的比重。</p>
+<p>$$<br>a^* = (XX^T+\lambda I)^{-1}Xy<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们可以看一下参数$\lambda$对整个model的影响，当$\lambda$很大的时候，相当于正则加的很大，使得参数都很小，会使得$bias$变大。如果$\lambda$很小的时候，相当于是$variance$相对大一点。但是因为我们加上正则项，所以training error是不可避免的会增加，所以我们需要寻找的就是training error和testing error都相对偏小的那个平衡值：</p>
+<img src="/2019/07/05/machine-learning-2-Linear-Regression/2.png" style="width: 80%">
+
+<br>
+
+<ul>
+<li><strong>LASSO</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在上面我们提到正则项加的是$\lambda\sum_{j=1}^pa_j^2$, 这是很常用的<code>L2 norm</code>, 如果我们用一阶来做正则的话，就有一个新的名字，叫做<code>LASSO</code>,<code>LASSO</code>是一个<code>Sparse model</code>，也即自带<code>featrue select</code>的功能，<code>LASSO</code>的表达形式为：</p>
+<p>$$<br>a^*=argmin(\sum_{i=1}^n(y_i-x_i^Ta)^2+\lambda\sum_{j=1}^p|a_j|)<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 为什么说LASSO是一个Sparse model呢，我们从objective function的图形化表示来看就很容易理解，因为两条线的相切的地方总是在角点。所以很多项的参数就自动变成了0:</p>
+<img src="/2019/07/05/machine-learning-2-Linear-Regression/3.png" style="width: 80%">
+
+<br>
+
+<ul>
+<li><strong>Bias and variance decomposition</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 最后这里对<code>bias</code>和<code>variance</code>做一个讨论。<code>bias</code>主要指的是最后学到的model和真实的model之间的偏差，<code>variance</code>指的是每次学到的model之间误差值，<code>noise</code>是不可避免的误差，所以不能做到完全optimal的model.我们使用<code>EPE</code>进一步的衡量model loss：</p>
+<p>$$<br>\begin{aligned}<br>EPE(f) &amp;= \iint(y-f(x))^2p(x, y)dxdy \implies \\<br>EPE(f) &amp;= (bias)^2+variance+noise \\<br>(bias)^2 &amp;= \int[E_D(f(x;D)-E(y|x))]^2p(x)dx \\<br>variance &amp;= \int E_D[f(x;D)-E_D(f(x;D))]^2p(x)dx \\<br>noise &amp;= \int var(y|x)p(x)dx<br>\end{aligned}<br>$$</p>
+<img src="/2019/07/05/machine-learning-2-Linear-Regression/4.png" style="width: 80%">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine-learning</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/01/Beauty-of-Mathematics/" rel="next" title="Beauty-of-Mathematics">
+                <i class="fa fa-chevron-left"></i> Beauty-of-Mathematics
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -348,6 +599,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -368,8 +626,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -477,6 +744,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-methods-for-Regression"><span class="nav-number">1.</span> <span class="nav-text">Linear methods for Regression</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -630,6 +913,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
