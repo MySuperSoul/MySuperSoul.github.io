@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="machine-learning,">
+  <meta name="keywords" content="data-processing,">
 
 
 
@@ -94,21 +94,22 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在这个系列的博客文章里面，主要记录的是本学期《数据挖掘导论》课程当中的知识点，涉及的是传统机器学习当中的算法，包括有监督学习、无监督学习这两大部分。这篇博客文章主要记录的是machine learning简介以及Bayesian的相关内容。">
-<meta name="keywords" content="machine-learning">
+<meta name="description" content="这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是simhash算法，Google在用的海量网页去重的算法，另一种是textrank算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。">
+<meta name="keywords" content="data-processing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="machine-learning-1-DM-and-Bayesian">
-<meta property="og:url" content="http://mysupersoul.github.io/2019/06/29/machine-learning-1-DM-and-Bayesian/index.html">
+<meta property="og:title" content="data-processing">
+<meta property="og:url" content="http://mysupersoul.github.io/2019/07/16/data-processing/index.html">
 <meta property="og:site_name" content="Huang&#39;s blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在这个系列的博客文章里面，主要记录的是本学期《数据挖掘导论》课程当中的知识点，涉及的是传统机器学习当中的算法，包括有监督学习、无监督学习这两大部分。这篇博客文章主要记录的是machine learning简介以及Bayesian的相关内容。">
+<meta property="og:description" content="这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是simhash算法，Google在用的海量网页去重的算法，另一种是textrank算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/06/29/machine-learning-1-DM-and-Bayesian/1.png">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/06/29/machine-learning-1-DM-and-Bayesian/2.png">
-<meta property="og:updated_time" content="2019-07-04T12:30:28.000Z">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/1.png">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/2.png">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/3.png">
+<meta property="og:updated_time" content="2019-07-16T11:53:04.065Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="machine-learning-1-DM-and-Bayesian">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在这个系列的博客文章里面，主要记录的是本学期《数据挖掘导论》课程当中的知识点，涉及的是传统机器学习当中的算法，包括有监督学习、无监督学习这两大部分。这篇博客文章主要记录的是machine learning简介以及Bayesian的相关内容。">
-<meta name="twitter:image" content="http://mysupersoul.github.io/2019/06/29/machine-learning-1-DM-and-Bayesian/1.png">
+<meta name="twitter:title" content="data-processing">
+<meta name="twitter:description" content="这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是simhash算法，Google在用的海量网页去重的算法，另一种是textrank算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。">
+<meta name="twitter:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/1.png">
 
 
 
@@ -138,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://mysupersoul.github.io/2019/06/29/machine-learning-1-DM-and-Bayesian/">
+  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/16/data-processing/">
 
 
 
 
 
-  <title>machine-learning-1-DM-and-Bayesian | Huang's blog</title>
+  <title>data-processing | Huang's blog</title>
   
 
 
@@ -314,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mysupersoul.github.io/2019/06/29/machine-learning-1-DM-and-Bayesian/">
+    <link itemprop="mainEntityOfPage" href="http://mysupersoul.github.io/2019/07/16/data-processing/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangyifei">
@@ -331,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">machine-learning-1-DM-and-Bayesian</h1>
+          <h1 class="post-title" itemprop="name headline">data-processing</h1>
         
 
         <div class="post-meta">
@@ -343,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T17:46:51+08:00">
-                2019-06-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-16T19:48:08+08:00">
+                2019-07-16
               </time>
             
 
@@ -366,8 +367,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">machine-learning</span>
+                  <a href="/categories/data-processing/" itemprop="url" rel="index">
+                    <span itemprop="name">data-processing</span>
                   </a>
                 </span>
 
@@ -384,8 +385,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/06/29/machine-learning-1-DM-and-Bayesian/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/29/machine-learning-1-DM-and-Bayesian/" itemprop="commentCount"></span>
+                <a href="/2019/07/16/data-processing/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/16/data-processing/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -393,7 +394,7 @@
 
           
           
-             <span id="/2019/06/29/machine-learning-1-DM-and-Bayesian/" class="leancloud_visitors" data-flag-title="machine-learning-1-DM-and-Bayesian">
+             <span id="/2019/07/16/data-processing/" class="leancloud_visitors" data-flag-title="data-processing">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -418,7 +419,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.4k 字
+                  5.1k 字
                 </span>
               
 
@@ -434,7 +435,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10 分钟
+                  18 分钟
                 </span>
               
             </div>
@@ -455,124 +456,151 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;在这个系列的博客文章里面，主要记录的是本学期《数据挖掘导论》课程当中的知识点，涉及的是传统机器学习当中的算法，包括有监督学习、无监督学习这两大部分。这篇博客文章主要记录的是machine learning简介以及Bayesian的相关内容。</p>
+        <p>这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是<code>simhash</code>算法，Google在用的海量网页去重的算法，另一种是<code>textrank</code>算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。</p>
 <a id="more"></a>
 
-<h3 id="1-What-is-machine-learning"><a href="#1-What-is-machine-learning" class="headerlink" title="1. What is machine learning"></a>1. What is machine learning</h3><h4 id="Two-kinds-of-problems"><a href="#Two-kinds-of-problems" class="headerlink" title="Two kinds of problems"></a>Two kinds of problems</h4><ul>
-<li>监督学习(supervised learning)</li>
-<li>无监督学习(unsupervised learning)</li>
-<li>Differences:</li>
-</ul>
-<ol>
-<li>Supervised learning is trying to <code>find a mapping from x to y</code>, 比如说是<code>classfication</code>或者是<code>regression</code>的问题。</li>
-<li>unsupervised learning问题是只有无label的样本数据，我们需要寻找<code>interesting patterns</code>, 比如说是聚类(clusters)、降维、矩阵分解(latent factors)等内容。 </li>
+<h4 id="课程论文简述"><a href="#课程论文简述" class="headerlink" title="课程论文简述"></a>课程论文简述</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 因为在本次实现的搜索引擎项目当中，我主要负责的就是各类数据的获取，以及主要的数据后处理工作。爬虫部分感觉没有什么好讲的，通过<code>scrapy</code>和<code>selenium</code>、<code>requests</code>, 对于一般的网站爬取工作都可以胜任，不过为了应对很多网站的反爬虫策略，我们自己实现的IP池还是有亮点的，不过不是我写的所以我这里就不展开。我觉得比较有特色是数据后处理部分，在得到数据之后必要的工作是需要对数据进行清洗和加工，所以我主要选取了项目当中在用的<code>simhash</code>文本相似度过滤算法和<code>textrank</code>自动摘要算法来写本次的课程论文。</p>
+<br>
+
+<h4 id="文本相似度处理"><a href="#文本相似度处理" class="headerlink" title="文本相似度处理"></a>文本相似度处理</h4><ol>
+<li><strong>文本距离</strong></li>
 </ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在正式介绍文本相似度算法之前，首先我会对几种比较常用的文本距离计算方式进行介绍。因为文本相似度计算的基础还是在于不同文本当中的文本距离是如何定义的，不同的文本距离计算会导致不同的相似度的生成。</p>
 <ul>
-<li><p>Supervised learning: <code>collecting samples -&gt; define featrues -&gt; design and build models -&gt; make prediction</code></p>
-</li>
-<li><p>Good representation for featrues:</p>
+<li><strong>欧几里得距离</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欧几里得距离又称<a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB" target="_blank" rel="noopener">欧氏距离</a>。是我们实际当中使用非常频繁的一种距离计算方式。在欧氏空间当中，两个点$x=(x_1, x_2, …, x_n), y=(y_1, y_2, …, y_n)$之间的欧氏距离可以表示为:</p>
+<p>$$<br>d(x, y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}<br>$$</p>
 <ul>
-<li><code>Low intra-class variability</code></li>
-<li><code>Low inter-class similarity</code></li>
+<li><strong>曼哈顿距离</strong></li>
 </ul>
-</li>
-<li><p>Bias and variance trade-off(偏差和方差之间的权衡，主要是下面这张图体现)：</p>
-</li>
-</ul>
-<p><img src="/2019/06/29/machine-learning-1-DM-and-Bayesian/1.png" alt></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://zh.wikipedia.org/wiki/%E6%9B%BC%E5%93%88%E9%A0%93%E8%B7%9D%E9%9B%A2" target="_blank" rel="noopener">曼哈顿距离</a>是用来在欧氏空间标明两个点在标准坐标系上的绝对轴距总和的一种距离度量方式。从几何的角度来看，<code>欧氏距离</code>度量的是两个点的实际距离，<code>曼哈顿距离</code>度量的是两个点的绝对轴之间的距离。例如在直角坐标系当中$x=(x_1, x_2), y=(y_1, y_2)$, 那么两个点之间的曼哈顿距离表示为：</p>
+<p>$$<br>d(x, y) = |x_1-y_1| + |x_2 - y_2|<br>$$</p>
 <ul>
-<li><strong>Genelization(模型的泛化能力)</strong>：The performance on the <strong>testing</strong> data. 简单的模型的Train error更大，相对而言越复杂的模型的Train error会相对更小，但是Test error就不确定了，主要要参考bias和variance这两个基准来进行考量。</li>
+<li><strong>余弦距离</strong></li>
 </ul>
-<h3 id="2-Bayesian"><a href="#2-Bayesian" class="headerlink" title="2. Bayesian"></a>2. Bayesian</h3><ul>
-<li>Bayes’ Theorem 贝叶斯定理（这里我们只需要掌握贝叶斯公式即可）<br>$$<br>P(A|B) = \frac{P(B|A) * P(A)}{P(B)}<br>$$</li>
-<li><strong>Prior</strong>: 先验知识，也即在进行分类之前我们能够得知的已知的样本信息，如果只是简单的根据先验知识来进行分类的话，只需要判断$\omega_1$ if $p(\omega_1) &gt; p(\omega_2)$ else $\omega_2$.</li>
-<li><strong>likelihood</strong>: 似然，这里主要引进的是<strong>最大似然估计</strong><br>&nbsp;&nbsp;&nbsp; Assign input pattern $x$ to class $\omega_1$ if $p(x|\omega_1) &gt; p(x|\omega_2)$ else $\omega_2$.</li>
-<li><strong>Posterior</strong>: 后验概率，在贝叶斯模型当中非常重要的一个点.</li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://zh.wikipedia.org/wiki/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E6%80%A7" target="_blank" rel="noopener">余弦距离</a> 是通过计算两个向量之间夹角余弦值来衡量两个向量之间相似度的一种常用的方法。我们都知道如果两个向量之间的夹角越小，余弦值就越接近1.所以我们可以通过计算两个向量的余弦夹角来衡量两个向量之间的相似度。给定两个向量$A, B$， 他们余弦距离衡量公式如下：</p>
+<p>$$<br>similarity(A, B) = \cos(A, B) = \frac{\sum_{i=1}^n A_i \cdot B_i}{\sum_{i=1}^n(A_i)^2 \cdot \sum_{i=1}^n(B_i)^2}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果<code>similarity</code>越接近1，我们认为这两个向量之间的距离越小，也即相似度也就越高。</p>
+<ul>
+<li><strong>海明距离(Hamming distance)</strong></li>
 </ul>
-<p>$$<br>\begin{aligned}<br>p(\omega_i|x) &amp;= \frac{p(x|\omega_i) * p(\omega_i)}{p(x)} \\<br>p(x) &amp;= \sum_{i=1}^c p(x|\omega_i) * p(\omega_i) \\<br> 1 &amp;= \sum_{i=1}^cp(\omega_i|x)<br>\end{aligned}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>Posterior = prior * likelihood / evidence</code>, 不过因为使用贝叶斯进行后验估计的时候，evidence使用是相同的，所以不需要考虑这一项，我们只需要聚焦在先验概率和似然的计算上即可。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://zh.wikipedia.org/wiki/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB" target="_blank" rel="noopener">海明距离</a>又称<code>Hamming distance</code>. 是在编码领域常用的一种距离度量的方法。而且方法和思想非常的朴素，相信大家之前在<code>计算机网络</code>课程当中已经接触过海明码的概念。海明距离对于二进制的字符串之间的计算，非常简单，就是直接计算所有位上，不同的码字的数量。例如<code>1011101</code>与<code>1001001</code>之间的汉明距离是2. 虽然hamming distance的思路非常简单，但是它在很多领域当中都有着非常重要的作用，在之后我会介绍的，在我们<a href="https://github.com/MySuperSoul/SearchEngine/tree/master/post-processors/common" target="_blank" rel="noopener">搜索引擎项目</a>当中使用的文本相似度算法就是利用了hamming distance来进行计算相似度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同时因为hamming distance对于0，1字符串的度量有非常快速的算法，之间通过位运算的方式可以快速的求得两个0, 1字符串之间的海明距离，在我们后处理当中，就是利用这种方法能够快速进行hamming distance计算：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">params:</span></span><br><span class="line"><span class="string">    code_1 -&gt; str: first hamming code</span></span><br><span class="line"><span class="string">    code_2 -&gt; str: second hamming code</span></span><br><span class="line"><span class="string">    hash_bits -&gt; int: number of the length of two hamming code</span></span><br><span class="line"><span class="string">return:</span></span><br><span class="line"><span class="string">    ans -&gt; int: hamming distance of two hamming code</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">HammingDistance</span><span class="params">(self, code_1, code_2)</span>:</span></span><br><span class="line">    x = (code_1 ^ code_2) &amp; ((<span class="number">1</span> &lt;&lt; self.hash_bits) - <span class="number">1</span>)</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> x:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line">        x &amp;= x - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+
 <br>
 
+<ol start="2">
+<li><strong>海量文本相似度算法Simhash</strong></li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在这次的搜索引擎项目当中，数据后处理的首先问题就是如何对收集到的各种信息进行去重。一个最直接的方法就是根据URL使用set进行去重，当然这只是最基本的重复滤重。还有另外一种情况我们也必须要考虑到，也就是存在<code>文章转载或者抄袭</code>的情况，所以我们对于这种情况也必须进行数据的处理和滤重。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一般情况下，如果要计算两篇文档之间的相似度，传统的思路可能是：</p>
 <ul>
-<li><strong>Optimal Bayes Decision rules</strong></li>
+<li>可以通过将两篇文章进行分词，通过关键词和对应的权重生成特征词向量，然后就能通过我们前面介绍的几种<code>文本距离</code>计算的方法进行距离度量（比如可以计算特征向量之间的欧氏距离，或者是通过余弦距离来度量两个特征词向量之间的相似度）。通过<code>距离的大小</code>来度量两篇文档的相似度。</li>
+<li>通过<code>hash</code>的方法，为每一篇文档通过哈希的方法生成一个特定的哈希指纹，然后通过比对生成的哈希指纹对文本的相似度进行计算。</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在这里使用的就是后验概率来进行决策：if $p(\omega_1|x) &gt; p(\omega_2|x)$, decides $\omega_1$, otherwise $\omega_2$. 在此基础上，我们还可以证明，这种决策方式是错误概率最小的一种决策方式，这是因为：</p>
-<p>$$<br>p(error|x) = min(p(\omega_1|x), p(\omega_2|x))<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>Special cases:</code>总共是两种特殊情况，当然也是从后验概率计算公式的角度出发进行考虑。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当然这两种方法都存在着很大的弊端，对于第一种方法的话，在海量的数据面前，这个算法所需要耗费的时间是难以想象的，所以这种方法运用到搜索引擎上，理论上在时间的花费成本非常之高。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于第二种方法的话，重点就在于<code>如何设计一个好的hash函数</code>，如果采用传统的hash方法，比如说是<code>md5</code>这种局部不敏感的哈希方法的话，那么在文本有很小的变动时候，生成的md5哈希码的差异也会相差甚远，显然这不是我们需要的hash函数。我们<code>理想的hash函数</code>应该对于相似的文档能够生成比较相似的哈希码，从而我们才能从hash code当中提取文章的相似度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以接下来就会介绍<strong>Simhash</strong>的算法，用来解决巨大数据量网页去重的算法。该算法最初是Google提出的一种用于网页去重的算法，详细的论文可以参考<a href="https://www2007.org/papers/paper215.pdf" target="_blank" rel="noopener">《detecting near-duplicates for web crawling》</a>。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>Simhash</code>是局部不敏感哈希方法当中的一种。也即输入文档的小部分改动对最后生成的hash code并不会有很大的影响。Simhash方法的主要思想是<code>降维思想</code>，通过将高维的特征词向量降维到生成的hashcode维度，一般选取的<code>64bits</code>或者<code>128bits</code>生成hashcode. 然后通过计算不同文档之间simhash值的hamming distance来度量不同文档之间的相似度。具体的simhash算法一般处理为六个步骤：<code>分词 -&gt; hash -&gt; 加权 -&gt; 合并 -&gt; 降维 -&gt; hamming distance</code>.</p>
 <ul>
-<li>if $p(\omega_1) = p(\omega_2)$, then decide by if $p(x|\omega_1) &gt; p(x|\omega_2)$ then $\omega_1$ otherwise $\omega_2$ (Actually is <code>Maximum likelyhood decision</code>).</li>
-<li>if $p(x|\omega_1) = p(x|\omega_2)$, then decide by if $p(\omega_1) &gt; p(\omega_2)$ then $\omega_1$ otherwise $\omega_2$ (Actually is <code>Prior</code>).</li>
+<li><strong>分词</strong></li>
 </ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 分词步骤当中主要是对文档进行分词，并且确定每个分词的权重分布。中文分词我所使用的是<a href="https://github.com/fxsjy/jieba" target="_blank" rel="noopener">jieba</a>进行分词，因为我们项目当中大部分还是收集的中文博客、demo等资源，并且在实际测试的时候发现<code>jieba</code>对于英文的分词效果也还是可以的！其中权重值在后续会使用，代表的是该词语在整篇文章当中的重要性。</p>
+<ul>
+<li><strong>hash</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hash步骤主要是对上面得到的文档词语进行哈希函数的计算，通常在这里需要指定<code>hash_bits</code>, 也即后续的每篇文档都会降维到<code>hash_bits</code>这个维度上。通过哈希函数处理之后，每个字符串都会变成一个01的字符串，同时长度为我们所希望的<code>hash_bits</code>.</p>
+<ul>
+<li><strong>加权</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 加权过程需要使用到上述我们得到的权重值，通过对所有得到的hash值乘上对应的权重，得到对应的加权后的新哈希值。其中因为得到的是01字符串，我们规定遇到1就是正值，遇到0就是负值，而后进行计算。举个🌰，比如<code>浙江大学</code>编码为<code>101010</code>, 并且权重为<code>5</code>的话，通过加权之后，得到的新的加权哈希值就为：<code>5 -5 5 -5 5 -5</code>. 其他的分词后的词语类似处理。</p>
+<ul>
+<li><strong>合并</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 通过上面<code>加权</code>步骤之后，我们得到了所有分词的加权hash code，之后我们对所有的这些加权hash code进行相加，相加之后得到的加权hash code就做为整篇文档的加权hash code. 再举个🌰，我们得到<code>浙江大学</code>哈希值为<code>5 -5 5 -5 5 -5</code>, 同时我们还得到<code>软件工程</code>这个词的哈希值为<code>4 4 -4 4 -4 4</code>, 那么总的加权的哈希值为<code>9 -1 1 -1 1 -1</code>. 其他的处理流程都是类似的。</p>
+<ul>
+<li><strong>降维</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 降维步骤就是对上述得到的加权code进行一个简单的<code>Sign</code>计算，也即码值大于0的记为1，其他的记为0，就比如上面得到的那一串加权的hash code，在经过降维处理之后，我们就能得到最后文章生成的01 hash code为：<code>101010</code>.</p>
+<ul>
+<li><strong>Hamming distance</strong></li>
+</ul>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在上述的pipelines之后我们得到了整篇文档的hash code，接着只需要对两篇文档的hash code计算hamming distance，就能很快的得到两篇文档之间的相似度。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 整个Simhash算法的流程可以用下面这张图进行展示，很清晰的展示了整个算法的流程和做法：</p>
+<div align="center">
+<img src="/2019/07/16/data-processing/1.png">
+</div>
+
 <br>
 
-<ul>
-<li><strong>Bayes risks</strong></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在Bayes risks当中引入了action和risk的概念，其中$\lambda(\alpha_i, \omega_j)$表示的是在 $\omega_j$ 类别之上 take $action_i$ 的 $risk$, 所以我们又可以得到一个新的优化目标，就是选取action当中的Bayes risks当中最小的。<br>$$<br>\begin{aligned}<br>R(\alpha_i|x) &amp;= \sum_{j=1}^c\lambda(\alpha_i, \omega_j)p(\omega_j|x) \\<br>R(\alpha_i) &amp;= \sum_{over x}R(\alpha_i|x)<br>\end{aligned}<br>$$</p>
-<ul>
-<li><strong>Discriminant function</strong></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 由于在贝叶斯决策当中，我们选取的是后验概率作为我们的决策策略。所以可以得到贝叶斯的Discriminant function:</p>
-<p>$$<br>g(x) = lnp(\omega_i|x) = lnp(x|\omega_i) + lnp(\omega_i)<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 可以看到这个式子当中，先验从数据当中很容易获取，主要是似然的估计，所以我们需要对似然函数的参数进行估计。最直接而且最朴素的就是假设，数据在类别确定的时候是满足<code>高斯分布或者正态分布</code>，这样我们就能写出似然函数的形式（其中$\Sigma$为协方差矩阵, $\mu$为均值, $| |$为行列式值）：</p>
-<p>$$<br>p(x|\omega_i) = p(x|\theta) = \frac{1}{(2\pi)^{\frac{d}{2}}|\Sigma|^{\frac{1}{2}}} e^{-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于Simhash算法在实际处理海量数据时候还有很多其他的优化查询方式，比如对最后生成的hash code进行分块查询，建立倒排索引等方式加快在样本数据库当中的搜索查询速度。我们项目当中的数据数量远不及Google上的样本数量，所以并没有进行过多的优化，直接计算hamming code进行判断。在项目的后处理模块当中，我将simhash算法封装为一个类，其中使用了开源项目<a href="http://leons.im/posts/a-python-implementation-of-simhash-algorithm/" target="_blank" rel="noopener">simhash</a>来完成hash code的计算。并且当相似度超过<code>95%</code>的时候，我就认为这两篇文档是非常相似的，需要从我们的数据库当中过滤掉，具体实现可以参考我们搜索引擎项目当中的实现<a href="https://github.com/MySuperSoul/SearchEngine/blob/master/post-processors/common/SimHash.py" target="_blank" rel="noopener">SimHashFilter</a>.</p>
 <br>
 
-<ul>
-<li><strong>MLE and Bayesian Estimation</strong></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接下来一个很自然的问题就是，既然窝已经知道了似然函数的形式，那我的参数应该怎么去估计呢？别急，这里给出了两种用来估计最佳参数的方法，一种是Maximum Likelyhood Estimation, 也就是我们常说的极大似然估计，还有一种Bayesian Estimation这里就不太涉及，主要思想是提前假设参数本身也是符合一定的分布的，而在MLE当中参数是有一个最优的值，需要通过数据去估计这个最优的值。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接下来我们来看看MLE是如何估计参数，顾名思义，需要去最大化数据集的似然。这里我们定义$p(D|\omega_i)$为数据集的似然函数，并且假设数据$x_1, x_2, … i.i.d$是独立同分布的数据，那么我们的数据集似然就能表示为所有数据的似然连乘，然后取一个对数似然变为连加，所以最后的log-likelyhood可以表示为如下的形式，然后我们只需要<code>maximize</code>这个似然函数即可：</p>
-<p>$$<br>l(\theta) = lnp(D|\theta) = \sum_{i=1}^nlnp(x_i|\theta)<br>$$</p>
-<p>$$<br>\theta^* = argmaxl(\theta) \implies \nabla_{\theta}l(\theta) = 0<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 最后分别对$\mu$和$\Sigma$进行求导，然后取最大值即可，详细的推导过程可以参考我在<a href="https://github.com/MySuperSoul/DM/blob/master/assignment/hw1/hw1_3160104367_%E9%BB%84%E4%BA%A6%E9%9D%9E.pdf" target="_blank" rel="noopener">DM-assignment1</a>当中的推导过程，采用的就是对矩阵进行求导，然后取极值的方式。So far, the MLE of all parameters for class k is shown below:</p>
-<p>$$<br>\begin{cases}<br>\hat{\mu_k} = \frac{1}{m} \sum_{i=1}^mx_i \\<br>\hat{\Sigma_k} = \frac{1}{m}\sum_{i=1}^m(x_i-\hat{\mu_k})(x_i-\hat{\mu_k})^T \\<br>\hat{\phi_k} = \frac{N_k}{N}<br>\end{cases}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不过在这里有一点是需要注意的是，我们可以看到协方差矩阵还可以写成这种形式，$\Sigma = \frac{1}{k}XX^T$, 所以<strong>当featrues数大于samples数</strong>的时候，矩阵$\Sigma$是不满秩矩阵，也就意味着这个时候是不能通过MLE来估计参数的，因为$|\Sigma| = 0$, 这个时候log-似然♾。</p>
+<ol start="3">
+<li><strong>实际效果测试</strong></li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在实现了simhash算法之后，我对实现的该算法进行了相关测试和性能估计。在项目当中我所用的hash_bits长度为<code>128</code>, 因为实际测试时候使用64bits的hamming code精度可能不太符合实际的需求，所以我提升到了128位的hash_bits. 测试代码和测试文本如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> common.SimHash <span class="keyword">import</span> SimHashFilter</span><br><span class="line">text1 = <span class="string">"沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，"</span> \</span><br><span class="line">    + <span class="string">"主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。"</span> \</span><br><span class="line">    + <span class="string">"从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，\</span></span><br><span class="line"><span class="string">这种动力运作的过程成–螺旋状"</span></span><br><span class="line"></span><br><span class="line">text2 = <span class="string">"沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，"</span> \</span><br><span class="line">    + <span class="string">"从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，\</span></span><br><span class="line"><span class="string">这种动力运作的过程成–螺旋状"</span> \</span><br><span class="line">+ <span class="string">"主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。"</span></span><br><span class="line"></span><br><span class="line">filter = SimHashFilter(<span class="number">128</span>)</span><br><span class="line">print(bin(filter.GetCodeForText(text1)))</span><br><span class="line">print(bin(filter.GetCodeForText(text2)))</span><br><span class="line">print(filter.IsSimilarByText(text1, text2))</span><br></pre></td></tr></table></figure>
+
+<pre><code>文本1: 
+&quot;沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，&quot;
++ &quot;主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。&quot;
++ &quot;从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，
+这种动力运作的过程成–螺旋状&quot;
+
+文本2:
+&quot;沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，&quot;
++ &quot;从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，
+这种动力运作的过程成–螺旋状&quot;
++ &quot;主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。&quot;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 运行结果如下，可以看到生成的128位的hash code是完全相同的，上述的文本调换了语序生成的两段文本，相似度为1，所以这两段文本会被直接过滤掉其中一段文本。</p>
+<div align="center">
+<img src="/2019/07/16/data-processing/2.png">
+</div>
+
 <br>
 
-<ul>
-<li><strong>Back to discriminat function</strong></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在之前我们讨论了如何利用MLE来估计似然函数的参数，在这里我们主要讨论几种discriminat function的形式，也就是$g(x)$函数的线性关系。我们首先将$p(x|\omega_i)$的高斯形式带入上面的log似然函数，得到：</p>
-<p>$$<br>g(x) = -\frac{1}{2}(x_i-\mu)^T\Sigma^{-1}(x_i-\mu)-\frac{d}{2}ln2\pi-\frac{1}{2}ln|\Sigma|+lnp(\omega_i)<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(1)Case $\Sigma_i = \sigma^2I$</strong></p>
-<p>$$<br>g(x)=-\frac{1}{2\sigma^2}(X^TX-2\mu_i^TX+\mu_i^T\mu_i) + lnp(\omega_i) = \omega_i^TX+\omega_{i0} \implies linear<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Hyperplanes</strong>:</p>
-<p>$$<br>\begin{aligned}<br>g_i(x) = g_j(x)<br>\end{aligned}<br>$$</p>
-<p>$$<br>0 = (\frac{\mu_i-\mu_j}{\sigma^2})^Tx - \frac{\mu_i^T\mu_i - \mu_j^T\mu_j}{2\sigma^2} + ln\frac{p(\omega_i)}{p(\omega_j)}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(2)Case $\Sigma_i = \Sigma$, 即所有类的cov矩阵是相同的</strong></p>
-<p>$$<br>g_i(x) = \mu_i^T\Sigma^{-1}x-\frac{1}{2}\mu_i^T\Sigma^{-1}\mu_i + lnp(\omega_i) \implies linear<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(3)Case $\Sigma_i = arbitary$</strong></p>
-<p>$$<br>g_i(x) = x^T\omega_ix+\omega_i^Tx + \omega_{i0} \implies Quadratic<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在实际对后台数据库当中的数据运行该后处理模块时候，可以很明显的看到CSDN当中爬取到的博客文章被删掉了一半左右，因为真的很多转载的和抄袭的博客文章在其中，而对于<code>stackoverflow</code>这种大型的正规的QA网站，基本没有过滤掉很多是因为相似度超过阈值的这种文章，技术水平还是可以的，至少平时在看CSDN里的技术博客都会有这种感受，真的相似或者完全相同的文章太多了！！！<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 另外需要提一点的就是simhash算法对于短文本的表现并不是很好，因为短文本进行分词之后，词语本身就很少，所以很大程度的影响了后面的hashing过程。不过在我们这次的项目当中都是内容比较多的文本，所以simhash算法的效果还是挺不错的 :）</p>
+<hr>
 <br>
 
+<h4 id="摘要生成算法TextRank"><a href="#摘要生成算法TextRank" class="headerlink" title="摘要生成算法TextRank"></a>摘要生成算法TextRank</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>TextRank</code>是一种基于无向图的无监督算法，可以用来进行<code>关键字提取</code>与<code>文章摘要生成</code>等工作。TextRank算法的前身是Google为网页排序而提出的<code>PageRank</code>的算法。<a href="https://zh.wikipedia.org/wiki/PageRank" target="_blank" rel="noopener">PageRank</a>的主要思想也是基于图论的方法，用网页之间的链接来形成庞大的有向图，图中的边权重代表的是从用户从某个网页进入到另一个网页的概率，然后进行迭代更新，得到rank最大的那些网站显示。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>TextRank</code>的思想和<code>PageRank</code>很像，算法的主要流程由如下这几点组成：</p>
 <ul>
-<li><strong>Error Probabilities</strong></li>
+<li>文本分割为句子</li>
+<li>对分割出来的句子进行向量化,其中也包括了stopwords、词性的过滤步骤</li>
+<li>确定不同句子之间是否存在边，这个利用的是类似滑动窗口的方法，在固定长度K的窗口当中，如果共同出现n个单词，我们就认为这两个句子之间存在边。一般情况下n取2.</li>
+<li>计算不同句子之间的相似度，用句子之间的相似度充当无向图当中边的权重</li>
+<li>构造相似度矩阵</li>
+<li>构造无向图，其中节点是每一个分割出来的句子，每条边的权重是不同句子之间的相似度</li>
+<li>迭代更新TextRank的值，直到最后无向图中节点的TextRank值收敛</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这一个part会展示为什么选用后验是一个最优的策略，首先我们看两分类的问题：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(1)two-classes</strong></p>
-<p>$$<br>\begin{aligned}<br>p(error) &amp;= p(x\in R_2, \omega_1) + p(x\in R_1, \omega_2) \\<br>&amp;= p(x\in R_2|\omega_1)p(\omega_1) + p(x\in R_1|\omega_2)p(\omega_2) \\<br>&amp;= \int_{x\in R_2}p(x|\omega_1)p(\omega_1) + \int_{x\in R_1}p(x|\omega_2)p(\omega_2)<br>\end{aligned}<br>$$</p>
-<p><img src="/2019/06/29/machine-learning-1-DM-and-Bayesian/2.png" alt></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>(2)multi-classes</strong></p>
-<p>$$<br>p(correct) = \sum_{i=1}^c \int_{x\in R_i}p(x|\omega_i)p(\omega_i)<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于每个句子节点的TextRank值的计算公式如下：</p>
+<p>$$<br>TR(V_i)=(1-d)+d*\sum_{V_j\in In(V_i)} \frac{\omega_{ji}}{\sum_{V_k \in Out(V_j)} \omega_{jk}} * TR(V_j)<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中变量$d$表示的是阻尼系数，主要是为了避免有的节点和别的节点之间没有边而出现的<code>TextRank</code>值为0的情况。$\omega_{ik}$代表的就是$i, k$两个句子节点之间的权重值。之后只要根据更新公式进行迭代计算直至收敛即可，然后选取<code>TextRank</code>值最高的几个节点对应的句子，就能形成整篇文档的摘要，实现了自动摘要生成的功能。具体的流程如下所示：</p>
+<div align="center">
+<img src="/2019/07/16/data-processing/3.png">
+</div>
+
 <br>
 
-<ul>
-<li><strong>Naive Bayes classifier</strong></li>
-</ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 经过前面的一系列铺垫之后，我们引入今天的最后一个主题，<strong>朴素贝叶斯分类器</strong>。思想非常朴素，就是利用的后验来进行决策。而后验正比似然乘上先验，先验知识很容易从数据当中得到，似然则假设的是不同featrues之间是不相关的，也即：</p>
-<p>$$<br>p(\omega_i|x) \propto p(x|\omega_i)p(\omega_i) = p(x_1|\omega_i)p(x_2|\omega_i)…p(x_n|\omega_i)p(\omega_i)<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 到这里之后，我们只需要对每一个featrue进行一个似然的估计就可以了，根据数据的形式分为两种情况：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>1)离散值：</strong> 在$\omega_i$类别当中直接数数量除一下就可以得到似然的值。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>2)连续值：</strong> 这种情况之下假设$\omega_i$的数据符合高斯分布，分别去计算mean $\mu$ 和方差 $\sigma^2$, 然后用学到的高斯模型对输入的数据进行似然计算即可。</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 最后要提一点就是<code>拉普拉斯平滑</code>，为什么要做平滑呢，因为在离散值的时候，很可能输入的数据在数据集当中是不存在，那么这个时候根据先前的计算公式计算得出该项为0，使得整个连乘的后验概率均为0，显然这是不合理的一种计算方法，所以我们需要进行平滑处理，具体的平滑操作是, 其中的K为$\omega_k$类当中总的类别数目：</p>
-<p>$$<br>p(x_i|\omega_k) = \frac{|x_{ik}|+1}{N_{\omega_k}+K}<br>$$</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不过稍微有些遗憾的是，我并没有在我们的项目当中再造轮子实现TextRank算法，要是时间能再长一点可以尝试着实现一波TextRank算法。在我们项目当中使用的是一个开源项目<a href="https://github.com/letiantian/TextRank4ZH" target="_blank" rel="noopener">textrank4zh</a>, 这个项目使用的自动摘要算法就是使用的TextRank的算法实现。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当然这种方法的速度比较慢，毕竟需要针对全文构建一张无向图，然后在无向图上进行迭代更新，所以实际运行的时候，很大一部分时间是花费在自动摘要生成上面，大概一篇文章2秒左右的生成时间，所以我们花了一晚上的时间对所有收集到的文章进行自动摘要。当然我们也不能保证TextRank就能生成最准确的摘要信息，所以以后有机会去调研其他的摘要生成、关键词生成的算法和研究。</p>
+<hr>
 <br>
 
-<h3 id="3-Summary-for-Naive-Bayes"><a href="#3-Summary-for-Naive-Bayes" class="headerlink" title="3. Summary for Naive Bayes"></a>3. Summary for Naive Bayes</h3><ul>
-<li>Robust to isolated noise points</li>
-<li>Handle missing values by ignoring the instance during probability estimate calculations</li>
-<li>Robust to irrelevant attributes</li>
-<li><strong>Independence assumption may not hold for some attributes</strong></li>
-</ul>
+<h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在这篇小论文当中，我主要是阐述了本次项目当中实际运用到的<code>simhash</code>和<code>textrank</code>两个算法。当然其实这两个算法都有一定的年头了，在实际的效果上比不上现在大热的NLP技术。不过这次项目能够让我在短时间内完成整个数据获取和数据清洗加工的过程，并且去了解相关的算法研究，我觉得还是有一定的价值和意义的。</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 之后如果有时间的话，可以对其他的相似度计算和摘要生成、关键字生成的算法进行调研、研究，相信对之后的科研生活有一定帮助的。</p>
+<br>
+
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><ol>
+<li><a href="https://blog.csdn.net/wotui1842/article/details/80351386" target="_blank" rel="noopener">TextRank算法的基本原理及textrank4zh使用实例</a></li>
+<li><a href="https://www.letiantian.me/2014-12-01-text-rank/" target="_blank" rel="noopener">使用TextRank算法为文本生成关键字和摘要</a></li>
+<li><a href="https://www2007.org/papers/paper215.pdf" target="_blank" rel="noopener">Detecting Near-Duplicates for Web Crawling</a></li>
+<li><a href="https://dl.acm.org/citation.cfm?id=509965" target="_blank" rel="noopener">Similarity estimation techniques from rounding algorithms</a></li>
+<li><a href="https://wizardforcel.gitbooks.io/the-art-of-programming-by-july/content/06.03.html" target="_blank" rel="noopener">simhash算法</a></li>
+</ol>
 
       
     </div>
@@ -590,7 +618,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine-learning</a>
+            <a href="/tags/data-processing/" rel="tag"><i class="fa fa-tag"></i> data-processing</a>
           
         </div>
       
@@ -603,8 +631,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/23/python-basic/" rel="next" title="python-basic">
-                <i class="fa fa-chevron-left"></i> python-basic
+              <a href="/2019/07/06/machine-learning-4-Kernel-Function/" rel="next" title="machine-learning-4-Kernel-Function">
+                <i class="fa fa-chevron-left"></i> machine-learning-4-Kernel-Function
               </a>
             
           </div>
@@ -612,10 +640,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/01/Beauty-of-Mathematics/" rel="prev" title="Beauty-of-Mathematics">
-                Beauty-of-Mathematics <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -798,7 +822,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-What-is-machine-learning"><span class="nav-number">1.</span> <span class="nav-text">1. What is machine learning</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Two-kinds-of-problems"><span class="nav-number">1.1.</span> <span class="nav-text">Two kinds of problems</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Bayesian"><span class="nav-number">2.</span> <span class="nav-text">2. Bayesian</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Summary-for-Naive-Bayes"><span class="nav-number">3.</span> <span class="nav-text">3. Summary for Naive Bayes</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#课程论文简述"><span class="nav-number">1.</span> <span class="nav-text">课程论文简述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本相似度处理"><span class="nav-number">2.</span> <span class="nav-text">文本相似度处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要生成算法TextRank"><span class="nav-number">3.</span> <span class="nav-text">摘要生成算法TextRank</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#小结"><span class="nav-number">4.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
