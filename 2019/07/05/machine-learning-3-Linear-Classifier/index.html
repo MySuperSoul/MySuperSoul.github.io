@@ -6,12 +6,12 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-<meta name="google-site-verification" content="7LSmUZy8Q4YDUNKKdehjSOm19BfZkmsgS9hDwrgVWOo">
+<meta name="google-site-verification" content="7LSmUZy8Q4YDUNKKdehjSOm19BfZkmsgS9hDwrgVWOo" />
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 <style>
@@ -35,8 +35,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="machine-learning,">
+  <meta name="keywords" content="machine-learning," />
 
 
 
@@ -95,21 +95,20 @@
 
 
 <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是supervised learning当中的一个regression问题，那还剩下另外一个比较重要的问题：classification.所以在这一篇文章当中，会主要介绍logistic model和SVM两种linear classifier.">
-<meta name="keywords" content="machine-learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="machine-learning-3-Linear-Classifier">
 <meta property="og:url" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/index.html">
 <meta property="og:site_name" content="Huangyifei&#39;s world">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是supervised learning当中的一个regression问题，那还剩下另外一个比较重要的问题：classification.所以在这一篇文章当中，会主要介绍logistic model和SVM两种linear classifier.">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/1.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/4.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/2.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/3.png">
-<meta property="og:updated_time" content="2019-07-06T13:09:51.932Z">
+<meta property="article:published_time" content="2019-07-05T15:18:13.000Z">
+<meta property="article:modified_time" content="2019-07-06T13:09:51.932Z">
+<meta property="article:author" content="huangyifei">
+<meta property="article:tag" content="machine-learning">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="machine-learning-3-Linear-Classifier">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是supervised learning当中的一个regression问题，那还剩下另外一个比较重要的问题：classification.所以在这一篇文章当中，会主要介绍logistic model和SVM两种linear classifier.">
 <meta name="twitter:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/1.png">
 
 
@@ -140,7 +139,7 @@
 
 
 
-  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/">
+  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/"/>
 
 
 
@@ -156,7 +155,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -165,17 +164,17 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <a href="https://github.com/MySuperSoul" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/MySuperSoul" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Huangyifei's world</span>
         <span class="logo-line-after"><i></i></span>
@@ -203,9 +202,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -213,9 +212,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -223,9 +222,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -233,9 +232,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,9 +242,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -258,7 +257,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -279,7 +278,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -320,7 +321,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangyifei">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4">
     </span>
 
@@ -356,7 +357,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -459,84 +460,81 @@
       
         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是<code>supervised learning</code>当中的一个<code>regression</code>问题，那还剩下另外一个比较重要的问题：<code>classification</code>.所以在这一篇文章当中，会主要介绍<code>logistic model</code>和<code>SVM</code>两种<code>linear classifier</code>.</p>
 <a id="more"></a>
-
 <h3 id="Sigmoid-function-logistic-function"><a href="#Sigmoid-function-logistic-function" class="headerlink" title="Sigmoid function (logistic function)"></a>Sigmoid function (logistic function)</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sigmoid function 是 logistic regression当中最重要的一个元函数。我们也叫它<code>S型函数</code>：</p>
-<p>$$<br>\sigma(t) = \frac{e^t}{1+e^t} = \frac{1}{1+e^{-t}}<br>$$</p>
-<img src="/2019/07/05/machine-learning-3-Linear-Classifier/1.png" style="width: 50%">
-
-<br>
-
+<script type="math/tex; mode=display">
+\sigma(t) = \frac{e^t}{1+e^t} = \frac{1}{1+e^{-t}}</script><p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/1.png" style="width: 50%"></p>
+<p><br></p>
 <h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 逻辑斯蒂回归是一种<code>classification</code>的方法，利用的就是sigmoid function来进行classify. Logistic Regression的主要形式如下：</p>
-<p>$$<br>p(y_i=\pm1|x_i, a) = \sigma(y_ia^Tx_i) = \frac{1}{1+e^{-y_ia^Tx_i}}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 然后对于数据我们同样使用的<code>MLE</code>的方法来估计参数$a$.</p>
-<p>$$<br>l(p(D)) = -\sum_{i \in I}\log(1+e^{-y_ia^Tx_i})<br>$$</p>
-<p>$$<br>E(a) = \sum_{i \in I}\log(1+e^{-y_ia^Tx_i})<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 但是注意的是$E(a)$是一个non-convex function对于参数$a$而言。换言之这里直接求导是没用的，所以我们引入一个新的求参数最值的方法：<a href="https://zh.wikipedia.org/zh-hans/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" target="_blank" rel="noopener">Gradient descent</a></p>
-<br>
-
+<script type="math/tex; mode=display">
+p(y_i=\pm1|x_i, a) = \sigma(y_ia^Tx_i) = \frac{1}{1+e^{-y_ia^Tx_i}}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 然后对于数据我们同样使用的<code>MLE</code>的方法来估计参数$a$.</p>
+<script type="math/tex; mode=display">
+l(p(D)) = -\sum_{i \in I}\log(1+e^{-y_ia^Tx_i})</script><script type="math/tex; mode=display">
+E(a) = \sum_{i \in I}\log(1+e^{-y_ia^Tx_i})</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 但是注意的是$E(a)$是一个non-convex function对于参数$a$而言。换言之这里直接求导是没用的，所以我们引入一个新的求参数最值的方法：<a href="https://zh.wikipedia.org/zh-hans/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" target="_blank" rel="noopener">Gradient descent</a></p>
+<p><br></p>
 <h3 id="Gradient-descent"><a href="#Gradient-descent" class="headerlink" title="Gradient descent"></a>Gradient descent</h3><ul>
 <li>first order optimization problem (通过求解一阶导可以求解)</li>
 <li>Can find a <code>local optimum</code></li>
 <li>梯度相反方向：<code>local minimum</code>, 梯度方向：<code>local maximum</code></li>
 </ul>
-<p>$$<br>\begin{aligned}<br>\omega_{n+1} = \omega_n - \gamma \nabla J(\omega_n) &amp;&amp; n \ge 0<br>\end{aligned}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其实这只是一阶导下面的梯度下降的方法，我们来看一看为什么可以进行梯度下降，或者说梯度下降为什么会work呢？</p>
-<p>$$<br>E(a+\triangle a) = E(a) + E’ (a)\triangle a + E’’ (a)\frac{(\triangle a)^2}{2!} + …<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是大家很熟悉的拉格朗日展开，如果我们只取前两项进行估计，则有$E(a)+E’ (a)\triangle a \implies \triangle a = -\eta E’ (a)$.</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\omega_{n+1} = \omega_n - \gamma \nabla J(\omega_n) && n \ge 0
+\end{aligned}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其实这只是一阶导下面的梯度下降的方法，我们来看一看为什么可以进行梯度下降，或者说梯度下降为什么会work呢？</p>
+<script type="math/tex; mode=display">
+E(a+\triangle a) = E(a) + E' (a)\triangle a + E'' (a)\frac{(\triangle a)^2}{2!} + ...</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是大家很熟悉的拉格朗日展开，如果我们只取前两项进行估计，则有$E(a)+E’ (a)\triangle a \implies \triangle a = -\eta E’ (a)$.</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果是采用前三项进行估计，那么这个叫做<code>牛顿法估计</code>，那么在这种估计之下我们会有：</p>
-<p>$$<br>E’ (a)\triangle a + E’’ (a)\frac{(\triangle a)^2}{2!} \implies E’ (a)+E’’ (a)\triangle a = 0 \implies \triangle a = -\frac{E’ (a)}{E’’ (a)}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于牛顿法求梯度下降更通用的写法如下所示，本质也就是上面式子推导而来：</p>
-<p>$$<br>\triangle a = -\eta [HE(a)]^{-1} E’ (a)<br>$$</p>
-<br>
-
+<script type="math/tex; mode=display">
+E' (a)\triangle a + E'' (a)\frac{(\triangle a)^2}{2!} \implies E' (a)+E'' (a)\triangle a = 0 \implies \triangle a = -\frac{E' (a)}{E'' (a)}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于牛顿法求梯度下降更通用的写法如下所示，本质也就是上面式子推导而来：</p>
+<script type="math/tex; mode=display">
+\triangle a = -\eta [HE(a)]^{-1} E' (a)</script><p><br></p>
 <h3 id="Regularized-Logistic-Regression"><a href="#Regularized-Logistic-Regression" class="headerlink" title="Regularized Logistic Regression"></a>Regularized Logistic Regression</h3><ul>
 <li><strong>L2-Regularizer</strong></li>
 <li><strong>L1-Regularizer</strong> (Sparse Logistic Regression)</li>
 </ul>
-<p>$$<br>E(a) = \sum_{i \in I}\log(1+e^{-y_ia^Tx_i}) + \lambda\sum_{j=1}^p(a_j^2)<br>$$</p>
-<br>
-
+<script type="math/tex; mode=display">
+E(a) = \sum_{i \in I}\log(1+e^{-y_ia^Tx_i}) + \lambda\sum_{j=1}^p(a_j^2)</script><p><br></p>
 <h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们知道，对于一个线性可分的数据集，他的solution vector $a$ 可以有无数条，只要能够将两种数据给分开就行。那么我们就想，这么多个solution vector当中，哪条是最优的呢？这就引出今天的另一位主角，就是<a href="https://zh.wikipedia.org/wiki/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA" target="_blank" rel="noopener">SVM-solution vector machine</a>, 也称为<code>large margin classifier</code>.</p>
 <ul>
 <li><strong>Geometrical Margin</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 已知solution vector $\omega$, 如何计算任意一个点x到分割面的距离呢：<br><img src="/2019/07/05/machine-learning-3-Linear-Classifier/4.png" style="width: 40%"></p>
-<p>$$<br>x = x_0+\frac{y\gamma\omega}{||\omega||}<br>$$</p>
-<p>$$<br>\omega^Tx = \omega^T(x_0+\frac{y\gamma\omega}{||\omega||}) + b = 0<br>$$</p>
-<p>$$<br>\implies \gamma = y\frac{\omega^Tx+b}{||\omega||}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的$\gamma$就被称为<code>Geometrical Margin</code>, 从上面的式子当中我们很容易看出来其实$|f(x)|$就可以衡量不同点到分割面之间的距离。</p>
-<br>
-
+<script type="math/tex; mode=display">
+x = x_0+\frac{y\gamma\omega}{||\omega||}</script><script type="math/tex; mode=display">
+\omega^Tx = \omega^T(x_0+\frac{y\gamma\omega}{||\omega||}) + b = 0</script><script type="math/tex; mode=display">
+\implies \gamma = y\frac{\omega^Tx+b}{||\omega||}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的$\gamma$就被称为<code>Geometrical Margin</code>, 从上面的式子当中我们很容易看出来其实$|f(x)|$就可以衡量不同点到分割面之间的距离。</p>
+<p><br></p>
 <ul>
 <li><strong>Margin of dataset</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们把一个数据集的Margin规定为数据集当中到分割面最小的$\gamma$称为数据集的Margin. 然后我们的target同理也可以变为：Find the hyperplane with the largest margin. 同时我们把那些决定hyperplane的点称为<code>support vectors</code>, 因为远的点对dataset margin没有任何影响，而只有那些组成dataset margin的点才是我们需要关注的点。</p>
-<p>$$<br>max_{\omega, b}\gamma = max_{\omega, b}\frac{y(\omega^Tx+b)}{||\omega||}(\gamma_i \ge \gamma)<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 因为在这里$\omega$是可以进行任意缩放的，并不会对hyperlane造成任何的影响，所以做一个处理，Fix $y(\omega^Tx+b) = 1 \implies \gamma ||\omega|| = 1$</p>
-<p>$$<br>max_{\omega, b}\frac{y(\omega^Tx+b)}{||\omega||} = max\frac{1}{||\omega||}<br>$$</p>
-<p>$$<br>\gamma_i = \frac{y_i(\omega^Tx_i+b)}{||\omega||} \ge \gamma \implies y_i(\omega^Tx_i+b) \ge 1<br>$$</p>
-<p>$$<br>max\frac{1}{||\omega||} \implies min\frac{1}{2}||\omega^2||<br>$$</p>
-<p>$$<br>\begin{aligned}<br>min\frac{1}{2}||\omega^2|| &amp;&amp; s.t. &amp;&amp; y_i(\omega^Tx_i+b) \ge 1<br>\end{aligned}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以我们最后的优化目标就变成了上面这个式子了！但是这个式子有一个很明显的weakness：容易受到噪声noise的影响，<code>因为是不允许任何出错的情况的</code>，我们可以看一下如果有一个分类错误的，会影响整个hyperlane的选取：</p>
-<img src="/2019/07/05/machine-learning-3-Linear-Classifier/2.png" style="width: 40%">
-
-<br>
-
+<script type="math/tex; mode=display">
+max_{\omega, b}\gamma = max_{\omega, b}\frac{y(\omega^Tx+b)}{||\omega||}(\gamma_i \ge \gamma)</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 因为在这里$\omega$是可以进行任意缩放的，并不会对hyperlane造成任何的影响，所以做一个处理，Fix $y(\omega^Tx+b) = 1 \implies \gamma ||\omega|| = 1$</p>
+<script type="math/tex; mode=display">
+max_{\omega, b}\frac{y(\omega^Tx+b)}{||\omega||} = max\frac{1}{||\omega||}</script><script type="math/tex; mode=display">
+\gamma_i = \frac{y_i(\omega^Tx_i+b)}{||\omega||} \ge \gamma \implies y_i(\omega^Tx_i+b) \ge 1</script><script type="math/tex; mode=display">
+max\frac{1}{||\omega||} \implies min\frac{1}{2}||\omega^2||</script><script type="math/tex; mode=display">
+\begin{aligned}
+min\frac{1}{2}||\omega^2|| && s.t. && y_i(\omega^Tx_i+b) \ge 1
+\end{aligned}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以我们最后的优化目标就变成了上面这个式子了！但是这个式子有一个很明显的weakness：容易受到噪声noise的影响，<code>因为是不允许任何出错的情况的</code>，我们可以看一下如果有一个分类错误的，会影响整个hyperlane的选取：</p>
+<p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/2.png" style="width: 40%"></p>
+<p><br></p>
 <ul>
 <li><strong>Slack variables</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 为了解决上面的问题，我们引入一个<code>slack variable</code>, 即这个时候我们允许一些犯错，所以我们的新的objective function为：</p>
-<p>$$<br>min_{\omega, b}\frac{1}{2}||\omega^2||+c\sum_{i=1}^n\xi_i<br>$$</p>
-<p>$$<br>\begin{aligned}<br>y_i(\omega^Tx_i+b) \ge 1-\xi_i &amp;&amp; \xi_i \ge 0 \implies \xi_i = max[0, 1-y_i(\omega^Tx_i+b)]<br>\end{aligned}<br>$$</p>
-<p>$$<br>E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||<br>$$</p>
-<br>
-
+<script type="math/tex; mode=display">
+min_{\omega, b}\frac{1}{2}||\omega^2||+c\sum_{i=1}^n\xi_i</script><script type="math/tex; mode=display">
+\begin{aligned}
+y_i(\omega^Tx_i+b) \ge 1-\xi_i && \xi_i \ge 0 \implies \xi_i = max[0, 1-y_i(\omega^Tx_i+b)]
+\end{aligned}</script><script type="math/tex; mode=display">
+E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</script><p><br></p>
 <ul>
 <li><strong>General formulation of classifiers</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不知道有没有发现，我们之前阐述的objective function都有一个共性，也即<code>Loss function + Regularizer</code>, 即$min\sum_{i=1}^nl(f) + \lambda R(f)$. 所以我们可以总结出这几种loss：</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>square loss</code>: $l = (1-yf)^2$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>logistic loss</code>: $l = log(1+e^{-yf})^2$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>Hinge loss</code>: $l = max[0, 1-yf]$</p>
-<img src="/2019/07/05/machine-learning-3-Linear-Classifier/3.png" style="width: 50%">
+<p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/3.png" style="width: 50%"></p>
+
       
     </div>
     
@@ -647,7 +645,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4" alt="huangyifei">
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4"
+                alt="huangyifei" />
             
               <p class="site-author-name" itemprop="name">huangyifei</p>
               <p class="site-description motion-element" itemprop="description">huangyifei0910@gmail.com</p>
@@ -658,7 +658,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
@@ -682,7 +682,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -812,7 +812,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共20.3k字</span>
+  <span class="post-count">博客全站共20.8k字</span>
 </div>
 
         
@@ -1454,5 +1454,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

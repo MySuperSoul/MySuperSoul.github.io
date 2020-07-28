@@ -6,12 +6,12 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
-<meta name="google-site-verification" content="7LSmUZy8Q4YDUNKKdehjSOm19BfZkmsgS9hDwrgVWOo">
+<meta name="google-site-verification" content="7LSmUZy8Q4YDUNKKdehjSOm19BfZkmsgS9hDwrgVWOo" />
 <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
 <link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 <style>
@@ -35,8 +35,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="data-processing,">
+  <meta name="keywords" content="data-processing," />
 
 
 
@@ -95,20 +95,19 @@
 
 
 <meta name="description" content="这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是simhash算法，Google在用的海量网页去重的算法，另一种是textrank算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。">
-<meta name="keywords" content="data-processing">
 <meta property="og:type" content="article">
 <meta property="og:title" content="data-processing">
 <meta property="og:url" content="http://mysupersoul.github.io/2019/07/16/data-processing/index.html">
 <meta property="og:site_name" content="Huangyifei&#39;s world">
 <meta property="og:description" content="这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是simhash算法，Google在用的海量网页去重的算法，另一种是textrank算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/1.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/2.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/3.png">
-<meta property="og:updated_time" content="2019-07-16T11:53:04.065Z">
+<meta property="article:published_time" content="2019-07-16T11:48:08.000Z">
+<meta property="article:modified_time" content="2019-07-16T11:53:04.065Z">
+<meta property="article:author" content="huangyifei">
+<meta property="article:tag" content="data-processing">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="data-processing">
-<meta name="twitter:description" content="这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是simhash算法，Google在用的海量网页去重的算法，另一种是textrank算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。">
 <meta name="twitter:image" content="http://mysupersoul.github.io/2019/07/16/data-processing/1.png">
 
 
@@ -139,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/16/data-processing/">
+  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/16/data-processing/"/>
 
 
 
@@ -155,7 +154,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -164,17 +163,17 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <a href="https://github.com/MySuperSoul" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/MySuperSoul" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Huangyifei's world</span>
         <span class="logo-line-after"><i></i></span>
@@ -202,9 +201,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -212,9 +211,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -222,9 +221,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -232,9 +231,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -242,9 +241,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -257,7 +256,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -278,7 +277,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -319,7 +320,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangyifei">
-      <meta itemprop="description" content>
+      <meta itemprop="description" content="">
       <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4">
     </span>
 
@@ -355,7 +356,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -458,10 +459,8 @@
       
         <p>这是本次项目实训课程当中，我所负责的数据后处理模块所实际使用的两种算法。一种是<code>simhash</code>算法，Google在用的海量网页去重的算法，另一种是<code>textrank</code>算法，用于进行关键词提取、文档自动摘要等算法。在这里对这两种算法进行相关的阐述。</p>
 <a id="more"></a>
-
 <h4 id="课程论文简述"><a href="#课程论文简述" class="headerlink" title="课程论文简述"></a>课程论文简述</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 因为在本次实现的搜索引擎项目当中，我主要负责的就是各类数据的获取，以及主要的数据后处理工作。爬虫部分感觉没有什么好讲的，通过<code>scrapy</code>和<code>selenium</code>、<code>requests</code>, 对于一般的网站爬取工作都可以胜任，不过为了应对很多网站的反爬虫策略，我们自己实现的IP池还是有亮点的，不过不是我写的所以我这里就不展开。我觉得比较有特色是数据后处理部分，在得到数据之后必要的工作是需要对数据进行清洗和加工，所以我主要选取了项目当中在用的<code>simhash</code>文本相似度过滤算法和<code>textrank</code>自动摘要算法来写本次的课程论文。</p>
-<br>
-
+<p><br></p>
 <h4 id="文本相似度处理"><a href="#文本相似度处理" class="headerlink" title="文本相似度处理"></a>文本相似度处理</h4><ol>
 <li><strong>文本距离</strong></li>
 </ol>
@@ -470,28 +469,26 @@
 <li><strong>欧几里得距离</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 欧几里得距离又称<a href="https://zh.wikipedia.org/wiki/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB" target="_blank" rel="noopener">欧氏距离</a>。是我们实际当中使用非常频繁的一种距离计算方式。在欧氏空间当中，两个点$x=(x_1, x_2, …, x_n), y=(y_1, y_2, …, y_n)$之间的欧氏距离可以表示为:</p>
-<p>$$<br>d(x, y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+d(x, y) = \sqrt{\sum_{i=1}^n(x_i - y_i)^2}</script><ul>
 <li><strong>曼哈顿距离</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://zh.wikipedia.org/wiki/%E6%9B%BC%E5%93%88%E9%A0%93%E8%B7%9D%E9%9B%A2" target="_blank" rel="noopener">曼哈顿距离</a>是用来在欧氏空间标明两个点在标准坐标系上的绝对轴距总和的一种距离度量方式。从几何的角度来看，<code>欧氏距离</code>度量的是两个点的实际距离，<code>曼哈顿距离</code>度量的是两个点的绝对轴之间的距离。例如在直角坐标系当中$x=(x_1, x_2), y=(y_1, y_2)$, 那么两个点之间的曼哈顿距离表示为：</p>
-<p>$$<br>d(x, y) = |x_1-y_1| + |x_2 - y_2|<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+d(x, y) = |x_1-y_1| + |x_2 - y_2|</script><ul>
 <li><strong>余弦距离</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://zh.wikipedia.org/wiki/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E6%80%A7" target="_blank" rel="noopener">余弦距离</a> 是通过计算两个向量之间夹角余弦值来衡量两个向量之间相似度的一种常用的方法。我们都知道如果两个向量之间的夹角越小，余弦值就越接近1.所以我们可以通过计算两个向量的余弦夹角来衡量两个向量之间的相似度。给定两个向量$A, B$， 他们余弦距离衡量公式如下：</p>
-<p>$$<br>similarity(A, B) = \cos(A, B) = \frac{\sum_{i=1}^n A_i \cdot B_i}{\sum_{i=1}^n(A_i)^2 \cdot \sum_{i=1}^n(B_i)^2}<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果<code>similarity</code>越接近1，我们认为这两个向量之间的距离越小，也即相似度也就越高。</p>
+<script type="math/tex; mode=display">
+similarity(A, B) = \cos(A, B) = \frac{\sum_{i=1}^n A_i \cdot B_i}{\sum_{i=1}^n(A_i)^2 \cdot \sum_{i=1}^n(B_i)^2}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果<code>similarity</code>越接近1，我们认为这两个向量之间的距离越小，也即相似度也就越高。</p>
 <ul>
 <li><strong>海明距离(Hamming distance)</strong></li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="https://zh.wikipedia.org/wiki/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB" target="_blank" rel="noopener">海明距离</a>又称<code>Hamming distance</code>. 是在编码领域常用的一种距离度量的方法。而且方法和思想非常的朴素，相信大家之前在<code>计算机网络</code>课程当中已经接触过海明码的概念。海明距离对于二进制的字符串之间的计算，非常简单，就是直接计算所有位上，不同的码字的数量。例如<code>1011101</code>与<code>1001001</code>之间的汉明距离是2. 虽然hamming distance的思路非常简单，但是它在很多领域当中都有着非常重要的作用，在之后我会介绍的，在我们<a href="https://github.com/MySuperSoul/SearchEngine/tree/master/post-processors/common" target="_blank" rel="noopener">搜索引擎项目</a>当中使用的文本相似度算法就是利用了hamming distance来进行计算相似度。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 同时因为hamming distance对于0，1字符串的度量有非常快速的算法，之间通过位运算的方式可以快速的求得两个0, 1字符串之间的海明距离，在我们后处理当中，就是利用这种方法能够快速进行hamming distance计算：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">params:</span></span><br><span class="line"><span class="string">    code_1 -&gt; str: first hamming code</span></span><br><span class="line"><span class="string">    code_2 -&gt; str: second hamming code</span></span><br><span class="line"><span class="string">    hash_bits -&gt; int: number of the length of two hamming code</span></span><br><span class="line"><span class="string">return:</span></span><br><span class="line"><span class="string">    ans -&gt; int: hamming distance of two hamming code</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">HammingDistance</span><span class="params">(self, code_1, code_2)</span>:</span></span><br><span class="line">    x = (code_1 ^ code_2) &amp; ((<span class="number">1</span> &lt;&lt; self.hash_bits) - <span class="number">1</span>)</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> x:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line">        x &amp;= x - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<ol start="2">
+<p><br></p>
+<ol>
 <li><strong>海量文本相似度算法Simhash</strong></li>
 </ol>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在这次的搜索引擎项目当中，数据后处理的首先问题就是如何对收集到的各种信息进行去重。一个最直接的方法就是根据URL使用set进行去重，当然这只是最基本的重复滤重。还有另外一种情况我们也必须要考虑到，也就是存在<code>文章转载或者抄袭</code>的情况，所以我们对于这种情况也必须进行数据的处理和滤重。</p>
@@ -533,17 +530,14 @@
 <img src="/2019/07/16/data-processing/1.png">
 </div>
 
-<br>
-
+<p><br></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于Simhash算法在实际处理海量数据时候还有很多其他的优化查询方式，比如对最后生成的hash code进行分块查询，建立倒排索引等方式加快在样本数据库当中的搜索查询速度。我们项目当中的数据数量远不及Google上的样本数量，所以并没有进行过多的优化，直接计算hamming code进行判断。在项目的后处理模块当中，我将simhash算法封装为一个类，其中使用了开源项目<a href="http://leons.im/posts/a-python-implementation-of-simhash-algorithm/" target="_blank" rel="noopener">simhash</a>来完成hash code的计算。并且当相似度超过<code>95%</code>的时候，我就认为这两篇文档是非常相似的，需要从我们的数据库当中过滤掉，具体实现可以参考我们搜索引擎项目当中的实现<a href="https://github.com/MySuperSoul/SearchEngine/blob/master/post-processors/common/SimHash.py" target="_blank" rel="noopener">SimHashFilter</a>.</p>
-<br>
-
-<ol start="3">
+<p><br></p>
+<ol>
 <li><strong>实际效果测试</strong></li>
 </ol>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在实现了simhash算法之后，我对实现的该算法进行了相关测试和性能估计。在项目当中我所用的hash_bits长度为<code>128</code>, 因为实际测试时候使用64bits的hamming code精度可能不太符合实际的需求，所以我提升到了128位的hash_bits. 测试代码和测试文本如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> common.SimHash <span class="keyword">import</span> SimHashFilter</span><br><span class="line">text1 = <span class="string">"沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，"</span> \</span><br><span class="line">    + <span class="string">"主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。"</span> \</span><br><span class="line">    + <span class="string">"从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，\</span></span><br><span class="line"><span class="string">这种动力运作的过程成–螺旋状"</span></span><br><span class="line"></span><br><span class="line">text2 = <span class="string">"沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，"</span> \</span><br><span class="line">    + <span class="string">"从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，\</span></span><br><span class="line"><span class="string">这种动力运作的过程成–螺旋状"</span> \</span><br><span class="line">+ <span class="string">"主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。"</span></span><br><span class="line"></span><br><span class="line">filter = SimHashFilter(<span class="number">128</span>)</span><br><span class="line">print(bin(filter.GetCodeForText(text1)))</span><br><span class="line">print(bin(filter.GetCodeForText(text2)))</span><br><span class="line">print(filter.IsSimilarByText(text1, text2))</span><br></pre></td></tr></table></figure>
-
 <pre><code>文本1: 
 &quot;沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，&quot;
 + &quot;主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。&quot;
@@ -554,17 +548,16 @@
 &quot;沉默螺旋模式中呈现出民意动力的来源在于人类有害怕孤立的弱点，但光害怕孤立不至于影响民意的形成，&quot;
 + &quot;从心理学的范畴来看，社会中的强势意见越来越强，甚至比实际情形还强，弱势意见越来越弱，甚至比实际情形还弱，
 这种动力运作的过程成–螺旋状&quot;
-+ &quot;主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。&quot;</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 运行结果如下，可以看到生成的128位的hash code是完全相同的，上述的文本调换了语序生成的两段文本，相似度为1，所以这两段文本会被直接过滤掉其中一段文本。</p>
++ &quot;主要是当个人觉察到自己对某论题的意见与环境中的强势意见一致（或不一致时），害怕孤立这个变项才会产生作用。&quot;
+</code></pre><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 运行结果如下，可以看到生成的128位的hash code是完全相同的，上述的文本调换了语序生成的两段文本，相似度为1，所以这两段文本会被直接过滤掉其中一段文本。</p>
 <div align="center">
 <img src="/2019/07/16/data-processing/2.png">
 </div>
 
-<br>
-
+<p><br></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在实际对后台数据库当中的数据运行该后处理模块时候，可以很明显的看到CSDN当中爬取到的博客文章被删掉了一半左右，因为真的很多转载的和抄袭的博客文章在其中，而对于<code>stackoverflow</code>这种大型的正规的QA网站，基本没有过滤掉很多是因为相似度超过阈值的这种文章，技术水平还是可以的，至少平时在看CSDN里的技术博客都会有这种感受，真的相似或者完全相同的文章太多了！！！<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 另外需要提一点的就是simhash算法对于短文本的表现并不是很好，因为短文本进行分词之后，词语本身就很少，所以很大程度的影响了后面的hashing过程。不过在我们这次的项目当中都是内容比较多的文本，所以simhash算法的效果还是挺不错的 :）</p>
 <hr>
-<br>
-
+<p><br></p>
 <h4 id="摘要生成算法TextRank"><a href="#摘要生成算法TextRank" class="headerlink" title="摘要生成算法TextRank"></a>摘要生成算法TextRank</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>TextRank</code>是一种基于无向图的无监督算法，可以用来进行<code>关键字提取</code>与<code>文章摘要生成</code>等工作。TextRank算法的前身是Google为网页排序而提出的<code>PageRank</code>的算法。<a href="https://zh.wikipedia.org/wiki/PageRank" target="_blank" rel="noopener">PageRank</a>的主要思想也是基于图论的方法，用网页之间的链接来形成庞大的有向图，图中的边权重代表的是从用户从某个网页进入到另一个网页的概率，然后进行迭代更新，得到rank最大的那些网站显示。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>TextRank</code>的思想和<code>PageRank</code>很像，算法的主要流程由如下这几点组成：</p>
 <ul>
@@ -577,23 +570,20 @@
 <li>迭代更新TextRank的值，直到最后无向图中节点的TextRank值收敛</li>
 </ul>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于每个句子节点的TextRank值的计算公式如下：</p>
-<p>$$<br>TR(V_i)=(1-d)+d*\sum_{V_j\in In(V_i)} \frac{\omega_{ji}}{\sum_{V_k \in Out(V_j)} \omega_{jk}} * TR(V_j)<br>$$</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中变量$d$表示的是阻尼系数，主要是为了避免有的节点和别的节点之间没有边而出现的<code>TextRank</code>值为0的情况。$\omega_{ik}$代表的就是$i, k$两个句子节点之间的权重值。之后只要根据更新公式进行迭代计算直至收敛即可，然后选取<code>TextRank</code>值最高的几个节点对应的句子，就能形成整篇文档的摘要，实现了自动摘要生成的功能。具体的流程如下所示：</p>
+<script type="math/tex; mode=display">
+TR(V_i)=(1-d)+d*\sum_{V_j\in In(V_i)} \frac{\omega_{ji}}{\sum_{V_k \in Out(V_j)} \omega_{jk}} * TR(V_j)</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中变量$d$表示的是阻尼系数，主要是为了避免有的节点和别的节点之间没有边而出现的<code>TextRank</code>值为0的情况。$\omega_{ik}$代表的就是$i, k$两个句子节点之间的权重值。之后只要根据更新公式进行迭代计算直至收敛即可，然后选取<code>TextRank</code>值最高的几个节点对应的句子，就能形成整篇文档的摘要，实现了自动摘要生成的功能。具体的流程如下所示：</p>
 <div align="center">
 <img src="/2019/07/16/data-processing/3.png">
 </div>
 
-<br>
-
+<p><br></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不过稍微有些遗憾的是，我并没有在我们的项目当中再造轮子实现TextRank算法，要是时间能再长一点可以尝试着实现一波TextRank算法。在我们项目当中使用的是一个开源项目<a href="https://github.com/letiantian/TextRank4ZH" target="_blank" rel="noopener">textrank4zh</a>, 这个项目使用的自动摘要算法就是使用的TextRank的算法实现。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当然这种方法的速度比较慢，毕竟需要针对全文构建一张无向图，然后在无向图上进行迭代更新，所以实际运行的时候，很大一部分时间是花费在自动摘要生成上面，大概一篇文章2秒左右的生成时间，所以我们花了一晚上的时间对所有收集到的文章进行自动摘要。当然我们也不能保证TextRank就能生成最准确的摘要信息，所以以后有机会去调研其他的摘要生成、关键词生成的算法和研究。</p>
 <hr>
-<br>
-
+<p><br></p>
 <h4 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在这篇小论文当中，我主要是阐述了本次项目当中实际运用到的<code>simhash</code>和<code>textrank</code>两个算法。当然其实这两个算法都有一定的年头了，在实际的效果上比不上现在大热的NLP技术。不过这次项目能够让我在短时间内完成整个数据获取和数据清洗加工的过程，并且去了解相关的算法研究，我觉得还是有一定的价值和意义的。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 之后如果有时间的话，可以对其他的相似度计算和摘要生成、关键字生成的算法进行调研、研究，相信对之后的科研生活有一定帮助的。</p>
-<br>
-
+<p><br></p>
 <h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><ol>
 <li><a href="https://blog.csdn.net/wotui1842/article/details/80351386" target="_blank" rel="noopener">TextRank算法的基本原理及textrank4zh使用实例</a></li>
 <li><a href="https://www.letiantian.me/2014-12-01-text-rank/" target="_blank" rel="noopener">使用TextRank算法为文本生成关键字和摘要</a></li>
@@ -712,7 +702,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4" alt="huangyifei">
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars2.githubusercontent.com/u/28039767?s=400&u=43e653f3e1abe2fa56182133d26fc581ed4b2b40&v=4"
+                alt="huangyifei" />
             
               <p class="site-author-name" itemprop="name">huangyifei</p>
               <p class="site-description motion-element" itemprop="description">huangyifei0910@gmail.com</p>
@@ -723,7 +715,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
                   <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
@@ -747,7 +739,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -877,7 +869,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共20.3k字</span>
+  <span class="post-count">博客全站共20.8k字</span>
 </div>
 
         
@@ -1519,5 +1511,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
