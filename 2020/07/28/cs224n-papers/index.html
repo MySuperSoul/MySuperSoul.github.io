@@ -106,7 +106,7 @@
 <meta property="og:image" content="http://mysupersoul.github.io/2020/07/28/cs224n-papers/3-1.png">
 <meta property="og:image" content="http://mysupersoul.github.io/2020/07/28/cs224n-papers/3-2.png">
 <meta property="article:published_time" content="2020-07-28T06:41:01.000Z">
-<meta property="article:modified_time" content="2020-07-28T14:37:53.319Z">
+<meta property="article:modified_time" content="2020-07-29T10:47:09.851Z">
 <meta property="article:author" content="huangyifei">
 <meta property="article:tag" content="cs224n">
 <meta property="article:tag" content="nlp">
@@ -462,7 +462,7 @@
       
         <p>This post will mainly contain the paper notes about the papers in cs224n course. Usually some typical papers in nlp field.<br><a id="more"></a></p>
 <hr>
-<h1 id="word2vec"><a href="#word2vec" class="headerlink" title="word2vec"></a><a href>word2vec</a></h1><h2 id="Model-Architectures"><a href="#Model-Architectures" class="headerlink" title="Model Architectures"></a>Model Architectures</h2><p>Mainly two types: NNLM and RNNLM.</p>
+<h1 id="word2vec"><a href="#word2vec" class="headerlink" title="word2vec"></a><a href="https://arxiv.org/abs/1301.3781" target="_blank" rel="noopener">word2vec</a></h1><h2 id="Model-Architectures"><a href="#Model-Architectures" class="headerlink" title="Model Architectures"></a>Model Architectures</h2><p>Mainly two types: NNLM and RNNLM.</p>
 <h2 id="New-log-linear-models"><a href="#New-log-linear-models" class="headerlink" title="New log-linear models"></a>New log-linear models</h2><h3 id="CBOW"><a href="#CBOW" class="headerlink" title="CBOW"></a>CBOW</h3><p>CBOW(continuos bag of words) model, the main idea is using context to predict the center word. Input is the context words, with one projection hidden layer, and output center word. The architecture is shown:</p>
 <div align="center">
 <img src="/2020/07/28/cs224n-papers/1-1.png" style="width: 40%">
@@ -474,7 +474,7 @@
 </div>
 
 <hr>
-<h1 id="Distributed-Representations-of-Words-and-Phrases-and-their-Compositionality"><a href="#Distributed-Representations-of-Words-and-Phrases-and-their-Compositionality" class="headerlink" title="Distributed Representations of Words and Phrases and their Compositionality"></a><a href>Distributed Representations of Words and Phrases and their Compositionality</a></h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>In this paper we present several extensions that improve both the quality of the vectors and the training speed. By <code>subsampling of the frequent words</code> we obtain significant speedup and also learn more regular word representations. We also describe a simple alternative to the <code>hierarchical softmax</code> called <code>negative sampling</code>.</p>
+<h1 id="Distributed-Representations-of-Words-and-Phrases-and-their-Compositionality"><a href="#Distributed-Representations-of-Words-and-Phrases-and-their-Compositionality" class="headerlink" title="Distributed Representations of Words and Phrases and their Compositionality"></a><a href="https://arxiv.org/abs/1310.4546" target="_blank" rel="noopener">Distributed Representations of Words and Phrases and their Compositionality</a></h1><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>In this paper we present several extensions that improve both the quality of the vectors and the training speed. By <code>subsampling of the frequent words</code> we obtain significant speedup and also learn more regular word representations. We also describe a simple alternative to the <code>hierarchical softmax</code> called <code>negative sampling</code>.</p>
 <h2 id="Skip-gram-model-1"><a href="#Skip-gram-model-1" class="headerlink" title="Skip-gram model"></a>Skip-gram model</h2><p>Try to maximize the avg log probility:</p>
 <script type="math/tex; mode=display">
 \frac{1}{T} \sum_{t=1}^{T} \sum_{-c \leq j \leq c, j \neq 0} \log p\left(w_{t+j} \mid w_{t}\right)</script><p>And the probility is calculated using softmax function:</p>
@@ -493,7 +493,7 @@ p\left(w_{O} \mid w_{I}\right)=\frac{\exp \left(v_{w o}^{\prime}{\top} v_{w_{I}}
 <script type="math/tex; mode=display">
 P\left(w_{i}\right)=1-\sqrt{\frac{t}{f\left(w_{i}\right)}}</script><p>t is a sample threshold, t is higher means the probility of discarding will go high. And $f(\omega_i)$ means the frequency of word $\omega_i$. </p>
 <hr>
-<h1 id="GloVe-Global-Vectors-for-Word-Representation"><a href="#GloVe-Global-Vectors-for-Word-Representation" class="headerlink" title="GloVe: Global Vectors for Word Representation"></a><a href>GloVe: Global Vectors for Word Representation</a></h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>There are two main families in word vector learning:</p>
+<h1 id="GloVe-Global-Vectors-for-Word-Representation"><a href="#GloVe-Global-Vectors-for-Word-Representation" class="headerlink" title="GloVe: Global Vectors for Word Representation"></a><a href="https://nlp.stanford.edu/pubs/glove.pdf" target="_blank" rel="noopener">GloVe: Global Vectors for Word Representation</a></h1><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>There are two main families in word vector learning:</p>
 <ul>
 <li><p>global matrix factorization methods, such as latent semantic analysis (LSA)</p>
 <ul>
@@ -1457,7 +1457,7 @@ f(x)=\left\{\begin{array}{cc}
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -1465,5 +1465,5 @@ f(x)=\left\{\begin{array}{cc}
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
