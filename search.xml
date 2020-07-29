@@ -240,6 +240,57 @@ noise &= \int var(y|x)p(x)dx
       </tags>
   </entry>
   <entry>
+    <title>machine-learning-4-Kernel-Function</title>
+    <url>/2019/07/06/machine-learning-4-Kernel-Function/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在前面几篇文章当中介绍的<code>Linear model</code>, <code>logistic regression</code>, <code>SVM</code>这几种supervised learning的分类器，但是他们只能handle linear的情况，对于非线性可分的情况就爱莫能助了，所以这里主要介绍kernel核方法来讨论non-linear的情况。</p>
+<a id="more"></a>
+<h3 id="Generalized-Linear-Function"><a href="#Generalized-Linear-Function" class="headerlink" title="Generalized Linear Function"></a>Generalized Linear Function</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当一组数据在当前维度下线性不可分，我们可以对这个维度的数据进行mapping，也即映射到更高维的数据，在高维的空间当中就可能是线性可分的，也就可以利用我们之间介绍的一系列的方法，下面是一个mapping的例子🌰：</p>
+<p><img src="/2019/07/06/machine-learning-4-Kernel-Function/1.png" style="width: 50%"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面我们介绍一下什么叫做<code>Generalized Linear Function</code>, 简单来说就是在linear model的基础之上，增加相关变量。也即在linear model当中我们有$[x_1, x_2, x_3]$这三个featrue，我们增加与三个feature相关的变量，也即扩展到$[x_1, x_2, x_3, x_1x_2, x_1x_3, x_2x_3]$.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接下来就是在这个新的featrue space去学一个线性的分类器即可。</p>
+<p><br></p>
+<h3 id="Quadratic-Discriminant-Function"><a href="#Quadratic-Discriminant-Function" class="headerlink" title="Quadratic Discriminant Function"></a>Quadratic Discriminant Function</h3><script type="math/tex; mode=display">
+g(x) = \omega_0 + \sum_{i=1}^d\omega_ix_i + \sum_{i=1}^d \sum_{j=1}^d \omega_{ij}x_ix_j</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $g(x) = 0$ 代表的就是一个超平面，在新的映射的featrue space里面的超平面，将数据分割成两类。</p>
+<p><br></p>
+<h3 id="Generalized-Discriminant-Function"><a href="#Generalized-Discriminant-Function" class="headerlink" title="Generalized Discriminant Function"></a>Generalized Discriminant Function</h3><script type="math/tex; mode=display">
+g(x) = \sum_{i=1}^{\hat{d}}a_iy_i(x) = a^Ty</script><script type="math/tex; mode=display">
+\begin{aligned}
+a = [a_1, a_2, ..., a_d]^T && y = [y_1(x), y_2(x), ..., y_d(x)]^T
+\end{aligned}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的mapping y叫做<code>augmented featrue vector</code>, 或者叫做<code>phi function</code>.</p>
+<p><br></p>
+<h3 id="Representer-Theorm"><a href="#Representer-Theorm" class="headerlink" title="Representer Theorm"></a>Representer Theorm</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们后面也介绍的kernel function都是建立在<a href="http://web.eecs.umich.edu/~cscott/past_courses/eecs598w14/notes/13_kernel_methods.pdf" target="_blank" rel="noopener">Representer Theorm</a>的基础之上。这里我只简单的介绍一下形式，具体形式可以查看链接当中PDF的详细介绍。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 简而言之，这个定理描述的就是，任何形如 <code>loss function + Reguralizer</code>的函数都能这样被表示：</p>
+<script type="math/tex; mode=display">
+f(x) = \sum_{i=1}^n\alpha_ik(x_i, x)</script><p><br></p>
+<h3 id="Kernelized-Ridge-Regression"><a href="#Kernelized-Ridge-Regression" class="headerlink" title="Kernelized Ridge Regression"></a>Kernelized Ridge Regression</h3><script type="math/tex; mode=display">
+\begin{aligned}
+\omega^* &= argmin\sum_{i=1}^n(y_i-x_i^T\omega)^2 + \lambda\sum_{j=1}^p \omega_j^2 \\\\
+&= (XX^T + \lambda I)^{-1}Xy \\\\
+&= X(X^TX+\lambda I)^{-1}y \\\\
+\alpha &= (X^TX+\lambda I)^{-1}y \\\\
+\omega^* &= X\alpha = \sum_{i=1}^n \alpha_ix_i
+\end{aligned}</script><script type="math/tex; mode=display">
+f(x) = \omega^Tx = \sum_{i=1}^n\alpha_ix_i^Tx = \sum_{i=1}^n \kappa(x_i, x)</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的$\kappa(x_i, x)$就是ridge regression的kernel function，只要来一个x，只需要放到这个kernel function当中计算一下就fine了。</p>
+<p><br></p>
+<h3 id="Kernels"><a href="#Kernels" class="headerlink" title="Kernels"></a>Kernels</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Let $\kappa(x_i, x) \ge 0$ be some measure of similarity of $(x_i, x)$, we will call $\kappa$ a <code>kernel function</code>. 一般来说$\kappa$都是对称的，并且是positive的，下面是一些常用的kernel function：</p>
+<ul>
+<li><strong>linear kernel</strong>: $\kappa(x, x’) = x^Tx_i$</li>
+<li><strong>Polinominal kernel:</strong> $\kappa(x, x’) = (x^Tx’ + 1)^d$</li>
+<li><strong>RBF kernel:</strong> $\kappa(x, x’) = exp(-\frac{||x-x’||^2}{2\sigma^2})$</li>
+</ul>
+<p><br></p>
+<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><ul>
+<li><strong>Non-linear function</strong></li>
+<li><strong>Works when the samples can’t represent as featrue vectors</strong></li>
+<li><strong>String kernels, graph kernels, etc.</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>machine-learning</category>
+      </categories>
+      <tags>
+        <tag>machine-learning</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>machine-learning-3-Linear-Classifier</title>
     <url>/2019/07/05/machine-learning-3-Linear-Classifier/</url>
     <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是<code>supervised learning</code>当中的一个<code>regression</code>问题，那还剩下另外一个比较重要的问题：<code>classification</code>.所以在这一篇文章当中，会主要介绍<code>logistic model</code>和<code>SVM</code>两种<code>linear classifier</code>.</p>
@@ -318,57 +369,6 @@ E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</s
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不知道有没有发现，我们之前阐述的objective function都有一个共性，也即<code>Loss function + Regularizer</code>, 即$min\sum_{i=1}^nl(f) + \lambda R(f)$. 所以我们可以总结出这几种loss：</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>square loss</code>: $l = (1-yf)^2$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>logistic loss</code>: $l = log(1+e^{-yf})^2$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>Hinge loss</code>: $l = max[0, 1-yf]$</p>
 <p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/3.png" style="width: 50%"></p>
-]]></content>
-      <categories>
-        <category>machine-learning</category>
-      </categories>
-      <tags>
-        <tag>machine-learning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>machine-learning-4-Kernel-Function</title>
-    <url>/2019/07/06/machine-learning-4-Kernel-Function/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在前面几篇文章当中介绍的<code>Linear model</code>, <code>logistic regression</code>, <code>SVM</code>这几种supervised learning的分类器，但是他们只能handle linear的情况，对于非线性可分的情况就爱莫能助了，所以这里主要介绍kernel核方法来讨论non-linear的情况。</p>
-<a id="more"></a>
-<h3 id="Generalized-Linear-Function"><a href="#Generalized-Linear-Function" class="headerlink" title="Generalized Linear Function"></a>Generalized Linear Function</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 当一组数据在当前维度下线性不可分，我们可以对这个维度的数据进行mapping，也即映射到更高维的数据，在高维的空间当中就可能是线性可分的，也就可以利用我们之间介绍的一系列的方法，下面是一个mapping的例子🌰：</p>
-<p><img src="/2019/07/06/machine-learning-4-Kernel-Function/1.png" style="width: 50%"></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 下面我们介绍一下什么叫做<code>Generalized Linear Function</code>, 简单来说就是在linear model的基础之上，增加相关变量。也即在linear model当中我们有$[x_1, x_2, x_3]$这三个featrue，我们增加与三个feature相关的变量，也即扩展到$[x_1, x_2, x_3, x_1x_2, x_1x_3, x_2x_3]$.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 接下来就是在这个新的featrue space去学一个线性的分类器即可。</p>
-<p><br></p>
-<h3 id="Quadratic-Discriminant-Function"><a href="#Quadratic-Discriminant-Function" class="headerlink" title="Quadratic Discriminant Function"></a>Quadratic Discriminant Function</h3><script type="math/tex; mode=display">
-g(x) = \omega_0 + \sum_{i=1}^d\omega_ix_i + \sum_{i=1}^d \sum_{j=1}^d \omega_{ij}x_ix_j</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $g(x) = 0$ 代表的就是一个超平面，在新的映射的featrue space里面的超平面，将数据分割成两类。</p>
-<p><br></p>
-<h3 id="Generalized-Discriminant-Function"><a href="#Generalized-Discriminant-Function" class="headerlink" title="Generalized Discriminant Function"></a>Generalized Discriminant Function</h3><script type="math/tex; mode=display">
-g(x) = \sum_{i=1}^{\hat{d}}a_iy_i(x) = a^Ty</script><script type="math/tex; mode=display">
-\begin{aligned}
-a = [a_1, a_2, ..., a_d]^T && y = [y_1(x), y_2(x), ..., y_d(x)]^T
-\end{aligned}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的mapping y叫做<code>augmented featrue vector</code>, 或者叫做<code>phi function</code>.</p>
-<p><br></p>
-<h3 id="Representer-Theorm"><a href="#Representer-Theorm" class="headerlink" title="Representer Theorm"></a>Representer Theorm</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们后面也介绍的kernel function都是建立在<a href="http://web.eecs.umich.edu/~cscott/past_courses/eecs598w14/notes/13_kernel_methods.pdf" target="_blank" rel="noopener">Representer Theorm</a>的基础之上。这里我只简单的介绍一下形式，具体形式可以查看链接当中PDF的详细介绍。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 简而言之，这个定理描述的就是，任何形如 <code>loss function + Reguralizer</code>的函数都能这样被表示：</p>
-<script type="math/tex; mode=display">
-f(x) = \sum_{i=1}^n\alpha_ik(x_i, x)</script><p><br></p>
-<h3 id="Kernelized-Ridge-Regression"><a href="#Kernelized-Ridge-Regression" class="headerlink" title="Kernelized Ridge Regression"></a>Kernelized Ridge Regression</h3><script type="math/tex; mode=display">
-\begin{aligned}
-\omega^* &= argmin\sum_{i=1}^n(y_i-x_i^T\omega)^2 + \lambda\sum_{j=1}^p \omega_j^2 \\\\
-&= (XX^T + \lambda I)^{-1}Xy \\\\
-&= X(X^TX+\lambda I)^{-1}y \\\\
-\alpha &= (X^TX+\lambda I)^{-1}y \\\\
-\omega^* &= X\alpha = \sum_{i=1}^n \alpha_ix_i
-\end{aligned}</script><script type="math/tex; mode=display">
-f(x) = \omega^Tx = \sum_{i=1}^n\alpha_ix_i^Tx = \sum_{i=1}^n \kappa(x_i, x)</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的$\kappa(x_i, x)$就是ridge regression的kernel function，只要来一个x，只需要放到这个kernel function当中计算一下就fine了。</p>
-<p><br></p>
-<h3 id="Kernels"><a href="#Kernels" class="headerlink" title="Kernels"></a>Kernels</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Let $\kappa(x_i, x) \ge 0$ be some measure of similarity of $(x_i, x)$, we will call $\kappa$ a <code>kernel function</code>. 一般来说$\kappa$都是对称的，并且是positive的，下面是一些常用的kernel function：</p>
-<ul>
-<li><strong>linear kernel</strong>: $\kappa(x, x’) = x^Tx_i$</li>
-<li><strong>Polinominal kernel:</strong> $\kappa(x, x’) = (x^Tx’ + 1)^d$</li>
-<li><strong>RBF kernel:</strong> $\kappa(x, x’) = exp(-\frac{||x-x’||^2}{2\sigma^2})$</li>
-</ul>
-<p><br></p>
-<h3 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h3><ul>
-<li><strong>Non-linear function</strong></li>
-<li><strong>Works when the samples can’t represent as featrue vectors</strong></li>
-<li><strong>String kernels, graph kernels, etc.</strong></li>
-</ul>
 ]]></content>
       <categories>
         <category>machine-learning</category>
