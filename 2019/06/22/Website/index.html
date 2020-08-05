@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next pisces use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,16 +100,17 @@
 <meta property="og:url" content="http://mysupersoul.github.io/2019/06/22/Website/index.html">
 <meta property="og:site_name" content="Huangyifei&#39;s world">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;陆陆续续写了大概两周时间的旧书交易网站终于快写完啦！！BS课程的课程项目设计，真是心力交瘁。刚好新搞了一个博客试试水，就在这里记录一些开发过程当中的感想和碰到的很多很多坑吧orz，不过还是学到很多东西的吖！">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/06/22/Website/06/22/Website/server.png">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://mysupersoul.github.io/2019/06/22/Website/server.png">
 <meta property="article:published_time" content="2019-06-22T09:16:38.000Z">
-<meta property="article:modified_time" content="2019-06-22T12:13:27.531Z">
+<meta property="article:modified_time" content="2020-08-05T09:06:26.603Z">
 <meta property="article:author" content="huangyifei">
 <meta property="article:tag" content="Django">
 <meta property="article:tag" content="docker-compose">
 <meta property="article:tag" content="websocket">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mysupersoul.github.io/2019/06/22/Website/06/22/Website/server.png">
+<meta name="twitter:image" content="http://mysupersoul.github.io/2019/06/22/Website/server.png">
 
 
 
@@ -125,7 +126,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -157,7 +158,7 @@
 
 <meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
   
   
@@ -206,7 +207,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首页
+            Home
           </a>
         </li>
       
@@ -216,7 +217,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            关于
+            About
           </a>
         </li>
       
@@ -226,7 +227,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            标签
+            Tags
           </a>
         </li>
       
@@ -236,7 +237,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-            分类
+            Categories
           </a>
         </li>
       
@@ -246,7 +247,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
-            归档
+            Archives
           </a>
         </li>
       
@@ -259,7 +260,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            搜索
+            Search
           </a>
         </li>
       
@@ -279,7 +280,7 @@
     </span>
     <div class="local-search-input-wrapper">
       <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
+             placeholder="Searching..." spellcheck="false"
              type="text" id="local-search-input">
     </div>
   </div>
@@ -344,9 +345,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-22T17:16:38+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-22T17:16:38+08:00">
                 2019-06-22
               </time>
             
@@ -365,7 +366,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">In</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -402,7 +403,7 @@
                  <i class="fa fa-eye"></i>
                </span>
                
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
+                 <span class="post-meta-item-text">Visitors&#58;</span>
                
                  <span class="leancloud-visitors-count"></span>
              </span>
@@ -418,10 +419,10 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
                 
-                <span title="字数统计">
-                  4k 字
+                <span title="Words count in article">
+                  3.9k words
                 </span>
               
 
@@ -434,10 +435,10 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
                 
-                <span title="阅读时长">
-                  16 分钟
+                <span title="Reading time">
+                  16 minutes
                 </span>
               
             </div>
@@ -475,18 +476,21 @@
 <li><strong>Middleware</strong>: 这里是项目中使用的中间件的配置，比如Django内置的用户认证中间价，防跨站攻击的csrftoken中间价等等，如果使用其他的开源中间价都需要在这里进行注册。</li>
 <li><strong>TEMPLATES</strong>: 这里主要是存放的静态文件的意思，基本不用去改，Django会去项目所有的templates文件夹下面找对应的模板文件。</li>
 <li><strong>DATABASES</strong>: 顾名思义就是数据库的配置了，你想用哪个数据改改这个就好了。</li>
-<li><p>```python<br>STATIC_URL = ‘/static/‘<br>  STATICFILES_DIRS = [</p>
-<pre><code>  os.path.join(BASE_DIR, &#39;BookTradeWeb/static&#39;)
-</code></pre><p>  ]</p>
-<p>  MEDIA_URL = ‘/media/‘<br>  MEDIA_ROOT = os.path.join(BASE_DIR, ‘media/‘)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  这两个是静态文件和资源文件的存放位置，Django会去static和media文件夹里面自动寻找。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 前端模板</span><br><span class="line">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前端还是主要用的传统的&#96;html+js+css&#96;的格式，然后通过&#96;ajax&#96;向后端发起请求，没能用现在很流行的React或者是Vue有点可惜，只能感慨&#96;前端太难了！！&#96;.不过Django自己的模板语言用起来还是可以的，不过我感觉这个项目调前端的时间是最主要的啊orz.</span><br><span class="line"></span><br><span class="line">#### 静态文件加载</span><br><span class="line">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前我们在setting里面配置好了static文件目录之后，在模板里面我们可以这样引入，在最开头通过</span><br><span class="line">&#96;&#96;&#96;python</span><br><span class="line">&#123;% load staticfiles %&#125; 加载静态文件</span><br><span class="line">&#123;% static &#39;images&#x2F;favicon.png&#39; %&#125; 引入对应文件</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;注意Django会搜索所有的static文件夹下的文件，所以一般使用app名称作为前缀来进行区分。</p>
-</li>
+<li><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">  STATICFILES_DIRS = [</span><br><span class="line">      os.path.join(BASE_DIR, <span class="string">'BookTradeWeb/static'</span>)</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">  MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media/'</span>)</span><br></pre></td></tr></table></figure>
+这两个是静态文件和资源文件的存放位置，Django会去static和media文件夹里面自动寻找。</li>
 </ul>
+<hr>
+<h3 id="前端模板"><a href="#前端模板" class="headerlink" title="前端模板"></a>前端模板</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;前端还是主要用的传统的<code>html+js+css</code>的格式，然后通过<code>ajax</code>向后端发起请求，没能用现在很流行的React或者是Vue有点可惜，只能感慨<code>前端太难了！！</code>.不过Django自己的模板语言用起来还是可以的，不过我感觉这个项目调前端的时间是最主要的啊orz.</p>
+<h4 id="静态文件加载"><a href="#静态文件加载" class="headerlink" title="静态文件加载"></a>静态文件加载</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;之前我们在setting里面配置好了static文件目录之后，在模板里面我们可以这样引入，在最开头通过<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load staticfiles %&#125; 加载静态文件</span><br><span class="line">&#123;% static <span class="string">'images/favicon.png'</span> %&#125; 引入对应文件</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;注意Django会搜索所有的static文件夹下的文件，所以一般使用app名称作为前缀来进行区分。</p>
 <h4 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在之前我们提到每个urls.py里面我们可以添加一个<code>app_name</code>字段，并且每个url_pattern里面都可以带上一个<code>name</code>字段，然后在前端就可以直接用模板语言当中的<code>url &#39;app_name:name&#39;</code>来获取后端定义好的路由，这样就算你后端改了路由之后，前端根本不用管啊是不是～<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">useraction/urls.py</span><br><span class="line">app_name = <span class="string">'useraction'</span></span><br><span class="line">url(<span class="string">r'^register/$'</span>, views.UserRegisterView.as_view(),name=<span class="string">'register'</span>)</span><br><span class="line"></span><br><span class="line">template:</span><br><span class="line">&#123;% url <span class="string">'useraction:register'</span> %&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="前端数据渲染"><a href="#前端数据渲染" class="headerlink" title="前端数据渲染"></a>前端数据渲染</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;有两种方式，一种是通过ajax向后端请求，然后用js来进行数据渲染，还有一种是通过模板语言，在<code>render</code>方法的时候将数据传递到模板里面，然后使用模板语言渲染，常用的有：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; data &#125;&#125; 取出传递进来数据当中的data字段</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> ... %&#125;</span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">&#123;% endif %&#125; 模板语言当中的<span class="keyword">if</span>语句</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> book <span class="keyword">in</span> books %&#125;</span><br><span class="line">&#123;&#123; book.data &#125;&#125;</span><br><span class="line">&#123;% endfor %&#125; 模板语言当中的<span class="keyword">for</span>语句</span><br><span class="line"></span><br><span class="line">&#123;&#123; book.time|data:<span class="string">"Y-M-d"</span> &#125;&#125; 模板语言当中的filter过滤器</span><br><span class="line"></span><br><span class="line">&#123;&#123; request.user &#125;&#125; 模板当中获取当前请求的user</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;还有很多其他的用法大家自己网上找找也能找到。这里主要将还可以自定义自己的filter，一个很直观的需求就是我像模板里面传进了一个字典，窝怎么根据键来找值呢，Django提供了自定义filter的功能，在app目录下面新建一个<code>templatetags</code>文件夹，首先新建一个<code>__init__.py</code>为空不要紧，但是一定要有。然后建一个自定义的filter文件，这里我是<code>books_filter.py</code>，通过<code>@register.filter</code>标注为一个自定义的filter，然后就写你想要的filter逻辑即可：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.template.defaulttags <span class="keyword">import</span> register</span><br><span class="line"><span class="keyword">from</span> BookTradeWeb.utils <span class="keyword">import</span> Category</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="meta">@register.filter</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetDictValue</span><span class="params">(dictionary, key)</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> isinstance(dictionary, dict)</span><br><span class="line">    <span class="keyword">return</span> dictionary.get(key)</span><br><span class="line"></span><br><span class="line">模板中使用：</span><br><span class="line">首先最上方引入你的filter &#123;% load books_filter %&#125;</span><br><span class="line">然后用法：&#123;&#123; book_dict|GetDictValue:key &#125;&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;由于Django本身是不支持websocket的，但是这次要求要集成一个消息系统，所以想到的是<code>websocket</code>这个全双工的协议。Google了一下，可以通过<code>django-channels</code>第三方的package来实现✅，所以直接pip安装就好。<code>channels</code>是用的<code>redis</code>做消息缓存，所以还要<code>pip install channels-redis</code>，这些需要的依赖一般都是写在<code>requirements.txt</code>当中。如果不想在本机安装redis可以通过<code>docker</code>来开启服务，具体就是开一个docker container就好，<code>docker run -d -p 6379:6379 redis:latest</code>, 搞定。<br>&nbsp;&nbsp;&nbsp;&nbsp;在setting里面注册channels这个app，然后添加如下的设置:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ASGI_APPLICATION = <span class="string">"BookTradeWeb.routing.application"</span></span><br><span class="line">CHANNEL_LAYERS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'channels_redis.core.RedisChannelLayer'</span>,</span><br><span class="line">        <span class="string">'CONFIG'</span>: &#123;</span><br><span class="line">            <span class="string">"hosts"</span>: [(CONFIGS[<span class="string">'REDIS_HOST'</span>], CONFIGS[<span class="string">'REDIS_PORT'</span>])],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;asgi配置主要是用来处理websocket请求的，类似<code>ws://</code>这样的请求Django自己的服务器是处理不了的，所以这里用asgi配置，需要在app目录下面新建一个<code>routing.py</code>用来处理websocket路由。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">项目目录(BookTradeWeb/routing.py)</span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    <span class="comment"># (http-&gt;django views is added by default)</span></span><br><span class="line">    <span class="string">'websocket'</span> : AuthMiddlewareStack(</span><br><span class="line">        URLRouter(</span><br><span class="line">            chatting.routing.websocket_urlpatterns</span><br><span class="line">        )</span><br><span class="line">    ),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app目录下(chatting/routing.py)</span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^ws/chat/(?P&lt;room_name&gt;[^/]+)/$'</span>, consumers.ChatConsumer),</span><br><span class="line">]</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;经过这样一通配置，开启<code>python manage.py runserver</code>，看到<code>ASGI/Channels</code>就配置成功了。<br><img src="/2019/06/22/Website/06/22/Website/server.png" class title="[配置成功]"></p>
+<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;由于Django本身是不支持websocket的，但是这次要求要集成一个消息系统，所以想到的是<code>websocket</code>这个全双工的协议。Google了一下，可以通过<code>django-channels</code>第三方的package来实现✅，所以直接pip安装就好。<code>channels</code>是用的<code>redis</code>做消息缓存，所以还要<code>pip install channels-redis</code>，这些需要的依赖一般都是写在<code>requirements.txt</code>当中。如果不想在本机安装redis可以通过<code>docker</code>来开启服务，具体就是开一个docker container就好，<code>docker run -d -p 6379:6379 redis:latest</code>, 搞定。<br>&nbsp;&nbsp;&nbsp;&nbsp;在setting里面注册channels这个app，然后添加如下的设置:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ASGI_APPLICATION = <span class="string">"BookTradeWeb.routing.application"</span></span><br><span class="line">CHANNEL_LAYERS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'channels_redis.core.RedisChannelLayer'</span>,</span><br><span class="line">        <span class="string">'CONFIG'</span>: &#123;</span><br><span class="line">            <span class="string">"hosts"</span>: [(CONFIGS[<span class="string">'REDIS_HOST'</span>], CONFIGS[<span class="string">'REDIS_PORT'</span>])],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;asgi配置主要是用来处理websocket请求的，类似<code>ws://</code>这样的请求Django自己的服务器是处理不了的，所以这里用asgi配置，需要在app目录下面新建一个<code>routing.py</code>用来处理websocket路由。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">项目目录(BookTradeWeb/routing.py)</span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    <span class="comment"># (http-&gt;django views is added by default)</span></span><br><span class="line">    <span class="string">'websocket'</span> : AuthMiddlewareStack(</span><br><span class="line">        URLRouter(</span><br><span class="line">            chatting.routing.websocket_urlpatterns</span><br><span class="line">        )</span><br><span class="line">    ),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app目录下(chatting/routing.py)</span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^ws/chat/(?P&lt;room_name&gt;[^/]+)/$'</span>, consumers.ChatConsumer),</span><br><span class="line">]</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;经过这样一通配置，开启<code>python manage.py runserver</code>，看到<code>ASGI/Channels</code>就配置成功了。</p>
+<div align="center">
+<img src="/2019/06/22/Website/server.png">
+</div>
+
+
 <h4 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在channels当中处理websocket请求的东西叫做consumer，和上面我们提到的view一样，consumer也是可以自定义的，可以继承自<code>AsyncWebsocketConsumer</code>来实现自己的consumer。主要是几个functions重写一下就好了，<code>connect</code>, <code>disconnect</code>, <code>receive</code>，都是字面意思了就不解释了。每一个websocket连接都会给到一个<code>channel</code>给连接的用户。每一个channel都有一个独有的<code>channel_name</code>, 通过<code>self.channel_name</code>即可获取。</p>
 <h4 id="Group"><a href="#Group" class="headerlink" title="Group"></a>Group</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Group组的概念，聊天室必备啊。group以group name来进行区分，不同的channel都可以加入到group里面，group当中提供了<code>group_send</code>来进行广播📢，也就是聊天室的那种效果了。</p>
 <h4 id="channel-layer"><a href="#channel-layer" class="headerlink" title="channel_layer"></a>channel_layer</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Django-channels当中提供了get_channel_layer()方法来向指定的channel发送消息，具体使用如下，也就是我们要的点对点聊天的功能了：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> channels.generic.websocket <span class="keyword">import</span> AsyncWebsocketConsumer</span><br><span class="line"><span class="keyword">from</span> channels.layers <span class="keyword">import</span> get_channel_layer</span><br><span class="line"><span class="keyword">from</span> channels.db <span class="keyword">import</span> database_sync_to_async</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> useraction.models <span class="keyword">import</span> User</span><br><span class="line"><span class="keyword">from</span> chatting.models <span class="keyword">import</span> ChattingMessage</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">channel_layer = get_channel_layer()</span><br><span class="line"><span class="keyword">await</span> channel_layer.send(</span><br><span class="line">    channel_name,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"type"</span> : <span class="string">"chat.message"</span>,</span><br><span class="line">        <span class="string">"message"</span> : message,</span><br><span class="line">        <span class="string">"send_side"</span> : send_side,</span><br><span class="line">        <span class="string">"option"</span> : <span class="string">"chat"</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
@@ -630,10 +634,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+            Overview
           </li>
         </ul>
       
@@ -647,7 +651,7 @@
                 alt="huangyifei" />
             
               <p class="site-author-name" itemprop="name">huangyifei</p>
-              <p class="site-description motion-element" itemprop="description">huangyifei0910@gmail.com</p>
+              <p class="site-description motion-element" itemprop="description">Keep looking, don't settle.</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -658,7 +662,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">9</span>
-                  <span class="site-state-item-name">日志</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -669,7 +673,7 @@
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">分类</span>
+                  <span class="site-state-item-name">categories</span>
                 </a>
               </div>
             
@@ -680,7 +684,7 @@
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">标签</span>
+                  <span class="site-state-item-name">tags</span>
                 </a>
               </div>
             
@@ -704,18 +708,6 @@
                         <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
                   </span>
                 
-                  <span class="links-of-author-item">
-                    <a href="https://www.zhihu.com/people/ling-hao-27-15-87/activities" target="_blank" title="Zhihu">
-                      
-                        <i class="fa fa-fw fa-youtube"></i>Zhihu</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://stackoverflow.com/users/11520932/yifei-huang" target="_blank" title="StackOverflow">
-                      
-                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
-                  </span>
-                
             </div>
           
 
@@ -723,24 +715,6 @@
           
 
           
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="http://macshuo.com/" title="MacTalk" target="_blank">MacTalk</a>
-                  </li>
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://github.com" title="Github" target="_blank">Github</a>
-                  </li>
-                
-              </ul>
-            </div>
           
 
           
@@ -758,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端框架"><span class="nav-number">1.</span> <span class="nav-text">后端框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Django路由"><span class="nav-number">1.1.</span> <span class="nav-text">Django路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-Views"><span class="nav-number">1.2.</span> <span class="nav-text">Django Views</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-models"><span class="nav-number">1.3.</span> <span class="nav-text">Django models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-setting"><span class="nav-number">1.4.</span> <span class="nav-text">Django setting</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端路由"><span class="nav-number">1.5.</span> <span class="nav-text">前端路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端数据渲染"><span class="nav-number">1.6.</span> <span class="nav-text">前端数据渲染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Websocket"><span class="nav-number">2.</span> <span class="nav-text">Websocket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer"><span class="nav-number">2.1.</span> <span class="nav-text">Consumer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Group"><span class="nav-number">2.2.</span> <span class="nav-text">Group</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#channel-layer"><span class="nav-number">2.3.</span> <span class="nav-text">channel_layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Database"><span class="nav-number">2.4.</span> <span class="nav-text">Database</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方法"><span class="nav-number">3.</span> <span class="nav-text">部署方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-compose"><span class="nav-number">3.1.</span> <span class="nav-text">docker-compose</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目总结"><span class="nav-number">4.</span> <span class="nav-text">项目总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端框架"><span class="nav-number">1.</span> <span class="nav-text">后端框架</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Django路由"><span class="nav-number">1.1.</span> <span class="nav-text">Django路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-Views"><span class="nav-number">1.2.</span> <span class="nav-text">Django Views</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-models"><span class="nav-number">1.3.</span> <span class="nav-text">Django models</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Django-setting"><span class="nav-number">1.4.</span> <span class="nav-text">Django setting</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端模板"><span class="nav-number">2.</span> <span class="nav-text">前端模板</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#静态文件加载"><span class="nav-number">2.1.</span> <span class="nav-text">静态文件加载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端路由"><span class="nav-number">2.2.</span> <span class="nav-text">前端路由</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前端数据渲染"><span class="nav-number">2.3.</span> <span class="nav-text">前端数据渲染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Websocket"><span class="nav-number">3.</span> <span class="nav-text">Websocket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Consumer"><span class="nav-number">3.1.</span> <span class="nav-text">Consumer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Group"><span class="nav-number">3.2.</span> <span class="nav-text">Group</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#channel-layer"><span class="nav-number">3.3.</span> <span class="nav-text">channel_layer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Database"><span class="nav-number">3.4.</span> <span class="nav-text">Database</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方法"><span class="nav-number">4.</span> <span class="nav-text">部署方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker-compose"><span class="nav-number">4.1.</span> <span class="nav-text">docker-compose</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目总结"><span class="nav-number">5.</span> <span class="nav-text">项目总结</span></a></li></ol></div>
             
 
           </div>
@@ -779,9 +753,9 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2020</span>
+<div class="copyright">&copy; 2019/06/17 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heartbeat"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">huangyifei</span>
 
@@ -794,7 +768,7 @@
     本站访客数:<span id="busuanzi_value_site_uv"></span>
   </span>
 </div>
-  <!-- <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div> -->
+  <!-- <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div> -->
 
 
 
@@ -802,7 +776,7 @@
 
 
 
-  <!-- <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div> -->
+  <!-- <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div> -->
 
 
 
@@ -1443,7 +1417,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1451,5 +1425,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":200,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":225},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>

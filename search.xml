@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Beauty-of-Mathematics</title>
-    <url>/2019/07/01/Beauty-of-Mathematics/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;最近很有幸能够拜读<code>吴军</code>博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！</p>
-<a id="more"></a>
-<h4 id="1-文字和语言vs数字和信息"><a href="#1-文字和语言vs数字和信息" class="headerlink" title="1. 文字和语言vs数字和信息"></a>1. 文字和语言vs数字和信息</h4><ul>
-<li>通信模式：信息源 -&gt; (怪叫声，编码) -&gt; 信息（信道传输）-&gt;（听到的声音，解码）-&gt; 信息(接收者)，古人通过声音来相互传递信息，和现在的信息传输的模式无差。</li>
-<li><p>罗塞塔石碑：罗塞塔石碑上记录了从古埃及至今的历史，破译过程归功于在石碑之上有三种不同语言版本的信息。所以作者通过此得到两个有用的结论：</p>
-<ul>
-<li><code>信息冗余</code>是信息安全的保障。只要有一份内容被完整的保留下来，那么信息就不会丢失，这对于现代的信道编码有一定的指导意义。</li>
-<li><code>语言的数据，又被成为语料</code>。双语或者是多语的对照语料，对于machine translation领域的研究是一个基础性的工程。</li>
-</ul>
-</li>
-<li><p>接下来进入到数字的部分，在最开始的时候，数字只是单纯的用来进行计数，而并没有更加高层的抽象概念表达。例如中国🇨🇳人对于不同位数数字的编码是<code>个十百千万</code>，这也就是最最朴素的<code>编码方式</code>，而<code>解码方式</code>就是我们很熟悉的乘法，例如<code>20000 = 2x10x1000</code>. </p>
-</li>
-<li>从象形文字到拼音文字的转变是一个飞跃，说明人类在描述物体的方式上加入了<code>抽象</code>的层次。同时我们也能在日常的文字当中找到<code>信息论</code>中<code>最短编码原理</code>的影子。比如说常用的文字一般笔画较少，而生僻字大多笔画比较多。这种<code>文字设计方法</code>本质上就是一种<code>编码方式</code>。</li>
-<li>古犹太人抄写 <strong>《圣经》</strong> 的小故事：在抄写的时候难免会存在抄写错误的情况，那么聪明的古犹太人发明了一种和现代通信当中<code>校验位</code>思想很类似的一种方法。把每一个希伯来字母对应一个数字，然后每行文字加起来就能得到一个特殊的数字，同时对于每一列的文字进行同样的操作。这样对于每一行每一列都有一个唯一的<code>校验位</code>，当抄写完一页的时候，会去和原文逐一对比，如果一致就说明抄写无误了。</li>
-<li>这章当中还提到了一个语言学研究方法的问题，<code>到底是语言对，还是语法对</code>.前者坚持从真实的语句文本，从语料出发，后者则是坚持从语言的规则出发入手，当然现在的NLP领域的成就宣告是前者的获胜。</li>
-</ul>
-<h4 id="2-自然语言处理-—-从规则到统计"><a href="#2-自然语言处理-—-从规则到统计" class="headerlink" title="2. 自然语言处理 — 从规则到统计"></a>2. 自然语言处理 — 从规则到统计</h4><ul>
-<li>人类的语言本质上是一种编解码的过程，人想要将自己的所想表达出来，通过语言进行<code>编码</code>，然后其他人需要理解你的意思的话，需要对语言进行<code>解码</code>，从而获取到想要表达的意思。</li>
-<li>最早提出<code>机器智能</code>思想的是<code>阿兰图灵</code>在1950年的一篇paper当中提出的，也即非常著名的<code>图灵测试</code>。</li>
-<li>当前的NLP领域的成就全都靠的数学，更准确的说是靠的<code>统计</code>的支持。</li>
-<li>NLP研究从最早的基于语法规则的方法转变到了基于数学统计的方法。同时NLP研究也从单纯的<code>句法分析和语义理解</code>，变成了非常贴近实际应用的MT、语音识别、数据挖掘、知识获取等等实际领域。</li>
-</ul>
-<h4 id="3-统计语言模型"><a href="#3-统计语言模型" class="headerlink" title="3. 统计语言模型"></a>3. 统计语言模型</h4><ul>
-<li>自然语言逐渐演变为<code>上下文相关的信息表达和传递方式</code>，一个基本问题就是为这种上下文相关的特性建立<code>统计数学模型</code>。也就是NLP当中非常重要的<a href="https://zhuanlan.zhihu.com/p/27201427" target="_blank" rel="noopener">统计语言模型</a></li>
-<li><strong>马尔可夫假设</strong>：假设每个词出现的概率$\omega_i$只与前一个词$\omega_{i-1}$是相关的，也就是最后一个句子出现的概率表示为$p(S) = p(\omega_1) * p(\omega_2|\omega_1) * p(\omega_3|\omega_2) * … * p(\omega_n|\omega_{n-1})$. 这种模型又叫做<code>二元模型</code>，如果是之前的以前n个模型出现的概率来估计下一个词出现的概率，则这种模型叫做<code>N元模型</code>.<br>转换成这种形式之后，就能很方便的通过<code>语料</code>来解决统计的问题，根据<code>大数定理</code>，最后的频率估计就基本近似于实际的概率估计，也即：<script type="math/tex; mode=display">
-p(\omega_n|\omega_{n-1}) = \frac{p(\omega_n, \omega_{n-1})}{p(\omega_{n-1})} \tag{1}</script></li>
-</ul>
-<h4 id="4-分词"><a href="#4-分词" class="headerlink" title="4. 分词"></a>4. 分词</h4>]]></content>
-      <categories>
-        <category>Reading</category>
-      </categories>
-      <tags>
-        <tag>Math</tag>
-        <tag>Reading</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>cs224n-papers</title>
     <url>/2020/07/28/cs224n-papers/</url>
     <content><![CDATA[<p>This post will mainly contain the paper notes about the papers in cs224n course. Usually some typical papers in nlp field.<br><a id="more"></a></p>
@@ -136,6 +97,45 @@ f(x)=\left\{\begin{array}{cc}
       <tags>
         <tag>cs224n</tag>
         <tag>nlp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Beauty-of-Mathematics</title>
+    <url>/2019/07/01/Beauty-of-Mathematics/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;最近很有幸能够拜读<code>吴军</code>博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！</p>
+<a id="more"></a>
+<h4 id="1-文字和语言vs数字和信息"><a href="#1-文字和语言vs数字和信息" class="headerlink" title="1. 文字和语言vs数字和信息"></a>1. 文字和语言vs数字和信息</h4><ul>
+<li>通信模式：信息源 -&gt; (怪叫声，编码) -&gt; 信息（信道传输）-&gt;（听到的声音，解码）-&gt; 信息(接收者)，古人通过声音来相互传递信息，和现在的信息传输的模式无差。</li>
+<li><p>罗塞塔石碑：罗塞塔石碑上记录了从古埃及至今的历史，破译过程归功于在石碑之上有三种不同语言版本的信息。所以作者通过此得到两个有用的结论：</p>
+<ul>
+<li><code>信息冗余</code>是信息安全的保障。只要有一份内容被完整的保留下来，那么信息就不会丢失，这对于现代的信道编码有一定的指导意义。</li>
+<li><code>语言的数据，又被成为语料</code>。双语或者是多语的对照语料，对于machine translation领域的研究是一个基础性的工程。</li>
+</ul>
+</li>
+<li><p>接下来进入到数字的部分，在最开始的时候，数字只是单纯的用来进行计数，而并没有更加高层的抽象概念表达。例如中国🇨🇳人对于不同位数数字的编码是<code>个十百千万</code>，这也就是最最朴素的<code>编码方式</code>，而<code>解码方式</code>就是我们很熟悉的乘法，例如<code>20000 = 2x10x1000</code>. </p>
+</li>
+<li>从象形文字到拼音文字的转变是一个飞跃，说明人类在描述物体的方式上加入了<code>抽象</code>的层次。同时我们也能在日常的文字当中找到<code>信息论</code>中<code>最短编码原理</code>的影子。比如说常用的文字一般笔画较少，而生僻字大多笔画比较多。这种<code>文字设计方法</code>本质上就是一种<code>编码方式</code>。</li>
+<li>古犹太人抄写 <strong>《圣经》</strong> 的小故事：在抄写的时候难免会存在抄写错误的情况，那么聪明的古犹太人发明了一种和现代通信当中<code>校验位</code>思想很类似的一种方法。把每一个希伯来字母对应一个数字，然后每行文字加起来就能得到一个特殊的数字，同时对于每一列的文字进行同样的操作。这样对于每一行每一列都有一个唯一的<code>校验位</code>，当抄写完一页的时候，会去和原文逐一对比，如果一致就说明抄写无误了。</li>
+<li>这章当中还提到了一个语言学研究方法的问题，<code>到底是语言对，还是语法对</code>.前者坚持从真实的语句文本，从语料出发，后者则是坚持从语言的规则出发入手，当然现在的NLP领域的成就宣告是前者的获胜。</li>
+</ul>
+<h4 id="2-自然语言处理-—-从规则到统计"><a href="#2-自然语言处理-—-从规则到统计" class="headerlink" title="2. 自然语言处理 — 从规则到统计"></a>2. 自然语言处理 — 从规则到统计</h4><ul>
+<li>人类的语言本质上是一种编解码的过程，人想要将自己的所想表达出来，通过语言进行<code>编码</code>，然后其他人需要理解你的意思的话，需要对语言进行<code>解码</code>，从而获取到想要表达的意思。</li>
+<li>最早提出<code>机器智能</code>思想的是<code>阿兰图灵</code>在1950年的一篇paper当中提出的，也即非常著名的<code>图灵测试</code>。</li>
+<li>当前的NLP领域的成就全都靠的数学，更准确的说是靠的<code>统计</code>的支持。</li>
+<li>NLP研究从最早的基于语法规则的方法转变到了基于数学统计的方法。同时NLP研究也从单纯的<code>句法分析和语义理解</code>，变成了非常贴近实际应用的MT、语音识别、数据挖掘、知识获取等等实际领域。</li>
+</ul>
+<h4 id="3-统计语言模型"><a href="#3-统计语言模型" class="headerlink" title="3. 统计语言模型"></a>3. 统计语言模型</h4><ul>
+<li>自然语言逐渐演变为<code>上下文相关的信息表达和传递方式</code>，一个基本问题就是为这种上下文相关的特性建立<code>统计数学模型</code>。也就是NLP当中非常重要的<a href="https://zhuanlan.zhihu.com/p/27201427" target="_blank" rel="noopener">统计语言模型</a></li>
+<li><strong>马尔可夫假设</strong>：假设每个词出现的概率$\omega_i$只与前一个词$\omega_{i-1}$是相关的，也就是最后一个句子出现的概率表示为$p(S) = p(\omega_1) * p(\omega_2|\omega_1) * p(\omega_3|\omega_2) * … * p(\omega_n|\omega_{n-1})$. 这种模型又叫做<code>二元模型</code>，如果是之前的以前n个模型出现的概率来估计下一个词出现的概率，则这种模型叫做<code>N元模型</code>.<br>转换成这种形式之后，就能很方便的通过<code>语料</code>来解决统计的问题，根据<code>大数定理</code>，最后的频率估计就基本近似于实际的概率估计，也即：<script type="math/tex; mode=display">
+p(\omega_n|\omega_{n-1}) = \frac{p(\omega_n, \omega_{n-1})}{p(\omega_{n-1})} \tag{1}</script></li>
+</ul>
+<h4 id="4-分词"><a href="#4-分词" class="headerlink" title="4. 分词"></a>4. 分词</h4>]]></content>
+      <categories>
+        <category>Reading</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+        <tag>Reading</tag>
       </tags>
   </entry>
   <entry>
@@ -752,18 +752,21 @@ p(x_i|\omega_k) = \frac{|x_{ik}|+1}{N_{\omega_k}+K}</script><p><br></p>
 <li><strong>Middleware</strong>: 这里是项目中使用的中间件的配置，比如Django内置的用户认证中间价，防跨站攻击的csrftoken中间价等等，如果使用其他的开源中间价都需要在这里进行注册。</li>
 <li><strong>TEMPLATES</strong>: 这里主要是存放的静态文件的意思，基本不用去改，Django会去项目所有的templates文件夹下面找对应的模板文件。</li>
 <li><strong>DATABASES</strong>: 顾名思义就是数据库的配置了，你想用哪个数据改改这个就好了。</li>
-<li><p>```python<br>STATIC_URL = ‘/static/‘<br>  STATICFILES_DIRS = [</p>
-<pre><code>  os.path.join(BASE_DIR, &#39;BookTradeWeb/static&#39;)
-</code></pre><p>  ]</p>
-<p>  MEDIA_URL = ‘/media/‘<br>  MEDIA_ROOT = os.path.join(BASE_DIR, ‘media/‘)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  这两个是静态文件和资源文件的存放位置，Django会去static和media文件夹里面自动寻找。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">### 前端模板</span><br><span class="line">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前端还是主要用的传统的&#96;html+js+css&#96;的格式，然后通过&#96;ajax&#96;向后端发起请求，没能用现在很流行的React或者是Vue有点可惜，只能感慨&#96;前端太难了！！&#96;.不过Django自己的模板语言用起来还是可以的，不过我感觉这个项目调前端的时间是最主要的啊orz.</span><br><span class="line"></span><br><span class="line">#### 静态文件加载</span><br><span class="line">&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;之前我们在setting里面配置好了static文件目录之后，在模板里面我们可以这样引入，在最开头通过</span><br><span class="line">&#96;&#96;&#96;python</span><br><span class="line">&#123;% load staticfiles %&#125; 加载静态文件</span><br><span class="line">&#123;% static &#39;images&#x2F;favicon.png&#39; %&#125; 引入对应文件</span><br></pre></td></tr></table></figure>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;注意Django会搜索所有的static文件夹下的文件，所以一般使用app名称作为前缀来进行区分。</p>
-</li>
+<li><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">  STATICFILES_DIRS = [</span><br><span class="line">      os.path.join(BASE_DIR, <span class="string">'BookTradeWeb/static'</span>)</span><br><span class="line">  ]</span><br><span class="line"></span><br><span class="line">  MEDIA_URL = <span class="string">'/media/'</span></span><br><span class="line">  MEDIA_ROOT = os.path.join(BASE_DIR, <span class="string">'media/'</span>)</span><br></pre></td></tr></table></figure>
+这两个是静态文件和资源文件的存放位置，Django会去static和media文件夹里面自动寻找。</li>
 </ul>
+<hr>
+<h3 id="前端模板"><a href="#前端模板" class="headerlink" title="前端模板"></a>前端模板</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;前端还是主要用的传统的<code>html+js+css</code>的格式，然后通过<code>ajax</code>向后端发起请求，没能用现在很流行的React或者是Vue有点可惜，只能感慨<code>前端太难了！！</code>.不过Django自己的模板语言用起来还是可以的，不过我感觉这个项目调前端的时间是最主要的啊orz.</p>
+<h4 id="静态文件加载"><a href="#静态文件加载" class="headerlink" title="静态文件加载"></a>静态文件加载</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;之前我们在setting里面配置好了static文件目录之后，在模板里面我们可以这样引入，在最开头通过<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;% load staticfiles %&#125; 加载静态文件</span><br><span class="line">&#123;% static <span class="string">'images/favicon.png'</span> %&#125; 引入对应文件</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;注意Django会搜索所有的static文件夹下的文件，所以一般使用app名称作为前缀来进行区分。</p>
 <h4 id="前端路由"><a href="#前端路由" class="headerlink" title="前端路由"></a>前端路由</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在之前我们提到每个urls.py里面我们可以添加一个<code>app_name</code>字段，并且每个url_pattern里面都可以带上一个<code>name</code>字段，然后在前端就可以直接用模板语言当中的<code>url &#39;app_name:name&#39;</code>来获取后端定义好的路由，这样就算你后端改了路由之后，前端根本不用管啊是不是～<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">useraction/urls.py</span><br><span class="line">app_name = <span class="string">'useraction'</span></span><br><span class="line">url(<span class="string">r'^register/$'</span>, views.UserRegisterView.as_view(),name=<span class="string">'register'</span>)</span><br><span class="line"></span><br><span class="line">template:</span><br><span class="line">&#123;% url <span class="string">'useraction:register'</span> %&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="前端数据渲染"><a href="#前端数据渲染" class="headerlink" title="前端数据渲染"></a>前端数据渲染</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;有两种方式，一种是通过ajax向后端请求，然后用js来进行数据渲染，还有一种是通过模板语言，在<code>render</code>方法的时候将数据传递到模板里面，然后使用模板语言渲染，常用的有：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&#123;&#123; data &#125;&#125; 取出传递进来数据当中的data字段</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> ... %&#125;</span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">&#123;% endif %&#125; 模板语言当中的<span class="keyword">if</span>语句</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> book <span class="keyword">in</span> books %&#125;</span><br><span class="line">&#123;&#123; book.data &#125;&#125;</span><br><span class="line">&#123;% endfor %&#125; 模板语言当中的<span class="keyword">for</span>语句</span><br><span class="line"></span><br><span class="line">&#123;&#123; book.time|data:<span class="string">"Y-M-d"</span> &#125;&#125; 模板语言当中的filter过滤器</span><br><span class="line"></span><br><span class="line">&#123;&#123; request.user &#125;&#125; 模板当中获取当前请求的user</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;还有很多其他的用法大家自己网上找找也能找到。这里主要将还可以自定义自己的filter，一个很直观的需求就是我像模板里面传进了一个字典，窝怎么根据键来找值呢，Django提供了自定义filter的功能，在app目录下面新建一个<code>templatetags</code>文件夹，首先新建一个<code>__init__.py</code>为空不要紧，但是一定要有。然后建一个自定义的filter文件，这里我是<code>books_filter.py</code>，通过<code>@register.filter</code>标注为一个自定义的filter，然后就写你想要的filter逻辑即可：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.template.defaulttags <span class="keyword">import</span> register</span><br><span class="line"><span class="keyword">from</span> BookTradeWeb.utils <span class="keyword">import</span> Category</span><br><span class="line"><span class="keyword">from</span> books.models <span class="keyword">import</span> Book</span><br><span class="line"></span><br><span class="line"><span class="meta">@register.filter</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">GetDictValue</span><span class="params">(dictionary, key)</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> isinstance(dictionary, dict)</span><br><span class="line">    <span class="keyword">return</span> dictionary.get(key)</span><br><span class="line"></span><br><span class="line">模板中使用：</span><br><span class="line">首先最上方引入你的filter &#123;% load books_filter %&#125;</span><br><span class="line">然后用法：&#123;&#123; book_dict|GetDictValue:key &#125;&#125;</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;由于Django本身是不支持websocket的，但是这次要求要集成一个消息系统，所以想到的是<code>websocket</code>这个全双工的协议。Google了一下，可以通过<code>django-channels</code>第三方的package来实现✅，所以直接pip安装就好。<code>channels</code>是用的<code>redis</code>做消息缓存，所以还要<code>pip install channels-redis</code>，这些需要的依赖一般都是写在<code>requirements.txt</code>当中。如果不想在本机安装redis可以通过<code>docker</code>来开启服务，具体就是开一个docker container就好，<code>docker run -d -p 6379:6379 redis:latest</code>, 搞定。<br>&nbsp;&nbsp;&nbsp;&nbsp;在setting里面注册channels这个app，然后添加如下的设置:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ASGI_APPLICATION = <span class="string">"BookTradeWeb.routing.application"</span></span><br><span class="line">CHANNEL_LAYERS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'channels_redis.core.RedisChannelLayer'</span>,</span><br><span class="line">        <span class="string">'CONFIG'</span>: &#123;</span><br><span class="line">            <span class="string">"hosts"</span>: [(CONFIGS[<span class="string">'REDIS_HOST'</span>], CONFIGS[<span class="string">'REDIS_PORT'</span>])],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;asgi配置主要是用来处理websocket请求的，类似<code>ws://</code>这样的请求Django自己的服务器是处理不了的，所以这里用asgi配置，需要在app目录下面新建一个<code>routing.py</code>用来处理websocket路由。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">项目目录(BookTradeWeb/routing.py)</span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    <span class="comment"># (http-&gt;django views is added by default)</span></span><br><span class="line">    <span class="string">'websocket'</span> : AuthMiddlewareStack(</span><br><span class="line">        URLRouter(</span><br><span class="line">            chatting.routing.websocket_urlpatterns</span><br><span class="line">        )</span><br><span class="line">    ),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app目录下(chatting/routing.py)</span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^ws/chat/(?P&lt;room_name&gt;[^/]+)/$'</span>, consumers.ChatConsumer),</span><br><span class="line">]</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;经过这样一通配置，开启<code>python manage.py runserver</code>，看到<code>ASGI/Channels</code>就配置成功了。<br><img src="/2019/06/22/Website/06/22/Website/server.png" class title="[配置成功]"></p>
+<h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;由于Django本身是不支持websocket的，但是这次要求要集成一个消息系统，所以想到的是<code>websocket</code>这个全双工的协议。Google了一下，可以通过<code>django-channels</code>第三方的package来实现✅，所以直接pip安装就好。<code>channels</code>是用的<code>redis</code>做消息缓存，所以还要<code>pip install channels-redis</code>，这些需要的依赖一般都是写在<code>requirements.txt</code>当中。如果不想在本机安装redis可以通过<code>docker</code>来开启服务，具体就是开一个docker container就好，<code>docker run -d -p 6379:6379 redis:latest</code>, 搞定。<br>&nbsp;&nbsp;&nbsp;&nbsp;在setting里面注册channels这个app，然后添加如下的设置:<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ASGI_APPLICATION = <span class="string">"BookTradeWeb.routing.application"</span></span><br><span class="line">CHANNEL_LAYERS = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'channels_redis.core.RedisChannelLayer'</span>,</span><br><span class="line">        <span class="string">'CONFIG'</span>: &#123;</span><br><span class="line">            <span class="string">"hosts"</span>: [(CONFIGS[<span class="string">'REDIS_HOST'</span>], CONFIGS[<span class="string">'REDIS_PORT'</span>])],</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;asgi配置主要是用来处理websocket请求的，类似<code>ws://</code>这样的请求Django自己的服务器是处理不了的，所以这里用asgi配置，需要在app目录下面新建一个<code>routing.py</code>用来处理websocket路由。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">项目目录(BookTradeWeb/routing.py)</span><br><span class="line">application = ProtocolTypeRouter(&#123;</span><br><span class="line">    <span class="comment"># (http-&gt;django views is added by default)</span></span><br><span class="line">    <span class="string">'websocket'</span> : AuthMiddlewareStack(</span><br><span class="line">        URLRouter(</span><br><span class="line">            chatting.routing.websocket_urlpatterns</span><br><span class="line">        )</span><br><span class="line">    ),</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app目录下(chatting/routing.py)</span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> consumers</span><br><span class="line"></span><br><span class="line">websocket_urlpatterns = [</span><br><span class="line">    url(<span class="string">r'^ws/chat/(?P&lt;room_name&gt;[^/]+)/$'</span>, consumers.ChatConsumer),</span><br><span class="line">]</span><br></pre></td></tr></table></figure><br>&nbsp;&nbsp;&nbsp;&nbsp;经过这样一通配置，开启<code>python manage.py runserver</code>，看到<code>ASGI/Channels</code>就配置成功了。</p>
+<div align="center">
+<img src="/2019/06/22/Website/server.png">
+</div>
+
+
 <h4 id="Consumer"><a href="#Consumer" class="headerlink" title="Consumer"></a>Consumer</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;在channels当中处理websocket请求的东西叫做consumer，和上面我们提到的view一样，consumer也是可以自定义的，可以继承自<code>AsyncWebsocketConsumer</code>来实现自己的consumer。主要是几个functions重写一下就好了，<code>connect</code>, <code>disconnect</code>, <code>receive</code>，都是字面意思了就不解释了。每一个websocket连接都会给到一个<code>channel</code>给连接的用户。每一个channel都有一个独有的<code>channel_name</code>, 通过<code>self.channel_name</code>即可获取。</p>
 <h4 id="Group"><a href="#Group" class="headerlink" title="Group"></a>Group</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Group组的概念，聊天室必备啊。group以group name来进行区分，不同的channel都可以加入到group里面，group当中提供了<code>group_send</code>来进行广播📢，也就是聊天室的那种效果了。</p>
 <h4 id="channel-layer"><a href="#channel-layer" class="headerlink" title="channel_layer"></a>channel_layer</h4><p>&nbsp;&nbsp;&nbsp;&nbsp;Django-channels当中提供了get_channel_layer()方法来向指定的channel发送消息，具体使用如下，也就是我们要的点对点聊天的功能了：<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> channels.generic.websocket <span class="keyword">import</span> AsyncWebsocketConsumer</span><br><span class="line"><span class="keyword">from</span> channels.layers <span class="keyword">import</span> get_channel_layer</span><br><span class="line"><span class="keyword">from</span> channels.db <span class="keyword">import</span> database_sync_to_async</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">from</span> useraction.models <span class="keyword">import</span> User</span><br><span class="line"><span class="keyword">from</span> chatting.models <span class="keyword">import</span> ChattingMessage</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">channel_layer = get_channel_layer()</span><br><span class="line"><span class="keyword">await</span> channel_layer.send(</span><br><span class="line">    channel_name,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"type"</span> : <span class="string">"chat.message"</span>,</span><br><span class="line">        <span class="string">"message"</span> : message,</span><br><span class="line">        <span class="string">"send_side"</span> : send_side,</span><br><span class="line">        <span class="string">"option"</span> : <span class="string">"chat"</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
