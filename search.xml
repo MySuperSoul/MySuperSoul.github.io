@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Beauty-of-Mathematics</title>
+    <url>/2019/07/01/Beauty-of-Mathematics/</url>
+    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;最近很有幸能够拜读<code>吴军</code>博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！</p>
+<a id="more"></a>
+<h4 id="1-文字和语言vs数字和信息"><a href="#1-文字和语言vs数字和信息" class="headerlink" title="1. 文字和语言vs数字和信息"></a>1. 文字和语言vs数字和信息</h4><ul>
+<li>通信模式：信息源 -&gt; (怪叫声，编码) -&gt; 信息（信道传输）-&gt;（听到的声音，解码）-&gt; 信息(接收者)，古人通过声音来相互传递信息，和现在的信息传输的模式无差。</li>
+<li><p>罗塞塔石碑：罗塞塔石碑上记录了从古埃及至今的历史，破译过程归功于在石碑之上有三种不同语言版本的信息。所以作者通过此得到两个有用的结论：</p>
+<ul>
+<li><code>信息冗余</code>是信息安全的保障。只要有一份内容被完整的保留下来，那么信息就不会丢失，这对于现代的信道编码有一定的指导意义。</li>
+<li><code>语言的数据，又被成为语料</code>。双语或者是多语的对照语料，对于machine translation领域的研究是一个基础性的工程。</li>
+</ul>
+</li>
+<li><p>接下来进入到数字的部分，在最开始的时候，数字只是单纯的用来进行计数，而并没有更加高层的抽象概念表达。例如中国🇨🇳人对于不同位数数字的编码是<code>个十百千万</code>，这也就是最最朴素的<code>编码方式</code>，而<code>解码方式</code>就是我们很熟悉的乘法，例如<code>20000 = 2x10x1000</code>. </p>
+</li>
+<li>从象形文字到拼音文字的转变是一个飞跃，说明人类在描述物体的方式上加入了<code>抽象</code>的层次。同时我们也能在日常的文字当中找到<code>信息论</code>中<code>最短编码原理</code>的影子。比如说常用的文字一般笔画较少，而生僻字大多笔画比较多。这种<code>文字设计方法</code>本质上就是一种<code>编码方式</code>。</li>
+<li>古犹太人抄写 <strong>《圣经》</strong> 的小故事：在抄写的时候难免会存在抄写错误的情况，那么聪明的古犹太人发明了一种和现代通信当中<code>校验位</code>思想很类似的一种方法。把每一个希伯来字母对应一个数字，然后每行文字加起来就能得到一个特殊的数字，同时对于每一列的文字进行同样的操作。这样对于每一行每一列都有一个唯一的<code>校验位</code>，当抄写完一页的时候，会去和原文逐一对比，如果一致就说明抄写无误了。</li>
+<li>这章当中还提到了一个语言学研究方法的问题，<code>到底是语言对，还是语法对</code>.前者坚持从真实的语句文本，从语料出发，后者则是坚持从语言的规则出发入手，当然现在的NLP领域的成就宣告是前者的获胜。</li>
+</ul>
+<h4 id="2-自然语言处理-—-从规则到统计"><a href="#2-自然语言处理-—-从规则到统计" class="headerlink" title="2. 自然语言处理 — 从规则到统计"></a>2. 自然语言处理 — 从规则到统计</h4><ul>
+<li>人类的语言本质上是一种编解码的过程，人想要将自己的所想表达出来，通过语言进行<code>编码</code>，然后其他人需要理解你的意思的话，需要对语言进行<code>解码</code>，从而获取到想要表达的意思。</li>
+<li>最早提出<code>机器智能</code>思想的是<code>阿兰图灵</code>在1950年的一篇paper当中提出的，也即非常著名的<code>图灵测试</code>。</li>
+<li>当前的NLP领域的成就全都靠的数学，更准确的说是靠的<code>统计</code>的支持。</li>
+<li>NLP研究从最早的基于语法规则的方法转变到了基于数学统计的方法。同时NLP研究也从单纯的<code>句法分析和语义理解</code>，变成了非常贴近实际应用的MT、语音识别、数据挖掘、知识获取等等实际领域。</li>
+</ul>
+<h4 id="3-统计语言模型"><a href="#3-统计语言模型" class="headerlink" title="3. 统计语言模型"></a>3. 统计语言模型</h4><ul>
+<li>自然语言逐渐演变为<code>上下文相关的信息表达和传递方式</code>，一个基本问题就是为这种上下文相关的特性建立<code>统计数学模型</code>。也就是NLP当中非常重要的<a href="https://zhuanlan.zhihu.com/p/27201427" target="_blank" rel="noopener">统计语言模型</a></li>
+<li><strong>马尔可夫假设</strong>：假设每个词出现的概率$\omega_i$只与前一个词$\omega_{i-1}$是相关的，也就是最后一个句子出现的概率表示为$p(S) = p(\omega_1) * p(\omega_2|\omega_1) * p(\omega_3|\omega_2) * … * p(\omega_n|\omega_{n-1})$. 这种模型又叫做<code>二元模型</code>，如果是之前的以前n个模型出现的概率来估计下一个词出现的概率，则这种模型叫做<code>N元模型</code>.<br>转换成这种形式之后，就能很方便的通过<code>语料</code>来解决统计的问题，根据<code>大数定理</code>，最后的频率估计就基本近似于实际的概率估计，也即：<script type="math/tex; mode=display">
+p(\omega_n|\omega_{n-1}) = \frac{p(\omega_n, \omega_{n-1})}{p(\omega_{n-1})} \tag{1}</script></li>
+</ul>
+<h4 id="4-分词"><a href="#4-分词" class="headerlink" title="4. 分词"></a>4. 分词</h4>]]></content>
+      <categories>
+        <category>Reading</category>
+      </categories>
+      <tags>
+        <tag>Math</tag>
+        <tag>Reading</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cs224n-papers</title>
     <url>/2020/07/28/cs224n-papers/</url>
     <content><![CDATA[<p>This post will mainly contain the paper notes about the papers in cs224n course. Usually some typical papers in nlp field.<br><a id="more"></a></p>
@@ -100,42 +139,20 @@ f(x)=\left\{\begin{array}{cc}
       </tags>
   </entry>
   <entry>
-    <title>Beauty-of-Mathematics</title>
-    <url>/2019/07/01/Beauty-of-Mathematics/</url>
-    <content><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;最近很有幸能够拜读<code>吴军</code>博士的《数学之美》这本书，在这里记录一些自己在阅读当中的感受和体会，顺便也做一点摘抄啥的，日后能够回味当时看这本书的感受啦！</p>
+    <title>leetcode-solutions</title>
+    <url>/2020/08/06/leetcode-solutions/</url>
+    <content><![CDATA[<p>This post will mainly and continuously contain the leetcode algorithm problems’ solutions. Trying to force myself to learn something everyday and practice programming skills everyday!</p>
 <a id="more"></a>
-<h4 id="1-文字和语言vs数字和信息"><a href="#1-文字和语言vs数字和信息" class="headerlink" title="1. 文字和语言vs数字和信息"></a>1. 文字和语言vs数字和信息</h4><ul>
-<li>通信模式：信息源 -&gt; (怪叫声，编码) -&gt; 信息（信道传输）-&gt;（听到的声音，解码）-&gt; 信息(接收者)，古人通过声音来相互传递信息，和现在的信息传输的模式无差。</li>
-<li><p>罗塞塔石碑：罗塞塔石碑上记录了从古埃及至今的历史，破译过程归功于在石碑之上有三种不同语言版本的信息。所以作者通过此得到两个有用的结论：</p>
-<ul>
-<li><code>信息冗余</code>是信息安全的保障。只要有一份内容被完整的保留下来，那么信息就不会丢失，这对于现代的信道编码有一定的指导意义。</li>
-<li><code>语言的数据，又被成为语料</code>。双语或者是多语的对照语料，对于machine translation领域的研究是一个基础性的工程。</li>
-</ul>
-</li>
-<li><p>接下来进入到数字的部分，在最开始的时候，数字只是单纯的用来进行计数，而并没有更加高层的抽象概念表达。例如中国🇨🇳人对于不同位数数字的编码是<code>个十百千万</code>，这也就是最最朴素的<code>编码方式</code>，而<code>解码方式</code>就是我们很熟悉的乘法，例如<code>20000 = 2x10x1000</code>. </p>
-</li>
-<li>从象形文字到拼音文字的转变是一个飞跃，说明人类在描述物体的方式上加入了<code>抽象</code>的层次。同时我们也能在日常的文字当中找到<code>信息论</code>中<code>最短编码原理</code>的影子。比如说常用的文字一般笔画较少，而生僻字大多笔画比较多。这种<code>文字设计方法</code>本质上就是一种<code>编码方式</code>。</li>
-<li>古犹太人抄写 <strong>《圣经》</strong> 的小故事：在抄写的时候难免会存在抄写错误的情况，那么聪明的古犹太人发明了一种和现代通信当中<code>校验位</code>思想很类似的一种方法。把每一个希伯来字母对应一个数字，然后每行文字加起来就能得到一个特殊的数字，同时对于每一列的文字进行同样的操作。这样对于每一行每一列都有一个唯一的<code>校验位</code>，当抄写完一页的时候，会去和原文逐一对比，如果一致就说明抄写无误了。</li>
-<li>这章当中还提到了一个语言学研究方法的问题，<code>到底是语言对，还是语法对</code>.前者坚持从真实的语句文本，从语料出发，后者则是坚持从语言的规则出发入手，当然现在的NLP领域的成就宣告是前者的获胜。</li>
-</ul>
-<h4 id="2-自然语言处理-—-从规则到统计"><a href="#2-自然语言处理-—-从规则到统计" class="headerlink" title="2. 自然语言处理 — 从规则到统计"></a>2. 自然语言处理 — 从规则到统计</h4><ul>
-<li>人类的语言本质上是一种编解码的过程，人想要将自己的所想表达出来，通过语言进行<code>编码</code>，然后其他人需要理解你的意思的话，需要对语言进行<code>解码</code>，从而获取到想要表达的意思。</li>
-<li>最早提出<code>机器智能</code>思想的是<code>阿兰图灵</code>在1950年的一篇paper当中提出的，也即非常著名的<code>图灵测试</code>。</li>
-<li>当前的NLP领域的成就全都靠的数学，更准确的说是靠的<code>统计</code>的支持。</li>
-<li>NLP研究从最早的基于语法规则的方法转变到了基于数学统计的方法。同时NLP研究也从单纯的<code>句法分析和语义理解</code>，变成了非常贴近实际应用的MT、语音识别、数据挖掘、知识获取等等实际领域。</li>
-</ul>
-<h4 id="3-统计语言模型"><a href="#3-统计语言模型" class="headerlink" title="3. 统计语言模型"></a>3. 统计语言模型</h4><ul>
-<li>自然语言逐渐演变为<code>上下文相关的信息表达和传递方式</code>，一个基本问题就是为这种上下文相关的特性建立<code>统计数学模型</code>。也就是NLP当中非常重要的<a href="https://zhuanlan.zhihu.com/p/27201427" target="_blank" rel="noopener">统计语言模型</a></li>
-<li><strong>马尔可夫假设</strong>：假设每个词出现的概率$\omega_i$只与前一个词$\omega_{i-1}$是相关的，也就是最后一个句子出现的概率表示为$p(S) = p(\omega_1) * p(\omega_2|\omega_1) * p(\omega_3|\omega_2) * … * p(\omega_n|\omega_{n-1})$. 这种模型又叫做<code>二元模型</code>，如果是之前的以前n个模型出现的概率来估计下一个词出现的概率，则这种模型叫做<code>N元模型</code>.<br>转换成这种形式之后，就能很方便的通过<code>语料</code>来解决统计的问题，根据<code>大数定理</code>，最后的频率估计就基本近似于实际的概率估计，也即：<script type="math/tex; mode=display">
-p(\omega_n|\omega_{n-1}) = \frac{p(\omega_n, \omega_{n-1})}{p(\omega_{n-1})} \tag{1}</script></li>
-</ul>
-<h4 id="4-分词"><a href="#4-分词" class="headerlink" title="4. 分词"></a>4. 分词</h4>]]></content>
+<h3 id="001-two-sum"><a href="#001-two-sum" class="headerlink" title="001-two sum"></a><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">001-two sum</a></h3><p>The problem is trying to find two indices in the input array which their sum is equal to the target.</p>
+<p>So we can use the <code>unordered_map</code> to store the value and index. And to test: <code>1: target - num is in the unordered map</code>, <code>2: if contains, the another index should be different from current index.</code></p>
+<p>Then we get the two index and return. Here is the solution code.</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; indices_map;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; results;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">        indices_map[nums[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> another_num = target - nums[i];</span><br><span class="line">        <span class="keyword">if</span> (indices_map.count(another_num) != <span class="number">0</span> &amp;&amp; i != indices_map[another_num]) &#123;</span><br><span class="line">            results.push_back(i);</span><br><span class="line">            results.push_back(indices_map[another_num]);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> results;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>Reading</category>
+        <category>algorithm</category>
       </categories>
       <tags>
-        <tag>Math</tag>
-        <tag>Reading</tag>
+        <tag>leetcode</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
   <entry>
