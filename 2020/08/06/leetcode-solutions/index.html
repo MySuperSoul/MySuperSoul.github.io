@@ -102,7 +102,7 @@
 <meta property="og:description" content="This post will mainly and continuously contain the leetcode algorithm problems’ solutions. Trying to force myself to learn something everyday and practice programming skills everyday!">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-08-06T04:23:54.000Z">
-<meta property="article:modified_time" content="2020-08-07T03:36:29.332Z">
+<meta property="article:modified_time" content="2020-08-08T10:53:49.006Z">
 <meta property="article:author" content="huangyifei">
 <meta property="article:tag" content="leetcode">
 <meta property="article:tag" content="algorithm">
@@ -418,7 +418,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  420 words
+                  853 words
                 </span>
               
 
@@ -434,7 +434,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  2 minutes
+                  5 minutes
                 </span>
               
             </div>
@@ -457,7 +457,7 @@
       
         <p>This post will mainly and continuously contain the leetcode algorithm problems’ solutions. Trying to force myself to learn something everyday and practice programming skills everyday!</p>
 <a id="more"></a>
-<h3 id="001-two-sum"><a href="#001-two-sum" class="headerlink" title="001-two sum"></a><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">001-two sum</a></h3><p>The problem is trying to find two indices in the input array which their sum is equal to the target.</p>
+<h3 id="001-two-sum"><a href="#001-two-sum" class="headerlink" title="001-two-sum"></a><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">001-two-sum</a></h3><p>The problem is trying to find two indices in the input array which their sum is equal to the target.</p>
 <p>So we can use the <code>unordered_map</code> to store the value and index. And to test: <code>1: target - num is in the unordered map</code>, <code>2: if contains, the another index should be different from current index.</code></p>
 <p>Then we get the two index and return. Here is the solution code.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; twoSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; indices_map;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; results;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">        indices_map[nums[i]] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> another_num = target - nums[i];</span><br><span class="line">        <span class="keyword">if</span> (indices_map.count(another_num) != <span class="number">0</span> &amp;&amp; i != indices_map[another_num]) &#123;</span><br><span class="line">            results.push_back(i);</span><br><span class="line">            results.push_back(indices_map[another_num]);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> results;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -467,6 +467,32 @@
 <p>Everytime after we add the correponding position number, the remaining number will be <code>(sum + carry) % 10</code>, and the carry bit will update as <code>(sum + carry) / 10</code>.</p>
 <p>Remember that if at last the <code>carry != 0</code>, then we need another node to put the carry in.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">    ListNode* head = <span class="keyword">new</span> ListNode;</span><br><span class="line">    ListNode* cur = head;</span><br><span class="line">    <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (l1 != <span class="literal">nullptr</span> &amp;&amp; l2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> num = l1-&gt;val + l2-&gt;val;</span><br><span class="line">        ListNode* ptr = <span class="keyword">new</span> ListNode((num + carry) % <span class="number">10</span>);</span><br><span class="line">        carry = (num + carry) / <span class="number">10</span>;</span><br><span class="line">        cur-&gt;next = ptr;</span><br><span class="line">        cur = cur-&gt;next;</span><br><span class="line">        l1 = l1-&gt;next; l2 = l2-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (l1 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        cur-&gt;next = l1;</span><br><span class="line">        <span class="keyword">while</span> (l1 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            cur = l1;</span><br><span class="line">            <span class="keyword">int</span> num = l1-&gt;val + carry;</span><br><span class="line">            l1-&gt;val = num % <span class="number">10</span>;</span><br><span class="line">            carry = num / <span class="number">10</span>;</span><br><span class="line">            l1 = l1-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (l2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        cur-&gt;next = l2;</span><br><span class="line">        <span class="keyword">while</span> (l2 != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">            cur = l2;</span><br><span class="line">            <span class="keyword">int</span> num = l2-&gt;val + carry;</span><br><span class="line">            l2-&gt;val = num % <span class="number">10</span>;</span><br><span class="line">            carry = num / <span class="number">10</span>;</span><br><span class="line">            l2 = l2-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (carry != <span class="number">0</span>) &#123;</span><br><span class="line">        cur-&gt;next = <span class="keyword">new</span> ListNode(carry);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="003-Longest-Substring-Without-Repeating-Characters"><a href="#003-Longest-Substring-Without-Repeating-Characters" class="headerlink" title="003-Longest-Substring-Without-Repeating-Characters"></a><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" rel="noopener">003-Longest-Substring-Without-Repeating-Characters</a></h3><p>This problem is trying to find the <code>longest substring without repreating</code>. The naive way to solve is to examine every substring in input string, but the time complexity is to high(O(n^3)). So I take one optimized solution.</p>
+<p>Suppose we have input string <code>abcdcae</code>, and we need one array to examine whether one character is in current substring, so we need <code>int s_index_map[128]</code>, initial is <code>-1</code>, later we will use this to store index.</p>
+<p>Then we loop the string, and to test if the current character is in the current substring. we need other params: <code>max_num: the final result</code>, <code>tmp_num: current substring length</code>.</p>
+<ul>
+<li><p><strong>not in</strong></p>
+<ul>
+<li><code>tmp_num += 1</code></li>
+<li><code>s_index_map[char]</code> = current_index</li>
+</ul>
+</li>
+<li><p><strong>is in</strong></p>
+<ul>
+<li><code>max_num = max(max_num, tmp_num)</code></li>
+<li>find out the old index of the repreated character, which is <code>old_index = s_index_map[c]</code></li>
+<li>update the index <code>s_index_map[c] = current_index</code></li>
+<li>update tmp_num to length of new substring: <code>tmp_num = cur - old</code></li>
+<li>erase the values from the start position to old index position.</li>
+</ul>
+</li>
+</ul>
+<p>Take the example of <code>abcdcae</code>, <code>abcd</code> is easy, after these, s[a] = 0, s[b] = 1, … etc. And then <code>c</code> is in, we meet one repeated character right? So take a look of our table, the old <code>c</code> is in <code>index: 2</code> position. So the new substring should start from <code>d</code>, which is <code>index: 3</code> position right, otherwise we still have two <code>c</code>‘s in our string.</p>
+<p>So first update <code>max_num = 4</code>, then the <code>old_index = 2</code>, update the index of <code>c</code>, which is set <code>s[c] = 4</code>. Then update the <code>tmp_num</code> to length of new substring <code>&quot;dc&quot;</code>, which is <code>new - old = 4 - 2 = 2</code>. Final step, we should erase the origin substring <code>&#39;a&#39; and &#39;b&#39;</code> index to <code>-1</code>, since they are not in our new substring anymore.</p>
+<p>After looping all the characters, do not  forget to take the max value of <code>max_num</code> and <code>tmp_num</code> to get the final answer.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s_index_map[<span class="number">128</span>];</span><br><span class="line">    <span class="built_in">memset</span>(s_index_map, <span class="number">-1</span>, <span class="keyword">sizeof</span>(s_index_map));</span><br><span class="line">    <span class="keyword">int</span> max_num = <span class="number">0</span>; <span class="keyword">int</span> tmp_num = <span class="number">0</span>; <span class="keyword">int</span> start_pos = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">        <span class="keyword">char</span> cur = s[i];</span><br><span class="line">        <span class="keyword">if</span> (s_index_map[cur] == <span class="number">-1</span>) &#123;</span><br><span class="line">            tmp_num += <span class="number">1</span>;</span><br><span class="line">            s_index_map[cur] = i;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            max_num = <span class="built_in">std</span>::max(max_num, tmp_num); <span class="comment">// first update max_num, since we met overlap</span></span><br><span class="line">            <span class="keyword">int</span> old_index = s_index_map[cur]; <span class="comment">// old index</span></span><br><span class="line">            s_index_map[cur] = i; <span class="comment">// update index</span></span><br><span class="line">            tmp_num = i - old_index; <span class="comment">// new length</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">/*erase the values between old char and new char*/</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = start_pos; j &lt; old_index; j++) s_index_map[s[j]] = <span class="number">-1</span>;</span><br><span class="line">            start_pos = old_index + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    max_num = <span class="built_in">std</span>::max(max_num, tmp_num); <span class="comment">// final update</span></span><br><span class="line">    <span class="keyword">return</span> max_num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -661,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#001-two-sum"><span class="nav-number">1.</span> <span class="nav-text">001-two sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#002-Add-Two-Numbers"><span class="nav-number">2.</span> <span class="nav-text">002-Add-Two-Numbers</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#001-two-sum"><span class="nav-number">1.</span> <span class="nav-text">001-two-sum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#002-Add-Two-Numbers"><span class="nav-number">2.</span> <span class="nav-text">002-Add-Two-Numbers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#003-Longest-Substring-Without-Repeating-Characters"><span class="nav-number">3.</span> <span class="nav-text">003-Longest-Substring-Without-Repeating-Characters</span></a></li></ol></div>
             
 
           </div>
@@ -712,7 +738,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共21.2k字</span>
+  <span class="post-count">博客全站共21.7k字</span>
 </div>
 
         
@@ -1346,7 +1372,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -1354,5 +1380,5 @@
 
   
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":225},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"position":"right","width":150,"height":225},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
