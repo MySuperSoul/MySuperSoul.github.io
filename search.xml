@@ -1144,4 +1144,113 @@ TR(V_i)=(1-d)+d*\sum_{V_j\in In(V_i)} \frac{\omega_{ji}}{\sum_{V_k \in Out(V_j)}
         <tag>data-processing</tag>
       </tags>
   </entry>
+  <entry>
+    <title>3d-detection-paper-notes</title>
+    <url>/2020/08/19/3d-detection-paper-notes/</url>
+    <content><![CDATA[<p>This post will mainly contain the paper notes about the papers in 3d object detections field, including the lidar-based or image-based or multi-modal methods. This post will continuously updating.<br><a id="more"></a></p>
+<hr>
+<h2 id="Multi-View-3D-Object-Detection-Network-for-Autonomous-Driving"><a href="#Multi-View-3D-Object-Detection-Network-for-Autonomous-Driving" class="headerlink" title="Multi-View 3D Object Detection Network for Autonomous Driving"></a><a href="https://arxiv.org/abs/1611.07759" target="_blank" rel="noopener">Multi-View 3D Object Detection Network for Autonomous Driving</a></h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>MV3D将Lidar的点云和相机的RGB图片同时作为输入来预测3d的物体框。与以往的基于voxel的方法不同，MV3D利用了点云的鸟瞰图(BEV)和前视图(front-view)，能够避免掉3d卷积的大计算量，也不会损失过多的信息。随后生成3d的regions, 通过region-fusion sub-network对多个view生成的features进行融合，输出最终的3d检测框。</p>
+<h3 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2. 相关工作"></a>2. 相关工作</h3><p><strong>基于点云的检测</strong></p>
+<ul>
+<li><strong>方法</strong>：将3d点云编码为体素网格，然后提取结构特征进行分类。还有些方法利用3D的卷积神经网络增强特征编码。还另外有一些工作将点云投影到2d前视图，然后从前视图预测3d的检测框。</li>
+<li><strong>缺陷</strong>：计算量太高</li>
+</ul>
+<p><strong>基于图片的3D检测</strong></p>
+<ul>
+<li><strong>方法</strong>： 通过3D体素模式应用一系列的ACF detectors去做2d检测和3d的姿态估计。</li>
+<li><strong>缺陷</strong>：依赖于准确的深度估计和特征点检测，同时相对而言精度会更低一些，从2d图片还原3d的检测框。</li>
+</ul>
+<p><strong>多模态融合</strong></p>
+<ul>
+<li><strong>方法</strong>：结合图像、光流、点云等进行检测</li>
+<li><strong>缺陷</strong>：当时相关的研究还挺少，主要是如何融合多个模态的信息。</li>
+</ul>
+<h3 id="3-MV3D网络"><a href="#3-MV3D网络" class="headerlink" title="3. MV3D网络"></a>3. MV3D网络</h3><p>网络的整体结构如下图所示，主要包括两部分的子网络，一个是3D proposal network, 一个是region-based fusion network.</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/1-1.png" style="width: 95%">
+</div>
+
+<p>具体的步骤可以分为以下几个步骤：</p>
+<ul>
+<li>特征提取，包括Bird eye view、front view、RGB images</li>
+<li>从俯视图当中生成3D proposals</li>
+<li>将proposal投影到前视图和图片上，形成regions</li>
+<li>每个regions通过roi-pooling生成固定长度的特征向量</li>
+<li>三个特征向量输入fusion子网络进行特征融合</li>
+<li>最后进行分类和3d检测框的回归</li>
+</ul>
+<p>下面具体对每个步骤进行相关的介绍：</p>
+<h4 id="3D点云表示"><a href="#3D点云表示" class="headerlink" title="3D点云表示"></a>3D点云表示</h4><h5 id="Bird-eye-view"><a href="#Bird-eye-view" class="headerlink" title="Bird eye view"></a>Bird eye view</h5><p>点云的俯视图表示，主要由<code>高度</code>、<code>密度</code>、<code>强度(intensity)</code>三部分组成，投影到分辨率为<code>0.1米</code>的二维网格当中。</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/1-2.png" style="width: 95%">
+</div>
+
+<ul>
+<li><strong>高度</strong></li>
+</ul>
+<p>为了更多的保留高度的信息，论文当中会对点云划分<code>M</code>个切片，然后在每个切片上，对每个grid当中的点云高度的最大值，作为该grid的高度值。最后会得到<code>M</code>个高度图。</p>
+<ul>
+<li><strong>密度</strong></li>
+</ul>
+<p>密度指代的是在每一个cell当中的点云的数量。对于每个cell当中的密度计算的公式：$\min \left(1.0, \frac{\log (N+1)}{\log (64)}\right)$</p>
+<ul>
+<li><strong>强度</strong></li>
+</ul>
+<p>强度的计算是以在每个cell当中高度最高的点的反射率作为该cell的强度值。</p>
+<p>所以最后俯视图的特征图的channels总共会有<code>M + 2</code>层。其中M层是高度，另外两层分别是密度和强度的特征图。</p>
+<h5 id="Front-View"><a href="#Front-View" class="headerlink" title="Front View"></a>Front View</h5><p>前视图作为俯视图的一个补充，因为点云往往都是很稀疏的，所以这里投影到前视图当中生成一个密集的2D point map。前视图的生成是通过将三维点云坐标投影到柱面上生成的二维图，投影公式如下：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+c=\lfloor\operatorname{atan} 2(y, x) / \Delta \theta]\rfloor \\
+r=\left\lfloor\operatorname{atan} 2\left(z, \sqrt{x^{2}+y^{2}}\right) / \Delta \phi\right\rfloor
+\end{array}</script><p>其中$p = (x, y, z)$为点云的3d坐标, $p_{fv} = (r, c)$为前视图坐标。</p>
+<h5 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h5><p>提取图片特征就是直接用那些常用的骨干网络就好了。</p>
+<h4 id="3D-proposal-network"><a href="#3D-proposal-network" class="headerlink" title="3D proposal network"></a>3D proposal network</h4><p>3D的候选区域是从俯视图当中生成的，使用俯视图有以下几个好处：</p>
+<ul>
+<li>当投影到BEV时，物体的大小关系被保留，也即在大小的方差变化很小</li>
+<li>BEV当中的物体都占据着不同的space，不会有遮挡的问题。</li>
+<li>在道路环境下，物体基本都位于水平地面上，所以在垂直方向方差比较小，对于生成准确的3d候选框比较关键。</li>
+</ul>
+<p>候选网络基本和RPN类似，候选的3d框用参数$(x, y, z, l, w, h)$进行表示，用4种类型的anchors来做RPN。这部分当中还有一些其他的tricks，包括反卷积扩大特征图尺寸，回归center offset、计算积分图去除empty anchor。</p>
+<h4 id="Region-based-Fusion-network"><a href="#Region-based-Fusion-network" class="headerlink" title="Region-based Fusion network"></a>Region-based Fusion network</h4><p>上面我们说到了3d框额度参数为$(x, y, z, l, w, h)$表示，所以通过转换方程能够比较方便的得到在BEV、Front和图像平面上的region区域。而后通过ROI-pooling层从3个views中生成相同维度的feature vector。</p>
+<script type="math/tex; mode=display">
+f_{v}=\mathbf{R}\left(x, \mathrm{ROI}_{v}\right), v \in\{\mathrm{BV}, \mathrm{FV}, \mathrm{RGB}\}</script><h5 id="Deep-fusion"><a href="#Deep-fusion" class="headerlink" title="Deep fusion"></a>Deep fusion</h5><p>在Fusion过程当中，论文当中指出有三种fusion的方式，分别是:</p>
+<ul>
+<li><code>early fusion</code></li>
+</ul>
+<script type="math/tex; mode=display">
+f_{L}=\mathbf{H}_{L}\left(\mathbf{H}_{L-1}\left(\cdots \mathbf{H}_{1}\left(f_{B V} \oplus f_{F V} \oplus f_{R G B}\right)\right)\right)</script><ul>
+<li><code>late fusion</code></li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f_{L}=&\left(\mathbf{H}_{L}^{B V}\left(\cdots \mathbf{H}_{1}^{B V}\left(f_{B V}\right)\right)\right) \oplus \\
+&\left(\mathbf{H}_{L}^{F V}\left(\cdots \mathbf{H}_{1}^{F V}\left(f_{F V}\right)\right)\right) \oplus \\
+&\left(\mathbf{H}_{L}^{R G B}\left(\cdots \mathbf{H}_{1}^{R G B}\left(f_{R G B}\right)\right)\right)
+\end{aligned}</script><ul>
+<li><code>deep fusion</code></li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f_{0}=& f_{B V} \oplus f_{F V} \oplus f_{R G B} \\
+f_{l}=& \mathbf{H}_{l}^{B V}\left(f_{l-1}\right) \oplus \mathbf{H}_{l}^{F V}\left(f_{l-1}\right) \oplus \mathbf{H}_{l}^{R G B}\left(f_{l-1}\right) \\
+& \forall l=1, \cdots, L
+\end{aligned}</script><div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/1-3.png" style="width: 95%">
+</div>
+
+<h5 id="Oriented-3d-box-regression"><a href="#Oriented-3d-box-regression" class="headerlink" title="Oriented 3d box regression"></a>Oriented 3d box regression</h5><p>相比于传统的中心点+长宽高+orientations的编码，这里直接回归八个角点相对于真实点的偏差，所以会有8*3=24个偏移量需要进行预测, $\left(\Delta x_{0}, \cdots, \Delta x_{7}, \Delta y_{0}, \cdots, \Delta y_{7}, \Delta z_{0}, \cdots, \Delta z_{7}\right)$。</p>
+<h3 id="4-实验结果"><a href="#4-实验结果" class="headerlink" title="4. 实验结果"></a>4. 实验结果</h3><div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/1-4.png" style="width: 95%">
+</div>
+
+<h3 id="5-结论"><a href="#5-结论" class="headerlink" title="5. 结论"></a>5. 结论</h3><p>这篇论文当中融合了多个模态的信息，将点云处理为前视图和俯视图，设计了两个子网络分别进行3d候选框的提取以及多模态特征融合。本文的方法相比于只基于lidar和只基于图片的方法，在KITTI数据集的多个任务上都取得了很显著的提升，说明本文当中的融合多模态信息是非常有效的一种方法。</p>
+]]></content>
+      <categories>
+        <category>computer-vision</category>
+      </categories>
+      <tags>
+        <tag>3d-detection</tag>
+      </tags>
+  </entry>
 </search>
