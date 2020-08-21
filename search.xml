@@ -1252,6 +1252,62 @@ f_{l}=& \mathbf{H}_{l}^{B V}\left(f_{l-1}\right) \oplus \mathbf{H}_{l}^{F V}\lef
 </div>
 
 <h3 id="5-结论"><a href="#5-结论" class="headerlink" title="5. 结论"></a>5. 结论</h3><p>这篇论文当中融合了多个模态的信息，将点云处理为前视图和俯视图，设计了两个子网络分别进行3d候选框的提取以及多模态特征融合。本文的方法相比于只基于lidar和只基于图片的方法，在KITTI数据集的多个任务上都取得了很显著的提升，说明本文当中的融合多模态信息是非常有效的一种方法。</p>
+<hr>
+<h2 id="PointNet-Deep-Learning-on-Point-Sets-for-3D-Classification-and-Segmentation-CVPR2017"><a href="#PointNet-Deep-Learning-on-Point-Sets-for-3D-Classification-and-Segmentation-CVPR2017" class="headerlink" title="PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation (CVPR2017)"></a><a href="https://arxiv.org/abs/1612.00593" target="_blank" rel="noopener">PointNet: Deep Learning on Point Sets for 3D Classification and Segmentation (CVPR2017)</a></h2><h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h3><p>传统的卷积架构要求输入是规则的数据格式，所以大多数之前的研究者都将点云数据转换到规则的3d体素网格或者多个视图的方法，然后再用卷积网络来做。但做这样的转换其实对数据的信息是有损的。</p>
+<p>而在这篇paper当中提出了一种novel的网络结构，可以直接处理原始点云，保留输入点的信息。</p>
+<p>本文工作的主要贡献包括：</p>
+<ul>
+<li>提出了一个新颖的网络结构，可以用来处理无序的3d点集。</li>
+<li>阐明了怎么利用这个网络进行classification和segmentation的任务的。</li>
+<li>对于模型的稳定性和鲁棒性提供了完整的实践和理论的分析。</li>
+<li>阐明了网络提取的3d特征以及相对应的性能解释。</li>
+</ul>
+<h3 id="2-相关工作-1"><a href="#2-相关工作-1" class="headerlink" title="2. 相关工作"></a>2. 相关工作</h3><p>这部分主要是介绍了三部分的前人工作：</p>
+<ul>
+<li>点云features</li>
+<li>3D数据的学习方式</li>
+<li>无序点集上的深度学习方式</li>
+</ul>
+<h3 id="3-问题阐述"><a href="#3-问题阐述" class="headerlink" title="3. 问题阐述"></a>3. 问题阐述</h3><p>点云可以用一系列的3D点来表示：${P_i | i = 1, …, n}, P_i = (x_i, y_i, z_i)$.这里只使用了三维坐标，也可以将颜色信息、intensity等加入点的表示当中。然后进行<code>classification</code>: 输出$k$ classes对应的得分。<code>segmentation</code>: 输出<code>nxm</code>个分数，相当于给每个点打label。</p>
+<h3 id="4-PointNet网络"><a href="#4-PointNet网络" class="headerlink" title="4. PointNet网络"></a>4. PointNet网络</h3><h4 id="点集属性"><a href="#点集属性" class="headerlink" title="点集属性"></a>点集属性</h4><ul>
+<li>无序，要求网络对于3d点集的任意组合都要invarient.</li>
+<li>点之间的联系，点与点之间并不是隔离的，所以既需要capture局部特征，也需要capture全局特征。</li>
+<li>转换不变性，输入点云是几何体，对于特定的转换应该保持不变性。</li>
+</ul>
+<h4 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h4><div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/2-1.png" style="width: 95%">
+</div>
+
+<p>网络的主要步骤如下：</p>
+<ul>
+<li>输入为点云中的n个点，所以输入为<code>nx3</code>的tensor，其中3代表的是三维坐标</li>
+<li>输入经过一个T-Net，得到一个对齐矩阵，相当于做一个前处理</li>
+<li>而后经过mlp，其中mlp参数是共享的，但是其实也是在每个点上操作，不同点之间计算feature的时候还是相对独立的(<code>所以这里肯定是能够改进的</code>)。</li>
+<li>然后得到的features同样进过一个T-Net进行特征的对齐</li>
+<li>再经过mlp扩到1024维，使用<code>max-pooling</code>对特征进行聚合，得到<code>1x1024</code>维的全局特征向量。</li>
+<li>对于<strong>classification</strong>而言，后续步骤就是mlp+softmax得到分类结果</li>
+<li>对于<strong>segmentation</strong>过程而言，需要融合local和global的特征，所以直接将全局特征concat到局部特征向量的每个维度，然后输出<code>nxm</code> scores.</li>
+</ul>
+<p>为了解决上述的点集的三个属性，作者在论文当中提出了对应的解决方法：</p>
+<h5 id="对称函数"><a href="#对称函数" class="headerlink" title="对称函数"></a>对称函数</h5><p>对称函数是对于输入无关的函数，用来进行信息的聚合。在论文当中使用的是max-pooling进行全局信息的聚合，对于无序输入是invariant的。</p>
+<p>作者希望通过运用对称函数，然后在点集上近似估计一个general的函数：</p>
+<script type="math/tex; mode=display">
+f\left(\left\{x_{1}, \ldots, x_{n}\right\}\right) \approx g\left(h\left(x_{1}\right), \ldots, h\left(x_{n}\right)\right)</script><p>其中$f: 2^{\mathbb{R}^{N}} \rightarrow \mathbb{R}, h: \mathbb{R}^{N} \rightarrow \mathbb{R}^{K}, g: \underbrace{\mathbb{R}^{K} \times \cdots \times \mathbb{R}^{K}}_{n} \rightarrow \mathbb{R}$</p>
+<p>其中$h$函数相当于特征提取函数，$g$函数通过单变量函数和max-pooling函数组成。</p>
+<h5 id="局部-amp-全局信息提取"><a href="#局部-amp-全局信息提取" class="headerlink" title="局部&amp;全局信息提取"></a>局部&amp;全局信息提取</h5><p>全局信息通过max-pooling后得到的<code>1x1024</code>维特征向量即为全局特征。而当进行segmentation任务时需要进行局部特征和全局特征的聚合，论文当中是直接将<code>1x1024</code>的全局特征按行concat到<code>nx64</code>维的局部特征当中，所以在segmentation网络的输入是<code>nx1088</code>维的特征。</p>
+<h5 id="联合对齐网络"><a href="#联合对齐网络" class="headerlink" title="联合对齐网络"></a>联合对齐网络</h5><p>论文当中有两个T-Net，分别对输入的点云进行转换对齐，和计算得到的特征转换对齐。主要是解决点云的旋转不变性。T-Net是学习最有利于网络进行分类和分割的DxD旋转矩阵。</p>
+<h4 id="理论分析"><a href="#理论分析" class="headerlink" title="理论分析"></a>理论分析</h4><p>这里主要着重阐述theorm 2:</p>
+<p>Theorem 2. Suppose $\mathbf{u}: \mathcal{X} \rightarrow \mathbb{R}^{K}$ such that $\mathbf{u}: \underset{x_{i} \in S}{MAX\left(h\left(x_{i}\right)\right)}$ and $f=\gamma \circ \mathbf{u . T h e n ,}$<br>$(a) \forall S, \exists \mathcal{C}_{S}, \mathcal{N}_{S} \subseteq \mathcal{X}, f(T)=f(S)$ if $\mathcal{C}_{S} \subseteq T \subseteq \mathcal{N}_{S}$<br>$(b) \left|\mathcal{C}_{S}\right| \leq K$</p>
+<p>对于这个公式的解释为：如果关键点集$\mathcal{C}_{S}$被全部保留，那么$F(S)$对于输入的干扰最后的分类结果是不变的。然后对于噪点的话，至多能到点集$\mathcal{N}_{S}$也是保持分类的结果不变的。也即最后的结果是由这样的关键点集决定的。</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/2-2.png" style="width: 95%">
+</div>
+
+<h3 id="5-不足"><a href="#5-不足" class="headerlink" title="5. 不足"></a>5. 不足</h3><p>在PointNet当中，计算点的特征基本都是独立计算的，aggression的话也只有max-pooling，其实是少了类似于CNN当中的capture范围内点特征的，点与点之间的联系在特征提取步骤体现的不多，后续肯定有工作改进这一点。</p>
+<p>还有一个是输入的是$(x, y, z)$的三维坐标，感觉能提取的也就是空间信息，可以考虑加入其他的信息到input当中，提取的特征会更鲁棒一些，综合了其他的属性。</p>
+<blockquote>
+<p>Reference: <a href="https://zhuanlan.zhihu.com/p/73086704" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/73086704</a></p>
+</blockquote>
 ]]></content>
       <categories>
         <category>computer-vision</category>
