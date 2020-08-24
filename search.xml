@@ -536,7 +536,41 @@ f\left(\left\{x_{1}, \ldots, x_{n}\right\}\right) \approx g\left(h\left(x_{1}\ri
 </blockquote>
 <hr>
 <h3 id="PointNet-Deep-Hierarchical-Feature-Learning-on-Point-Sets-in-a-Metric-Space-NIPS-2017"><a href="#PointNet-Deep-Hierarchical-Feature-Learning-on-Point-Sets-in-a-Metric-Space-NIPS-2017" class="headerlink" title="PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space (NIPS 2017)"></a><a href="https://arxiv.org/abs/1706.02413" target="_blank" rel="noopener">PointNet++: Deep Hierarchical Feature Learning on Point Sets in a Metric Space (NIPS 2017)</a></h3><h3 id="1-摘要"><a href="#1-摘要" class="headerlink" title="1. 摘要"></a>1. 摘要</h3><p>这篇工作主要是对PointNet进行改进，在PointNet当中提取的是点的独立的特征，不能捕捉到局部的结构特征。在PointNet++当中主要有两点改进。第一，利用度量空间距离，层级的利用PointNet提取特征，获得尺度越来越大的局部特征。第二，为了解决点云的密度分布不均匀的问题，作者在文章当中使用了MSG和MRG两种方式进行自适应的学习方法。</p>
-<h3 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2. 介绍"></a>2. 介绍</h3>]]></content>
+<h3 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2. 介绍"></a>2. 介绍</h3><p>类似于点云这种不规则的数据格式，需要对点集的任意组合都要做到invariant。之前的工作<code>PointNet</code>是针对点的空间位置的embedding，但是缺少对于局部结构特征的提取。不同于CNN，在每一层的卷积当中都会提取一定尺度感受野当中的局部特征。</p>
+<p>在PointNet++当中需要解决两个问题：(1)怎么划分点云点集 (2)怎么通过特征学习器学习点云的局部特征。</p>
+<p>在本文当中，使用了PointNet作为局部点集的特征提取器，并且层级的叠加使用PointNet进行特征提取，直到提取到最后全部点集的全局特征，这个步骤和CNN卷积过程比较类似。对于划分点集，作者采用的是领域球的方式，不同的领域之间会有一定的重叠。Centroids的选择可以通过FPS算法选取，半径的选择可以手动设定或者通过KNN来确定，两种方法对于最后的结果影响并不是很大。</p>
+<h3 id="3-方法"><a href="#3-方法" class="headerlink" title="3. 方法"></a>3. 方法</h3><h4 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h4><div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/3-1.png" style="width: 95%">
+</div>
+
+<p>PointNet++网络是由一系列的<code>set abstraction levels</code>组成。在每一个level当中，是由以下的layers组成：</p>
+<ul>
+<li><p><strong>Sampling layer</strong><br>在该层当中，会采用FPS算法采样出N个中心点。</p>
+</li>
+<li><p><strong>Grouping layer</strong><br>在这一部分当中，主要是确定领域球的区域。可以手动选取半径，使得每个区域当中点的数量不超过$K$, 或者使用KNN的方法来划分区域。在每个区域当中点的数量可能是不一样的，不过PointNet可以处理为一个固定长度的特征向量，所以不太care这个东西。</p>
+</li>
+<li><p><strong>PointNet layer</strong><br>使用PointNet对输入区域的点集进行特征提取，输入的数据大小为$N^{‘} \times K \times (d + C)$. 输出的特征大小为$N^{‘} \times (d + C^{‘})$. 论文当中强调这个坐标值会先转换到局部region的一个相对坐标：$x_{i}^{(j)}=x_{i}^{(j)}-\hat{x}^{(j)}$.</p>
+</li>
+</ul>
+<h4 id="非规整密度下的鲁棒特征学习"><a href="#非规整密度下的鲁棒特征学习" class="headerlink" title="非规整密度下的鲁棒特征学习"></a>非规整密度下的鲁棒特征学习</h4><p>这部分论文主要介绍了怎么在不同regions的密度分布不均匀的情况下进行鲁棒的特征学习。作者提出了两种方式来解决这个问题：</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/3-2.png" style="width: 55%">
+</div>
+
+<ul>
+<li><p><strong>Multi-scale grouping(MSG)</strong><br>这种方法就是一种多尺度的学习方法。在grouping的时候选取不同的radius，即不同的空间scale，然后将PointNet当中得到的不同尺度的特征进行concat，但是这种方式最大的不足就是时间消耗很大。</p>
+</li>
+<li><p><strong>Multi-resolution grouping(MRG)</strong><br>对于level $L_i$的特征向量是由两部分的特征拼接而成。如图中所示，左边部分的vector是由底下的levels提取上来的局部特征。右边部分是对于全部在这些regions里面的原始点集运用PointNet得到的一个全局特征。</p>
+</li>
+</ul>
+<h3 id="4-实验部分"><a href="#4-实验部分" class="headerlink" title="4. 实验部分"></a>4. 实验部分</h3><p>主要看下对于点云密度的方法对于实验性能的影响：</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/3-3.png" style="width: 95%">
+</div>
+
+<p>可以看到在实验当中，只使用SSG(single scale grouping)，在点集数量下降之后，性能下降很快。而加上MSG或者MRG+DP之后，性能下降就会大幅的减少，说明模型更加的鲁棒和稳定。不过这里并没有做单独的只有MSG和MRG的实验，所以说不定是DP的功劳呢。</p>
+<h3 id="5-结论-1"><a href="#5-结论-1" class="headerlink" title="5. 结论"></a>5. 结论</h3><p>PointNet++对PointNet做了改进，通过层级的运用PointNet来提取局部的结构特征。并且提出了<code>MSG</code>和<code>MRG</code>两种方法来解决点云分布不均匀时的鲁棒特征学习。</p>
+]]></content>
       <categories>
         <category>computer-vision</category>
       </categories>
