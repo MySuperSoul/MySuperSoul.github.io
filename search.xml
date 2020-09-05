@@ -681,6 +681,53 @@ d^{(p)} = \sqrt{(x^{(p)})^2 + (y^{(p)})^2 + (z^{(p)})^2}</script><p>到点的特
 </div>
 
 <p>在训练时先训练3D proposal网络，然后训练refinement网络，所以是一个双阶段的检测网络。</p>
+<hr>
+<h2 id="PI-RCNN-An-Efficient-Multi-sensor-3D-Object-Detector-with-Point-based-Attentive-Cont-conv-Fusion-Module-AAAI-2020"><a href="#PI-RCNN-An-Efficient-Multi-sensor-3D-Object-Detector-with-Point-based-Attentive-Cont-conv-Fusion-Module-AAAI-2020" class="headerlink" title="PI-RCNN: An Efficient Multi-sensor 3D Object Detector with Point-based Attentive Cont-conv Fusion Module (AAAI 2020)"></a><a href="https://arxiv.org/abs/1911.06084" target="_blank" rel="noopener">PI-RCNN: An Efficient Multi-sensor 3D Object Detector with Point-based Attentive Cont-conv Fusion Module (AAAI 2020)</a></h2><p>实验室的一篇paper，主要探究的是如何有效的将image feature和lidar point cloud进行融合的工作。</p>
+<h3 id="1-简介-3"><a href="#1-简介-3" class="headerlink" title="1. 简介"></a>1. 简介</h3><h4 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h4><p>Direct fusion的方式忽略了RGB图片和Bird-view的不同视角的差异，而基于Frustum的方式依赖于2D检测器的精度。Continuous convolution在BEV上和image feature进行融合，但是将点云投影到BEV上会有量化和最近邻搜索的误差，所以该paper将image feature直接与原始点云进行融合。</p>
+<h4 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h4><ul>
+<li>提出了PACF模块融合图像和点云的特征，包含point-wise continuous convolution、point-pooling和attentive aggregation三个组件。</li>
+<li>结合了多任务学习，包括图像segmentation和3d detection任务。</li>
+<li>在KITTI上的实验说明了方法的有效性。</li>
+</ul>
+<h3 id="2-PI-RCNN"><a href="#2-PI-RCNN" class="headerlink" title="2. PI-RCNN"></a>2. PI-RCNN</h3><h4 id="网络总体架构"><a href="#网络总体架构" class="headerlink" title="网络总体架构"></a>网络总体架构</h4><div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/6-1.png" style="width: 95%">
+</div>
+
+<ol>
+<li>image segmentation网络获取图像的semantic feature</li>
+<li>检测子网络1提取3D proposals</li>
+<li>PACF module将图像feature和proposal当中的点进行融合</li>
+<li>检测子网络2进行3d detection任务</li>
+</ol>
+<h4 id="PACF-module"><a href="#PACF-module" class="headerlink" title="PACF module"></a>PACF module</h4><p>这个模块是本文最主要的创新点，PACF module的主要工作机如下图所示：</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/6-2.png" style="width: 95%">
+</div>
+
+<ol>
+<li>对region当中的每个点搜索k个邻点，可以使用knn方法搜索</li>
+<li>根据lidar-camera标定参数投影到图像坐标系</li>
+<li>提取该k个点对应的image-feature，与该k点的point-wise feature进行concat，得到$f_i$是$(C_{seg} + C_{lidar})$维度的特征。</li>
+<li>然后是3个组件的相关表示：</li>
+</ol>
+<p><strong>Point-wise continuous convolution</strong></p>
+<script type="math/tex; mode=display">
+\begin{array}{c}
+y_{c c, k}^{i}=\operatorname{MLP}_{c c}\left(f_{k}^{\prime}\right), \quad f_{k}^{\prime}=\operatorname{CONCAT}\left(f_{k}, x_{k}-x_{i}\right) \\
+y_{c c}^{i}=\sum_{k} y_{c c, k}^{i}
+\end{array}</script><p>这里MLP近似continuous convolution操作。</p>
+<p><strong>point-pooling</strong></p>
+<script type="math/tex; mode=display">
+y_{\text {pool}}^{i}=\operatorname{POOL}\left(F^{\prime}\right), \quad F^{\prime}=\left[f_{1}^{\prime T}, f_{2}^{\prime T}, \ldots, f_{K}^{\prime T}\right]^{T}</script><p><strong>Attentive aggregation</strong></p>
+<script type="math/tex; mode=display">
+y_{a}^{i}=\operatorname{MLP}_{a g g r}\left(Y_{c c}^{i}\right)=\sum_{k} w_{k} y_{c c, k}^{i}</script><p><strong>Concat</strong></p>
+<script type="math/tex; mode=display">
+y_{o}^{i}=\operatorname{CONCAT}\left(y_{c c}^{i}, y_{a}^{i}, y_{\text {pool}}^{i}\right)</script><h3 id="3-实验-2"><a href="#3-实验-2" class="headerlink" title="3. 实验"></a>3. 实验</h3><p>在具体实现当中，image segmentation选择的轻量级的U-Net，3D检测框架使用的是PointRCNN。</p>
+<div align="center">
+<img src="/2020/08/19/3d-detection-paper-notes/6-3.png" style="width: 65%">
+</div>
+
+<h3 id="4-一点思考-1"><a href="#4-一点思考-1" class="headerlink" title="4. 一点思考"></a>4. 一点思考</h3><p>反观现在KITTI上排前的方法基本都是lidar-based方法，但其实我们知道multi-sensors能做到的精度肯定是要比lidar-based方法要高的。个人有这几点小看法：(1) image主要是蕴含很丰富的语义信息，点云当中蕴含更多的是结构信息，这两种不同feature的fusion机制相对而言会比这样concat然后做fusion的机制要更高级。(2) image当中的特征在3D proposal的提取过程当中并木有用到，但是这是一个可以改进的地方，可不可以找到一种方式能够提高proposal的recall值。(3) 看的这些文章，大部分的框架都是差不多的，大家一般是在<strong>特征</strong>这方面进行了很多种探索，哎任重而道远啊，还是得多思考。</p>
 ]]></content>
       <categories>
         <category>computer-vision</category>
