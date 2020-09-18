@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="machine-learning," />
+  <meta name="keywords" content="economy," />
 
 
 
@@ -94,23 +94,18 @@
 
 
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是supervised learning当中的一个regression问题，那还剩下另外一个比较重要的问题：classification.所以在这一篇文章当中，会主要介绍logistic model和SVM两种linear classifier.">
+<meta name="description" content="这里主要记录一下《公共经济学》上课时做的一些随堂笔记，可能有做的不太好的地方那也没办法了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="machine-learning-3-Linear-Classifier">
-<meta property="og:url" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/index.html">
+<meta property="og:title" content="公共经济学">
+<meta property="og:url" content="http://mysupersoul.github.io/2020/09/18/%E5%85%AC%E5%85%B1%E7%BB%8F%E6%B5%8E%E5%AD%A6/index.html">
 <meta property="og:site_name" content="Huangyifei&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是supervised learning当中的一个regression问题，那还剩下另外一个比较重要的问题：classification.所以在这一篇文章当中，会主要介绍logistic model和SVM两种linear classifier.">
+<meta property="og:description" content="这里主要记录一下《公共经济学》上课时做的一些随堂笔记，可能有做的不太好的地方那也没办法了。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/1.png">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/4.png">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/2.png">
-<meta property="og:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/3.png">
-<meta property="article:published_time" content="2019-07-05T15:18:13.000Z">
-<meta property="article:modified_time" content="2019-07-06T13:09:51.932Z">
+<meta property="article:published_time" content="2020-09-18T02:46:17.000Z">
+<meta property="article:modified_time" content="2020-09-18T02:52:31.478Z">
 <meta property="article:author" content="huangyifei">
-<meta property="article:tag" content="machine-learning">
+<meta property="article:tag" content="economy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/1.png">
 
 
 
@@ -140,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/"/>
+  <link rel="canonical" href="http://mysupersoul.github.io/2020/09/18/公共经济学/"/>
 
 
 
 
 
-  <title>machine-learning-3-Linear-Classifier | Huangyifei's Blog</title>
+  <title>公共经济学 | Huangyifei's Blog</title>
   
 
 
@@ -318,7 +313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mysupersoul.github.io/2019/07/05/machine-learning-3-Linear-Classifier/">
+    <link itemprop="mainEntityOfPage" href="http://mysupersoul.github.io/2020/09/18/%E5%85%AC%E5%85%B1%E7%BB%8F%E6%B5%8E%E5%AD%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="huangyifei">
@@ -335,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">machine-learning-3-Linear-Classifier</h1>
+          <h1 class="post-title" itemprop="name headline">公共经济学</h1>
         
 
         <div class="post-meta">
@@ -347,8 +342,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-05T23:18:13+08:00">
-                2019-07-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-18T10:46:17+08:00">
+                2020-09-18
               </time>
             
 
@@ -370,8 +365,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/machine-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">machine-learning</span>
+                  <a href="/categories/economy/" itemprop="url" rel="index">
+                    <span itemprop="name">economy</span>
                   </a>
                 </span>
 
@@ -388,8 +383,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/07/05/machine-learning-3-Linear-Classifier/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/05/machine-learning-3-Linear-Classifier/" itemprop="commentCount"></span>
+                <a href="/2020/09/18/%E5%85%AC%E5%85%B1%E7%BB%8F%E6%B5%8E%E5%AD%A6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E5%85%AC%E5%85%B1%E7%BB%8F%E6%B5%8E%E5%AD%A6/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,7 +392,7 @@
 
           
           
-             <span id="/2019/07/05/machine-learning-3-Linear-Classifier/" class="leancloud_visitors" data-flag-title="machine-learning-3-Linear-Classifier">
+             <span id="/2020/09/18/%E5%85%AC%E5%85%B1%E7%BB%8F%E6%B5%8E%E5%AD%A6/" class="leancloud_visitors" data-flag-title="公共经济学">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -422,7 +417,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.3k words
+                  1.5k words
                 </span>
               
 
@@ -438,7 +433,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  6 minutes
+                  5 minutes
                 </span>
               
             </div>
@@ -459,82 +454,117 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在前一篇文章当中，我们详细的阐述了Linear model的表现，不过它主要做的是<code>supervised learning</code>当中的一个<code>regression</code>问题，那还剩下另外一个比较重要的问题：<code>classification</code>.所以在这一篇文章当中，会主要介绍<code>logistic model</code>和<code>SVM</code>两种<code>linear classifier</code>.</p>
+        <p>这里主要记录一下《公共经济学》上课时做的一些随堂笔记，可能有做的不太好的地方那也没办法了。</p>
 <a id="more"></a>
-<h3 id="Sigmoid-function-logistic-function"><a href="#Sigmoid-function-logistic-function" class="headerlink" title="Sigmoid function (logistic function)"></a>Sigmoid function (logistic function)</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sigmoid function 是 logistic regression当中最重要的一个元函数。我们也叫它<code>S型函数</code>：</p>
-<script type="math/tex; mode=display">
-\sigma(t) = \frac{e^t}{1+e^t} = \frac{1}{1+e^{-t}}</script><p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/1.png" style="width: 50%"></p>
-<p><br></p>
-<h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 逻辑斯蒂回归是一种<code>classification</code>的方法，利用的就是sigmoid function来进行classify. Logistic Regression的主要形式如下：</p>
-<script type="math/tex; mode=display">
-p(y_i=\pm1|x_i, a) = \sigma(y_ia^Tx_i) = \frac{1}{1+e^{-y_ia^Tx_i}}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 然后对于数据我们同样使用的<code>MLE</code>的方法来估计参数$a$.</p>
-<script type="math/tex; mode=display">
-l(p(D)) = -\sum_{i \in I}\log(1+e^{-y_ia^Tx_i})</script><script type="math/tex; mode=display">
-E(a) = \sum_{i \in I}\log(1+e^{-y_ia^Tx_i})</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 但是注意的是$E(a)$是一个non-convex function对于参数$a$而言。换言之这里直接求导是没用的，所以我们引入一个新的求参数最值的方法：<a href="https://zh.wikipedia.org/zh-hans/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95" target="_blank" rel="noopener">Gradient descent</a></p>
-<p><br></p>
-<h3 id="Gradient-descent"><a href="#Gradient-descent" class="headerlink" title="Gradient descent"></a>Gradient descent</h3><ul>
-<li>first order optimization problem (通过求解一阶导可以求解)</li>
-<li>Can find a <code>local optimum</code></li>
-<li>梯度相反方向：<code>local minimum</code>, 梯度方向：<code>local maximum</code></li>
+<h1 id="Lecture-1"><a href="#Lecture-1" class="headerlink" title="Lecture 1"></a>Lecture 1</h1><h2 id="老师的学习理念"><a href="#老师的学习理念" class="headerlink" title="老师的学习理念"></a>老师的学习理念</h2><ul>
+<li>观察与思考，提高洞察力</li>
+<li>思想比方法重要</li>
+<li>兴趣比获得只是重要</li>
+<li>作业（家务）是自己找着去做的</li>
+<li>非编码知识（体会、心得等）比编码知识重要</li>
+<li>大道至简</li>
 </ul>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\omega_{n+1} = \omega_n - \gamma \nabla J(\omega_n) && n \ge 0
-\end{aligned}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其实这只是一阶导下面的梯度下降的方法，我们来看一看为什么可以进行梯度下降，或者说梯度下降为什么会work呢？</p>
-<script type="math/tex; mode=display">
-E(a+\triangle a) = E(a) + E' (a)\triangle a + E'' (a)\frac{(\triangle a)^2}{2!} + ...</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这是大家很熟悉的拉格朗日展开，如果我们只取前两项进行估计，则有$E(a)+E’ (a)\triangle a \implies \triangle a = -\eta E’ (a)$.</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 如果是采用前三项进行估计，那么这个叫做<code>牛顿法估计</code>，那么在这种估计之下我们会有：</p>
-<script type="math/tex; mode=display">
-E' (a)\triangle a + E'' (a)\frac{(\triangle a)^2}{2!} \implies E' (a)+E'' (a)\triangle a = 0 \implies \triangle a = -\frac{E' (a)}{E'' (a)}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 对于牛顿法求梯度下降更通用的写法如下所示，本质也就是上面式子推导而来：</p>
-<script type="math/tex; mode=display">
-\triangle a = -\eta [HE(a)]^{-1} E' (a)</script><p><br></p>
-<h3 id="Regularized-Logistic-Regression"><a href="#Regularized-Logistic-Regression" class="headerlink" title="Regularized Logistic Regression"></a>Regularized Logistic Regression</h3><ul>
-<li><strong>L2-Regularizer</strong></li>
-<li><strong>L1-Regularizer</strong> (Sparse Logistic Regression)</li>
-</ul>
-<script type="math/tex; mode=display">
-E(a) = \sum_{i \in I}\log(1+e^{-y_ia^Tx_i}) + \lambda\sum_{j=1}^p(a_j^2)</script><p><br></p>
-<h3 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们知道，对于一个线性可分的数据集，他的solution vector $a$ 可以有无数条，只要能够将两种数据给分开就行。那么我们就想，这么多个solution vector当中，哪条是最优的呢？这就引出今天的另一位主角，就是<a href="https://zh.wikipedia.org/wiki/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA" target="_blank" rel="noopener">SVM-solution vector machine</a>, 也称为<code>large margin classifier</code>.</p>
+<h2 id="参考书-amp-成绩评定"><a href="#参考书-amp-成绩评定" class="headerlink" title="参考书&amp;成绩评定"></a>参考书&amp;成绩评定</h2><p><code>教学参考书</code>：尹伯成老师：《西方经济学简明教程》、《公共经济学理论与应用》<br><code>成绩评定</code>：累积<strong>8</strong>篇听课心得，装订后成一套。<br><code>听课笔记内容</code>：针对最深刻的知识点谈感想、针对某个现象作经济分析、针对教师的观点谈自己的认识。<br><code>递交时间与方式</code>：于第8次课后递交打印件或者手写稿，注明<code>学号、姓名、专业和联系方式</code>。</p>
+<hr>
+<h2 id="思维方式与总体架构"><a href="#思维方式与总体架构" class="headerlink" title="思维方式与总体架构"></a>思维方式与总体架构</h2><h3 id="1-“经济人”假设"><a href="#1-“经济人”假设" class="headerlink" title="1. “经济人”假设"></a>1. “经济人”假设</h3><p>两个基本假设：稀缺和自利</p>
 <ul>
-<li><strong>Geometrical Margin</strong></li>
+<li>稀缺：经济资源是稀缺的，人的欲望是无限的。（经济学存在的原因，将有限的资源最大程度的来满足人的欲望）。</li>
+<li>自利：亚当斯密 《国富论》-&gt; <code>人的行为和动机，自利。</code> </li>
+<li>经济人假设：人总是在<strong>一定制度</strong>制约下，追求<strong>自身利益最大化</strong>。（自私唾弃，自利提倡。假如说违背了制度的约束下，就是自私的行为。）</li>
+<li>经济人假设为数学工具的运用奠定基础。</li>
+<li><p>张五常：<code>是否从自利角度解释人的行为，就决定了你是否在经济学的框架内思考问题。</code></p>
+</li>
+<li><p><strong>思考问题：现实中的人都是“经济人”吗？</strong></p>
+</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 已知solution vector $\omega$, 如何计算任意一个点x到分割面的距离呢：<br><img src="/2019/07/05/machine-learning-3-Linear-Classifier/4.png" style="width: 40%"></p>
-<script type="math/tex; mode=display">
-x = x_0+\frac{y\gamma\omega}{||\omega||}</script><script type="math/tex; mode=display">
-\omega^Tx = \omega^T(x_0+\frac{y\gamma\omega}{||\omega||}) + b = 0</script><script type="math/tex; mode=display">
-\implies \gamma = y\frac{\omega^Tx+b}{||\omega||}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 其中的$\gamma$就被称为<code>Geometrical Margin</code>, 从上面的式子当中我们很容易看出来其实$|f(x)|$就可以衡量不同点到分割面之间的距离。</p>
-<p><br></p>
+<p>反对说法：</p>
+<blockquote>
+<ol>
+<li>赫伯特西蒙：任何人不可能绝对理性，因为掌握的信息和处理信息能力是有限的。</li>
+<li>哈维：任何人都有双重性，既有注重计算追求利益的理性倾向，又有不重计算追求安逸的非理性倾向。</li>
+<li>人的决策取决于环境的约束以及本能、习惯、习俗、从众等非理性因素的影响。</li>
+<li>追求利益是最重要的动机，但是还要考虑其他的因素，比如慈爱等。</li>
+</ol>
+</blockquote>
+<p>赞成说法：</p>
+<blockquote>
+<ol>
+<li>利益是广义的，可能包括<strong>货币收入</strong>、非货币的经济利益（福利）、非经济的利益（声誉、地位、理想等）。</li>
+<li>“利益”涉及到价值判断，比如边远山区支教、献身科学。有的人将某些利益放大，某些利益缩小。</li>
+</ol>
+</blockquote>
 <ul>
-<li><strong>Margin of dataset</strong></li>
+<li><strong>经济社会管理，要尽可能抓住人的利己心(important)</strong>。（比如说交通里的罚单，或者是垃圾分类发标签🏷️的方式）</li>
+<li><strong>讨论问题：</strong> 利他问题。<ul>
+<li><strong>亲缘利他</strong>：血缘关系之间互助</li>
+<li><strong>互惠利他</strong>：生物个体追求客观回报的行为，一个人想要获得尊重等可能需要先利他。小结：互惠利他就是利己行为。</li>
+<li><strong>纯粹利益</strong>：“利他主义”基因通过促进多巴胺的接受，给予大脑的一种良好感觉。</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 我们把一个数据集的Margin规定为数据集当中到分割面最小的$\gamma$称为数据集的Margin. 然后我们的target同理也可以变为：Find the hyperplane with the largest margin. 同时我们把那些决定hyperplane的点称为<code>support vectors</code>, 因为远的点对dataset margin没有任何影响，而只有那些组成dataset margin的点才是我们需要关注的点。</p>
-<script type="math/tex; mode=display">
-max_{\omega, b}\gamma = max_{\omega, b}\frac{y(\omega^Tx+b)}{||\omega||}(\gamma_i \ge \gamma)</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 因为在这里$\omega$是可以进行任意缩放的，并不会对hyperlane造成任何的影响，所以做一个处理，Fix $y(\omega^Tx+b) = 1 \implies \gamma ||\omega|| = 1$</p>
-<script type="math/tex; mode=display">
-max_{\omega, b}\frac{y(\omega^Tx+b)}{||\omega||} = max\frac{1}{||\omega||}</script><script type="math/tex; mode=display">
-\gamma_i = \frac{y_i(\omega^Tx_i+b)}{||\omega||} \ge \gamma \implies y_i(\omega^Tx_i+b) \ge 1</script><script type="math/tex; mode=display">
-max\frac{1}{||\omega||} \implies min\frac{1}{2}||\omega^2||</script><script type="math/tex; mode=display">
-\begin{aligned}
-min\frac{1}{2}||\omega^2|| && s.t. && y_i(\omega^Tx_i+b) \ge 1
-\end{aligned}</script><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 所以我们最后的优化目标就变成了上面这个式子了！但是这个式子有一个很明显的weakness：容易受到噪声noise的影响，<code>因为是不允许任何出错的情况的</code>，我们可以看一下如果有一个分类错误的，会影响整个hyperlane的选取：</p>
-<p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/2.png" style="width: 40%"></p>
-<p><br></p>
+</li>
+</ul>
+<h3 id="2-经济学的研究对象"><a href="#2-经济学的研究对象" class="headerlink" title="2. 经济学的研究对象"></a>2. 经济学的研究对象</h3><ul>
+<li><p>经济的含义：</p>
 <ul>
-<li><strong>Slack variables</strong></li>
+<li>家庭管理</li>
+<li>生产或生活上的节约</li>
+<li>经世济民</li>
+<li>国民经济的总称</li>
+<li>社会产品的生产和再生产过程</li>
+<li>利用稀缺的资源生产出更多的资源，满足人的欲望</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 为了解决上面的问题，我们引入一个<code>slack variable</code>, 即这个时候我们允许一些犯错，所以我们的新的objective function为：</p>
-<script type="math/tex; mode=display">
-min_{\omega, b}\frac{1}{2}||\omega^2||+c\sum_{i=1}^n\xi_i</script><script type="math/tex; mode=display">
-\begin{aligned}
-y_i(\omega^Tx_i+b) \ge 1-\xi_i && \xi_i \ge 0 \implies \xi_i = max[0, 1-y_i(\omega^Tx_i+b)]
-\end{aligned}</script><script type="math/tex; mode=display">
-E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</script><p><br></p>
+</li>
+<li><p>两条红线：</p>
 <ul>
-<li><strong>General formulation of classifiers</strong></li>
+<li><strong>需求与供给</strong></li>
+<li><strong>需求</strong><ul>
+<li>需求 = 购买欲望（需要）$\times$ 支付能力</li>
+<li>需求曲线：向右下方倾斜，例外的情况如炫耀性商品（满足心理的需要）</li>
+<li>影响需求变动的因素：<code>商品价格</code>, <code>消费者收入水平</code>, <code>相关商品的需求(eg: 汽油和汽车-&gt; 互补品，鸡蛋和鸭蛋-&gt; 替代品)</code>。<code>消费者偏好</code>, <code>对未来的预期</code></li>
+<li><strong>需求价格弹性（重要）</strong>：价格变动的百分比引起的需求量变动的百分比。(食盐这种啊需求弹性可能是接近为0，奢侈品可能刚好相反。eg：2.14的玫瑰花的价格弹性会变得很小很小)</li>
 </ul>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 不知道有没有发现，我们之前阐述的objective function都有一个共性，也即<code>Loss function + Regularizer</code>, 即$min\sum_{i=1}^nl(f) + \lambda R(f)$. 所以我们可以总结出这几种loss：</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>square loss</code>: $l = (1-yf)^2$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>logistic loss</code>: $l = log(1+e^{-yf})^2$<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <code>Hinge loss</code>: $l = max[0, 1-yf]$</p>
-<p><img src="/2019/07/05/machine-learning-3-Linear-Classifier/3.png" style="width: 50%"></p>
+</li>
+<li><p><strong>供给</strong></p>
+<ul>
+<li>后弯型的供给曲线。</li>
+<li>替代效应：闲暇机会成本增大(<code>宁要工作不要闲暇</code>)和收入效应：较少的劳动获得较多的收入(<code>宁要闲暇不要工作</code>)。</li>
+<li>影响因素：<code>商品的价格</code>、<code>生产要素(比如说原材料或者是附加必要产品)的价格</code>、<code>技术水平</code>、<code>相关商品价格</code>、<code>对未来的预期</code>、<code>其他因素，如天气变化等</code>。</li>
+</ul>
+</li>
+<li><p><strong>成本与收益</strong></p>
+<ul>
+<li>成本既定-收益最大</li>
+<li>收益既定-成本最小</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>成本</strong>：会计成本、隐含成本(厂商自己提供的资源所应该支付的费用)。则<strong>会计成本+隐含成本=经济成本</strong>. </p>
+<ul>
+<li>边际成本：每多生产一个单位的产品所增加的成本。</li>
+<li>机会成本：生产某种产品时所放弃的另外产品生产上最大的收益。</li>
+<li>交易成本：（与交易相关的成本）搜索信息、谈判、签约、监督</li>
+<li>沉没成本：已经进入某一个行业，一旦推出，无法收回的成本。</li>
+</ul>
+</li>
+<li><p><strong>收益</strong></p>
+<ul>
+<li>边际成本 $\equiv$ 边际收益</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="三、经济学十大原理"><a href="#三、经济学十大原理" class="headerlink" title="三、经济学十大原理"></a>三、经济学十大原理</h3><ul>
+<li>人们每时每刻都面临着均衡的取舍。</li>
+<li>一种东西的机会成本是为了得到他而放弃的最大收益。</li>
+<li>理性人考虑边际量。</li>
+<li>人们对于激励作出反应。</li>
+<li>贸易使每个人的经济状况变好。</li>
+<li>市场通常是组织经济活动的一种好方式。</li>
+<li>一国富裕程度取决于生产商品与劳务的能力。</li>
+<li>一个人的收入水平是由要素和机会共同决定的。</li>
+<li>社会面临着通货膨胀和失业之间的选择。（菲利普斯曲线）</li>
+</ul>
 
       
     </div>
@@ -552,7 +582,7 @@ E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</s
       
         <div class="post-tags">
           
-            <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> machine-learning</a>
+            <a href="/tags/economy/" rel="tag"><i class="fa fa-tag"></i> economy</a>
           
         </div>
       
@@ -565,8 +595,8 @@ E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</s
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/05/machine-learning-2-Linear-Regression/" rel="next" title="machine-learning-2-Linear-Regression">
-                <i class="fa fa-chevron-left"></i> machine-learning-2-Linear-Regression
+              <a href="/2020/08/19/3d-detection-paper-notes/" rel="next" title="3d-detection-paper-notes">
+                <i class="fa fa-chevron-left"></i> 3d-detection-paper-notes
               </a>
             
           </div>
@@ -574,10 +604,6 @@ E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</s
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/06/machine-learning-4-Kernel-Function/" rel="prev" title="machine-learning-4-Kernel-Function">
-                machine-learning-4-Kernel-Function <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -732,7 +758,7 @@ E(\omega) = \sum_{i=1}^nmax[0, y_i(\omega^Tx_i+b)] + \frac{1}{2c}||\omega^2||</s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sigmoid-function-logistic-function"><span class="nav-number">1.</span> <span class="nav-text">Sigmoid function (logistic function)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">2.</span> <span class="nav-text">Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-descent"><span class="nav-number">3.</span> <span class="nav-text">Gradient descent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Regularized-Logistic-Regression"><span class="nav-number">4.</span> <span class="nav-text">Regularized Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SVM"><span class="nav-number">5.</span> <span class="nav-text">SVM</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Lecture-1"><span class="nav-number">1.</span> <span class="nav-text">Lecture 1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#老师的学习理念"><span class="nav-number">1.1.</span> <span class="nav-text">老师的学习理念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考书-amp-成绩评定"><span class="nav-number">1.2.</span> <span class="nav-text">参考书&amp;成绩评定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思维方式与总体架构"><span class="nav-number">1.3.</span> <span class="nav-text">思维方式与总体架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-“经济人”假设"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. “经济人”假设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-经济学的研究对象"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 经济学的研究对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、经济学十大原理"><span class="nav-number">1.3.3.</span> <span class="nav-text">三、经济学十大原理</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
